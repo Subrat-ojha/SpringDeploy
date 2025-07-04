@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Cracker - Java Interview Preparation</title>
+   
+             <link rel="stylesheet" href="style.css">
+            
+</head>
+<body>
+    <div class="container">
+        <div class="content-wrapper">
+            <header class="header">
+            <a href="#" class="logo">Java<span>Cracker</span></a>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            <nav class="nav" id="mobileNav">
+                <a href="#">Learn Java</a>
+                <a href="#">Practice Questions</a>
+                <a href="#">Interview Guide</a>
+                <a href="#">Cheat Sheets</a>
+                <a href="#">Projects</a>
+                <a href="#">Blog</a>
+            </nav>
+            <div class="auth">
+                   <!-- Custom Switch UI Component from Uiverse.io by elijahgummer -->
+<input type="checkbox" class="theme-checkbox" id="themeToggle" onchange="toggleTheme()" />
+
+                <button class="btn login">Log in</button>
+                <button class="btn signup">Sign up</button>
+            </div>
+            </header>
+            
+         
+            
+            <section class="hero">
+            <div class="hero-content">
+                <h1>Java interview preparation done with Cracker</h1>
+                <p>JavaCracker is your complete toolkit for Java interview success. Built with comprehensive question banks, real interview patterns & expert tips. You can quickly master any Java interview with this platform.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="cta-primary">Get Started</a>
+                    <a href="#" class="cta-secondary">View Questions</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <svg class="java-svg" width="400" height="400" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Java Cup with animations -->
+                    <g transform="translate(100, 20)" class="coffee-cup">
+                        <!-- Java Cup -->
+                        <path d="M50,0 C40,30 20,50 0,60 L0,120 C0,150 25,180 50,180 C75,180 100,150 100,120 L100,60 C80,50 60,30 50,0" fill="var(--java-blue)"/>
+                        <path d="M90,60 L90,120 C90,140 70,160 50,160 C30,160 10,140 10,120 L10,60 Z" fill="var(--bg-primary)"/>
+                        
+                        <!-- Coffee liquid with swirl -->
+                        <ellipse cx="50" cy="120" rx="35" ry="8" fill="var(--java-blue)" opacity="0.8"/>
+                        <ellipse cx="50" cy="118" rx="25" ry="5" fill="var(--java-orange)" opacity="0.6"/>
+                        
+                        <!-- Animated Steam -->
+                        <g class="steam-1">
+                            <path d="M30,0 C35,10 40,15 35,20 C30,25 25,20 30,0" fill="var(--java-blue)" opacity="0.5"/>
+                        </g>
+                        <g class="steam-2">
+                            <path d="M50,0 C55,10 60,15 55,20 C50,25 45,20 50,0" fill="var(--java-blue)" opacity="0.5"/>
+                        </g>
+                        <g class="steam-3">
+                            <path d="M70,0 C75,10 80,15 75,20 C70,25 65,20 70,0" fill="var(--java-blue)" opacity="0.5"/>
+                        </g>
+                        
+                        <!-- Animated Book -->
+                        <g class="book-animation">
+                            <rect x="30" y="80" width="40" height="50" fill="var(--text-tertiary)" rx="2"/>
+                            <rect x="30" y="80" width="40" height="5" fill="var(--text-secondary)"/>
+                            <rect x="45" y="85" width="10" height="40" fill="var(--java-orange)"/>
+                            <!-- Book pages -->
+                            <rect x="32" y="90" width="36" height="2" fill="var(--text-secondary)" opacity="0.7"/>
+                            <rect x="32" y="95" width="36" height="2" fill="var(--text-secondary)" opacity="0.7"/>
+                            <rect x="32" y="100" width="36" height="2" fill="var(--text-secondary)" opacity="0.7"/>
+                        </g>
+                        
+                        <!-- Java logo on cup -->
+                        <text x="50" y="100" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--java-orange)">Java</text>
+                    </g>
+                    
+                    <!-- Animated Person studying -->
+                    <g transform="translate(180, 50)">
+                        <circle cx="0" cy="20" r="20" fill="var(--text-tertiary)"/> <!-- Head -->
+                        <path d="M-20,40 L-35,100 L-10,80 L0,100 L10,80 L35,100 L20,40" fill="var(--text-secondary)"/> <!-- Body -->
+                        <path d="M-10,80 L-30,130" stroke="var(--text-secondary)" stroke-width="5"/> <!-- Left arm -->
+                        <path d="M10,80 L40,110" stroke="var(--text-secondary)" stroke-width="5"/> <!-- Right arm -->
+                        
+                        <!-- Animated code lines -->
+                        <g class="code-lines">
+                            <rect x="25" y="100" width="25" height="2" fill="var(--java-orange)" opacity="0.8"/>
+                            <rect x="25" y="105" width="20" height="2" fill="var(--java-blue)" opacity="0.8"/>
+                            <rect x="25" y="110" width="30" height="2" fill="var(--java-orange)" opacity="0.8"/>
+                            <rect x="25" y="115" width="15" height="2" fill="var(--java-blue)" opacity="0.8"/>
+                        </g>
+                        
+                        <!-- Thinking bubbles -->
+                        <circle cx="15" cy="5" r="4" fill="var(--text-secondary)" opacity="0.5"/>
+                        <circle cx="25" cy="0" r="3" fill="var(--text-secondary)" opacity="0.4"/>
+                        <circle cx="35" cy="-5" r="1" fill="var(--text-secondary)" opacity="0.3"/>
+                        
+                        <!-- Java symbols in thought bubble -->
+                        <ellipse cx="40" cy="-10" rx="30" ry="17" fill="var(--bg-primary)" stroke="var(--text-secondary)" stroke-width="1" opacity="0.9"/>
+                        <text x="40" y="-7" text-anchor="middle" font-size="8" font-weight="bold" fill="var(--java-orange)">{Stream api}</text>
+                    </g>
+                    
+                    <!-- Floating Java keywords -->
+                    <g class="code-lines">
+                        <text x="50" y="250" font-size="10" fill="var(--java-blue)" opacity="0.6">class</text>
+                        <text x="100" y="270" font-size="10" fill="var(--java-orange)" opacity="0.6">public</text>
+                        <text x="200" y="260" font-size="10" fill="var(--java-blue)" opacity="0.6">static</text>
+                        <text x="250" y="280" font-size="10" fill="var(--java-orange)" opacity="0.6">void</text>
+                    </g>
+                </svg>
+            </div>
+            </section>
+            
+            <section class="features">
+            <div class="features-heading">
+                <h2>Everything you need to ace a Java interview</h2>
+                <p>JavaCracker comes batteries included. It takes the best parts of Java interview preparation and adds its own innovations.</p>
+            </div>
+            
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-icon">1</div>
+                    <h3>Core Java Mastery</h3>
+                    <p>Build your Java fundamentals with in-depth coverage of OOP concepts, collections, multithreading, and all essential core Java topics for interviews.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">2</div>
+                    <h3>100% Real Questions</h3>
+                    <p>JavaCracker provides actual interview questions from top tech companies, keeping all content updated with the latest industry requirements.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">3</div>
+                    <h3>Practice Environment</h3>
+                    <p>Need hands-on practice? JavaCracker offers interactive coding challenges where you can write, test, and debug Java code just like in real interviews.</p>
+                </div>
+            </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        function toggleTheme() {
+            const html = document.documentElement;
+            const themeToggle = document.querySelector('.theme-toggle');
+            
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.removeAttribute('data-theme');
+                themeToggle.textContent = '🌙';
+                // Note: localStorage removed for Claude.ai compatibility
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀️';
+                // Note: localStorage removed for Claude.ai compatibility
+            }
+        }
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const nav = document.getElementById('mobileNav');
+            nav.classList.toggle('active');
+        }
+        
+        // Initialize theme
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.querySelector('.theme-toggle');
+            themeToggle.textContent = '🌙';
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.getElementById('mobileNav');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+                nav.classList.remove('active');
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            const nav = document.getElementById('mobileNav');
+            if (window.innerWidth > 768) {
+                nav.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
