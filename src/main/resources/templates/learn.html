@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Complete Java Programming Guide</title>
+  <link rel="stylesheet" href="learn.css">
+  <script defer src="action.js"></script>
+</head>
+<body>
+<button id="theme-toggle" aria-label="Toggle dark mode" style="position:fixed;top:16px;right:16px;z-index:999;font-size:1.2em;padding:6px 12px;border-radius:6px;border:none;background:rgb(174, 216, 112);color:#222;cursor:pointer;box-shadow:0 2px 8px #0002;">⛺</button>
+
+<nav>
+    <ul>
+    <li><a href="#intro">Introduction</a></li>
+    <li>
+      <a href="#basics">Java Basics</a>
+      <ul>
+        <li><a href="#syntax">Syntax</a></li>
+        <li><a href="#variables">Variables</a></li>
+        <li><a href="#data-types">Data Types</a></li>
+        <li><a href="#operators">Operators</a></li>
+        <li><a href="#type-casting">Type Casting</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#control-flow">Control Flow</a>
+      <ul>
+        <li><a href="#conditionals">Conditionals</a></li>
+        <li><a href="#loops">Loops</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#arrays">Arrays</a>
+      <ul>
+        <li><a href="#single-arrays">Single Dimension</a></li>
+        <li><a href="#multi-arrays">Multi-Dimension</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#oop">OOP Concepts</a>
+      <ul>
+        <li><a href="#classes-objects">Classes & Objects</a></li>
+        <li><a href="#methods">Methods</a></li>
+        <li><a href="#constructors">Constructors</a></li>
+        <li><a href="#modifiers">Modifiers</a></li>
+        <li><a href="#inheritance">Inheritance</a></li>
+        <li><a href="#polymorphism">Polymorphism</a></li>
+        <li><a href="#abstraction">Abstraction</a></li>
+        <li><a href="#encapsulation">Encapsulation</a></li>
+        <li><a href="#interfaces">Interfaces</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#advanced">Advanced Java</a>
+      <ul>
+        <li><a href="#exceptions">Exception Handling</a></li>
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#generics">Generics</a></li>
+        <li><a href="#multithreading">Multithreading</a></li>
+        <li><a href="#lambda">Lambda Expressions</a></li>
+        <li><a href="#streams">Streams API</a></li>
+        <li><a href="#file-io">File I/O</a></li>
+        <li><a href="#networking">Networking</a></li>
+        <li><a href="#jdbc">JDBC</a></li>
+      </ul>
+    </li>
+ 
+    <li>
+      <a href="#platform-tools">Java Platform</a>
+      <ul>
+        <li><a href="#jvm-architecture">JVM/JDK/JRE</a></li>
+        <li><a href="#compilation-interpretation">Compilation</a></li>
+        <li><a href="#packages-imports">Packages</a></li>
+        <li><a href="#ides-tools">IDEs</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#java8-features">Java 8+ Features</a>
+      <ul>
+        <li><a href="#functional-interfaces">Functional Interfaces</a></li>
+        <li><a href="#method-references">Method References</a></li>
+        <li><a href="#optional-class">Optional Class</a></li>
+        <li><a href="#datetime-api">Date/Time API</a></li>
+        <li><a href="#interface-methods">Interface Methods</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#java9-17-features">Java 9-17</a>
+      <ul>
+        <li><a href="#var-keyword">var Keyword</a></li>
+        <li><a href="#records">Records</a></li>
+        <li><a href="#pattern-matching">Pattern Matching</a></li>
+        <li><a href="#sealed-classes">Sealed Classes</a></li>
+        <li><a href="#text-blocks">Text Blocks</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#advanced-collections">Advanced Collections</a>
+      <ul>
+        <li><a href="#comparable-comparator">Comparable/Comparator</a></li>
+        <li><a href="#queue-deque">Queues</a></li>
+        <li><a href="#map-types">Map Types</a></li>
+        <li><a href="#set-types">Set Types</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#inner-classes">Inner Classes</a>
+      <ul>
+        <li><a href="#static-nonstatic">Static/Non-static</a></li>
+        <li><a href="#anonymous-local">Anonymous/Local</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#java-io">Java I/O</a>
+      <ul>
+        <li><a href="#stream-types">Stream Types</a></li>
+        <li><a href="#buffered-io">Buffered I/O</a></li>
+        <li><a href="#serialization">Serialization</a></li>
+        <li><a href="#nio">NIO</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#annotations-reflection">Annotations</a>
+      <ul>
+        <li><a href="#builtin-annotations">Built-in</a></li>
+        <li><a href="#custom-annotations">Custom</a></li>
+        <li><a href="#reflection">Reflection</a></li>
+      </ul>
+    </li>
+    </ul>
+  
+  <svg xmlns="http://www.w3.org/2000/svg">
+    <path />
+  </svg>
+</nav>
+
+<article id="top">
+  
+  <div class="subheading">Complete Programming Guide for</div>
+  <h1>Java Programming Language</h1>
+  
+  <!-- Introduction Section -->
+  <section id="intro">
+    <h2>Introduction to Java</h2>
+    <p>Java is a high-level, object-oriented programming language developed by Sun Microsystems (now owned by Oracle) in 1995. It follows the "write once, run anywhere" (WORA) principle, meaning compiled Java code can run on all platforms without recompilation.</p>
+    
+    <h3>Key Features:</h3>
+    <ul>
+      <li><strong>Platform Independent:</strong> Runs on JVM (Java Virtual Machine)</li>
+      <li><strong>Object-Oriented:</strong> Follows OOP principles</li>
+      <li><strong>Simple:</strong> Easy to learn (similar syntax to C/C++)</li>
+      <li><strong>Secure:</strong> Built-in security features</li>
+      <li><strong>Multithreaded:</strong> Supports concurrent programming</li>
+      <li><strong>Robust:</strong> Strong memory management</li>
+    </ul>
+    
+    <h3>Hello World Example:</h3>
+    <pre><code>public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}</code></pre>
+    
+    <h3>Java Editions:</h3>
+    <ul>
+      <li><strong>Java SE (Standard Edition):</strong> Core Java platform</li>
+      <li><strong>Java EE (Enterprise Edition):</strong> For enterprise applications</li>
+      <li><strong>Java ME (Micro Edition):</strong> For mobile applications</li>
+      <li><strong>JavaFX:</strong> For rich client applications</li>
+    </ul>
+  </section>
+  
+  <!-- Java Basics Section -->
+  <section id="basics">
+    <h2>Java Basics</h2>
+    
+    <section id="syntax">
+      <h3>Basic Syntax</h3>
+      <p>Java syntax is similar to C/C++. Key points:</p>
+      <ul>
+        <li>Case-sensitive language</li>
+        <li>Class names should be PascalCase (e.g., MyClass)</li>
+        <li>Method names should be camelCase (e.g., myMethod())</li>
+        <li>Source file name must match public class name</li>
+        <li>Program execution begins with main() method</li>
+      </ul>
+      
+      <pre><code>public class MyClass {
+    // Main method - entry point
+    public static void main(String[] args) {
+        // Statement ends with semicolon
+        System.out.println("Hello Java");
+    }
+}</code></pre>
+    </section>
+    
+    <section id="variables">
+      <h3>Variables</h3>
+      <p>Variables are containers for storing data values. In Java, you must declare the type of a variable.</p>
+      
+      <h4>Variable Declaration:</h4>
+      <pre><code>type variableName = value;</code></pre>
+      
+      <h4>Example:</h4>
+      <pre><code>int myNum = 5;               // Integer
+double myDouble = 5.99;    // Floating point
+char myLetter = 'D';       // Character
+boolean myBool = true;     // Boolean
+String myText = "Hello";   // String</code></pre>
+      
+      <h4>Variable Types:</h4>
+      <ul>
+        <li><strong>Local Variables:</strong> Declared inside methods</li>
+        <li><strong>Instance Variables:</strong> Declared in a class (non-static)</li>
+        <li><strong>Class Variables:</strong> Declared with static keyword</li>
+      </ul>
+    </section>
+    
+    <section id="data-types">
+      <h3>Data Types</h3>
+      <p>Java has two categories of data types:</p>
+      
+      <h4>1. Primitive Data Types:</h4>
+      <table>
+        <tr>
+          <th>Type</th>
+          <th>Size</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>byte</td>
+          <td>1 byte</td>
+          <td>Stores whole numbers from -128 to 127</td>
+        </tr>
+        <tr>
+          <td>short</td>
+          <td>2 bytes</td>
+          <td>-32,768 to 32,767</td>
+        </tr>
+        <tr>
+          <td>int</td>
+          <td>4 bytes</td>
+          <td>-2<sup>31</sup> to 2<sup>31</sup>-1</td>
+        </tr>
+        <tr>
+          <td>long</td>
+          <td>8 bytes</td>
+          <td>-2<sup>63</sup> to 2<sup>63</sup>-1</td>
+        </tr>
+        <tr>
+          <td>float</td>
+          <td>4 bytes</td>
+          <td>Fractional numbers (6-7 decimal digits)</td>
+        </tr>
+        <tr>
+          <td>double</td>
+          <td>8 bytes</td>
+          <td>Fractional numbers (15 decimal digits)</td>
+        </tr>
+        <tr>
+          <td>boolean</td>
+          <td>1 bit</td>
+          <td>true or false</td>
+        </tr>
+        <tr>
+          <td>char</td>
+          <td>2 bytes</td>
+          <td>Single character/letter</td>
+        </tr>
+      </table>
+      
+      <h4>2. Non-Primitive Data Types:</h4>
+      <ul>
+        <li>String</li>
+        <li>Arrays</li>
+        <li>Classes</li>
+        <li>Interfaces</li>
+      </ul>
+    </section>
+    
+    <section id="operators">
+      <h3>Operators</h3>
+      <p>Operators are used to perform operations on variables and values.</p>
+      
+      <h4>1. Arithmetic Operators:</h4>
+      <pre><code>+ (Addition)       - (Subtraction)      * (Multiplication)
+/ (Division)       % (Modulus)         ++ (Increment)
+-- (Decrement)</code></pre>
+      
+      <h4>2. Assignment Operators:</h4>
+      <pre><code>=      +=      -=      *=      /=      %=</code></pre>
+      
+      <h4>3. Comparison Operators:</h4>
+      <pre><code>== (equal to)      != (not equal)      > (greater than)
+< (less than)      >= (greater than or equal to)
+<= (less than or equal to)</code></pre>
+      
+      <h4>4. Logical Operators:</h4>
+      <pre><code>&& (Logical AND)    || (Logical OR)     ! (Logical NOT)</code></pre>
+      
+      <h4>5. Bitwise Operators:</h4>
+      <pre><code>& (AND)    | (OR)    ^ (XOR)    ~ (Complement)    << (Left shift)
+>> (Right shift)    >>> (Unsigned right shift)</code></pre>
+    </section>
+    
+    <section id="type-casting">
+      <h3>Type Casting</h3>
+      <p>Converting one data type to another.</p>
+      
+      <h4>1. Widening Casting (Automatically):</h4>
+      <pre><code>int myInt = 9;
+double myDouble = myInt;  // Automatic casting: int to double</code></pre>
+      
+      <h4>2. Narrowing Casting (Manually):</h4>
+      <pre><code>double myDouble = 9.78;
+int myInt = (int) myDouble;  // Manual casting: double to int</code></pre>
+    </section>
+  </section>
+  
+  <!-- Control Flow Section -->
+  <section id="control-flow">
+    <h2>Control Flow Statements</h2>
+    
+    <section id="conditionals">
+      <h3>Conditional Statements</h3>
+      
+      <h4>1. if Statement:</h4>
+      <pre><code>if (condition) {
+    // code to execute if condition is true
+}</code></pre>
+      
+      <h4>2. if-else Statement:</h4>
+      <pre><code>if (condition) {
+    // code if true
+} else {
+    // code if false
+}</code></pre>
+      
+      <h4>3. else-if Ladder:</h4>
+      <pre><code>if (condition1) {
+    // code if condition1 true
+} else if (condition2) {
+    // code if condition2 true
+} else {
+    // code if all false
+}</code></pre>
+      
+      <h4>4. Ternary Operator:</h4>
+      <pre><code>variable = (condition) ? expressionTrue : expressionFalse;</code></pre>
+      
+      <h4>5. switch Statement:</h4>
+      <pre><code>switch(expression) {
+    case x:
+        // code
+        break;
+    case y:
+        // code
+        break;
+    default:
+        // code
+}</code></pre>
+    </section>
+    
+    <section id="loops">
+      <h3>Loops</h3>
+      
+      <h4>1. while Loop:</h4>
+      <pre><code>while (condition) {
+    // code to execute
+}</code></pre>
+      
+      <h4>2. do-while Loop:</h4>
+      <pre><code>do {
+    // code to execute
+} while (condition);</code></pre>
+      
+      <h4>3. for Loop:</h4>
+      <pre><code>for (initialization; condition; increment/decrement) {
+    // code to execute
+}</code></pre>
+      
+      <h4>4. Enhanced for Loop (for-each):</h4>
+      <pre><code>for (type variableName : arrayName) {
+    // code to execute
+}</code></pre>
+      
+      <h4>Loop Control Statements:</h4>
+      <ul>
+        <li><strong>break:</strong> Exits the loop</li>
+        <li><strong>continue:</strong> Skips current iteration</li>
+      </ul>
+    </section>
+  </section>
+  
+  <!-- Arrays Section -->
+  <section id="arrays">
+    <h2>Arrays</h2>
+    
+    <section id="single-arrays">
+      <h3>Single Dimension Arrays</h3>
+      <p>Arrays are used to store multiple values in a single variable.</p>
+      
+      <h4>Declaration:</h4>
+      <pre><code>dataType[] arrayName;   // Preferred way
+dataType arrayName[];  // Works but not preferred</code></pre>
+      
+      <h4>Initialization:</h4>
+      <pre><code>// Create array of size 5
+int[] myArray = new int[5];
+
+// Create and initialize
+int[] myArray = {10, 20, 30, 40, 50};</code></pre>
+      
+      <h4>Accessing Elements:</h4>
+      <pre><code>int firstElement = myArray[0];  // Access first element
+myArray[1] = 25;               // Modify second element</code></pre>
+      
+      <h4>Array Length:</h4>
+      <pre><code>int length = myArray.length;</code></pre>
+    </section>
+    
+    <section id="multi-arrays">
+      <h3>Multi-Dimension Arrays</h3>
+      <p>Arrays of arrays (matrix).</p>
+      
+      <h4>Declaration:</h4>
+      <pre><code>dataType[][] arrayName;</code></pre>
+      
+      <h4>Initialization:</h4>
+      <pre><code>// 2D array with 3 rows and 4 columns
+int[][] matrix = new int[3][4];
+
+// Initialize with values
+int[][] matrix = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};</code></pre>
+      
+      <h4>Accessing Elements:</h4>
+      <pre><code>int value = matrix[1][2];  // Gets 6</code></pre>
+    </section>
+  </section>
+  
+  <!-- OOP Section -->
+  <section id="oop">
+    <h2>Object-Oriented Programming</h2>
+    
+    <section id="classes-objects">
+      <h3>Classes and Objects</h3>
+      <p>Class is a blueprint, object is an instance of a class.</p>
+      
+      <h4>Class Definition:</h4>
+      <pre><code>public class Car {
+    // Fields (attributes)
+    String brand;
+    String model;
+    int year;
+    
+    // Methods (behaviors)
+    void startEngine() {
+        System.out.println("Engine started");
+    }
+}</code></pre>
+      
+      <h4>Object Creation:</h4>
+      <pre><code>Car myCar = new Car();
+myCar.brand = "Toyota";
+myCar.model = "Camry";
+myCar.year = 2020;
+myCar.startEngine();</code></pre>
+    </section>
+    
+    <section id="methods">
+      <h3>Methods</h3>
+      <p>A method is a block of code that performs a specific task.</p>
+      
+      <h4>Method Definition:</h4>
+      <pre><code>returnType methodName(parameters) {
+    // method body
+}</code></pre>
+      
+      <h4>Example:</h4>
+      <pre><code>public int addNumbers(int a, int b) {
+    int sum = a + b;
+    return sum;
+}</code></pre>
+      
+      <h4>Method Overloading:</h4>
+      <pre><code>class Calculator {
+    int add(int a, int b) { return a + b; }
+    double add(double a, double b) { return a + b; }
+    int add(int a, int b, int c) { return a + b + c; }
+}</code></pre>
+    </section>
+    
+    <section id="constructors">
+      <h3>Constructors</h3>
+      <p>Special method called when an object is instantiated.</p>
+      
+      <h4>Default Constructor:</h4>
+      <pre><code>public class Car {
+    Car() {
+        // constructor body
+    }
+}</code></pre>
+      
+      <h4>Parameterized Constructor:</h4>
+      <pre><code>public class Car {
+    String brand;
+    
+    Car(String b) {
+        brand = b;
+    }
+}</code></pre>
+      
+      <h4>Constructor Overloading:</h4>
+      <pre><code>public class Car {
+    String brand;
+    int year;
+    
+    Car() { brand = "Unknown"; }
+    Car(String b) { brand = b; }
+    Car(String b, int y) { brand = b; year = y; }
+}</code></pre>
+    </section>
+    
+    <section id="modifiers">
+      <h3>Modifiers</h3>
+      <p>Control access levels for classes, variables, methods.</p>
+      
+      <h4>Access Modifiers:</h4>
+      <ul>
+        <li><strong>public:</strong> Accessible everywhere</li>
+        <li><strong>protected:</strong> Accessible in same package and subclasses</li>
+        <li><strong>default:</strong> Accessible in same package only</li>
+        <li><strong>private:</strong> Accessible in same class only</li>
+      </ul>
+      
+      <h4>Non-Access Modifiers:</h4>
+      <ul>
+        <li><strong>static:</strong> Belongs to class rather than object</li>
+        <li><strong>final:</strong> Cannot be modified/overridden</li>
+        <li><strong>abstract:</strong> For abstract classes/methods</li>
+        <li><strong>transient:</strong> Excluded during serialization</li>
+        <li><strong>synchronized:</strong> Restricted to one thread at a time</li>
+        <li><strong>volatile:</strong> Value always read from main memory</li>
+      </ul>
+    </section>
+    
+    <section id="inheritance">
+      <h3>Inheritance</h3>
+      <p>Allows a class to inherit properties and methods of another class.</p>
+      
+      <h4>extends Keyword:</h4>
+      <pre><code>class Vehicle {
+    protected String brand = "Ford";
+    public void honk() {
+        System.out.println("Tuut, tuut!");
+    }
+}
+
+class Car extends Vehicle {
+    private String modelName = "Mustang";
+    
+    public static void main(String[] args) {
+        Car myCar = new Car();
+        myCar.honk();  // Inherited method
+        System.out.println(myCar.brand + " " + myCar.modelName);
+    }
+}</code></pre>
+      
+      <h4>super Keyword:</h4>
+      <pre><code>class Vehicle {
+    Vehicle() {
+        System.out.println("Vehicle constructor");
+    }
+}
+
+class Car extends Vehicle {
+    Car() {
+        super();  // Calls parent constructor
+        System.out.println("Car constructor");
+    }
+}</code></pre>
+      
+      <h4>Method Overriding:</h4>
+      <pre><code>class Animal {
+    public void animalSound() {
+        System.out.println("The animal makes a sound");
+    }
+}
+
+class Pig extends Animal {
+    @Override
+    public void animalSound() {
+        System.out.println("The pig says: wee wee");
+    }
+}</code></pre>
+    </section>
+    
+    <section id="polymorphism">
+      <h3>Polymorphism</h3>
+      <p>Ability of an object to take many forms.</p>
+      
+      <h4>Runtime Polymorphism (Method Overriding):</h4>
+      <pre><code>class Animal {
+    void sound() { System.out.println("Animal sound"); }
+}
+
+class Dog extends Animal {
+    void sound() { System.out.println("Bark"); }
+}
+
+class Cat extends Animal {
+    void sound() { System.out.println("Meow"); }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Animal a;
+        a = new Dog();  // Animal reference but Dog object
+        a.sound();      // Outputs "Bark"
+        
+        a = new Cat();  // Animal reference but Cat object
+        a.sound();      // Outputs "Meow"
+    }
+}</code></pre>
+    </section>
+    
+    <section id="abstraction">
+      <h3>Abstraction</h3>
+      <p>Hiding implementation details and showing only functionality.</p>
+      
+      <h4>Abstract Class:</h4>
+      <pre><code>abstract class Animal {
+    // Abstract method (no body)
+    public abstract void animalSound();
+    
+    // Regular method
+    public void sleep() {
+        System.out.println("Zzz");
+    }
+}
+
+class Pig extends Animal {
+    public void animalSound() {
+        System.out.println("The pig says: wee wee");
+    }
+}</code></pre>
+    </section>
+    
+    <section id="encapsulation">
+      <h3>Encapsulation</h3>
+      <p>Binding data and methods together, hiding internal details.</p>
+      
+      <h4>Example:</h4>
+      <pre><code>public class Person {
+    private String name;  // Private = restricted access
+    
+    // Getter
+    public String getName() {
+        return name;
+    }
+    
+    // Setter
+    public void setName(String newName) {
+        this.name = newName;
+    }
+}</code></pre>
+    </section>
+    
+    <section id="interfaces">
+      <h3>Interfaces</h3>
+      <p>Blueprint of a class that specifies what a class must do.</p>
+      
+      <h4>Interface Definition:</h4>
+      <pre><code>interface Animal {
+    public void animalSound();  // interface method (no body)
+    public void run();          // interface method (no body)
+}</code></pre>
+      
+      <h4>Implementing Interface:</h4>
+      <pre><code>class Pig implements Animal {
+    public void animalSound() {
+        System.out.println("The pig says: wee wee");
+    }
+    
+    public void run() {
+        System.out.println("Pig runs slowly");
+    }
+}</code></pre>
+      
+      <h4>Multiple Interfaces:</h4>
+      <pre><code>interface FirstInterface {
+    public void myMethod();
+}
+
+interface SecondInterface {
+    public void myOtherMethod();
+}
+
+class DemoClass implements FirstInterface, SecondInterface {
+    public void myMethod() {
+        System.out.println("First interface method");
+    }
+    
+    public void myOtherMethod() {
+        System.out.println("Second interface method");
+    }
+}</code></pre>
+    </section>
+  </section>
+  
+  <!-- Advanced Java Section -->
+  <section id="advanced">
+    <h2>Advanced Java Concepts</h2>
+    
+    <section id="exceptions">
+      <h3>Exception Handling</h3>
+      <p>Exceptions are events that disrupt normal program flow.</p>
+      
+      <h4>try-catch Block:</h4>
+      <pre><code>try {
+    // Code that may throw exception
+    int[] myNumbers = {1, 2, 3};
+    System.out.println(myNumbers[10]);
+} catch (Exception e) {
+    // Handle exception
+    System.out.println("Something went wrong.");
+} finally {
+    // Code that always executes
+    System.out.println("The 'try catch' is finished.");
+}</code></pre>
+      
+      <h4>Common Exceptions:</h4>
+      <ul>
+        <li>ArithmeticException</li>
+        <li>ArrayIndexOutOfBoundsException</li>
+        <li>NullPointerException</li>
+        <li>NumberFormatException</li>
+        <li>IOException</li>
+      </ul>
+      
+      <h4>Custom Exception:</h4>
+      <pre><code>class CustomException extends Exception {
+    public CustomException(String message) {
+        super(message);
+    }
+}
+
+public class Main {
+    static void validateAge(int age) throws CustomException {
+        if (age < 18) {
+            throw new CustomException("Age must be 18+");
+        } else {
+            System.out.println("Valid age");
+        }
+    }
+    
+    public static void main(String[] args) {
+        try {
+            validateAge(15);
+        } catch (CustomException e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+    }
+}</code></pre>
+    </section>
+    
+    <section id="collections">
+      <h3>Collections Framework</h3>
+      <p>Provides architecture to store and manipulate groups of objects.</p>
+      
+      <h4>Common Interfaces:</h4>
+      <ul>
+        <li><strong>List:</strong> Ordered collection (ArrayList, LinkedList)</li>
+        <li><strong>Set:</strong> Unique elements (HashSet, TreeSet)</li>
+        <li><strong>Map:</strong> Key-value pairs (HashMap, TreeMap)</li>
+        <li><strong>Queue:</strong> FIFO ordering (PriorityQueue)</li>
+      </ul>
+      
+      <h4>ArrayList Example:</h4>
+      <pre><code>import java.util.ArrayList;
+
+ArrayList&lt;String&gt; cars = new ArrayList&lt;String&gt;();
+cars.add("Volvo");
+cars.add("BMW");
+cars.add("Ford");
+
+// Access element
+System.out.println(cars.get(0));
+
+// Change element
+cars.set(0, "Opel");
+
+// Remove element
+cars.remove(0);
+
+// Loop through
+for (String car : cars) {
+    System.out.println(car);
+}</code></pre>
+      
+      <h4>HashMap Example:</h4>
+      <pre><code>import java.util.HashMap;
+
+HashMap&lt;String, String&gt; capitalCities = new HashMap&lt;String, String&gt;();
+capitalCities.put("England", "London");
+capitalCities.put("Germany", "Berlin");
+capitalCities.put("Norway", "Oslo");
+
+// Access item
+System.out.println(capitalCities.get("England"));
+
+// Remove item
+capitalCities.remove("England");
+
+// Loop through
+for (String key : capitalCities.keySet()) {
+    System.out.println(key + ": " + capitalCities.get(key));
+}</code></pre>
+    </section>
+    
+    <section id="generics">
+      <h3>Generics</h3>
+      <p>Enable types (classes/interfaces) to be parameters when defining classes/interfaces/methods.</p>
+      
+      <h4>Generic Class:</h4>
+      <pre><code>public class Box&lt;T&gt; {
+    private T t;
+    
+    public void set(T t) { this.t = t; }
+    public T get() { return t; }
+}
+
+Box&lt;Integer&gt; integerBox = new Box&lt;Integer&gt;();
+integerBox.set(10);
+System.out.println(integerBox.get());</code></pre>
+      
+      <h4>Generic Method:</h4>
+      <pre><code>public &lt;T&gt; void printArray(T[] array) {
+    for (T element : array) {
+        System.out.printf("%s ", element);
+    }
+    System.out.println();
+}
+
+// Usage
+Integer[] intArray = {1, 2, 3};
+String[] stringArray = {"Hello", "World"};
+printArray(intArray);
+printArray(stringArray);</code></pre>
+    </section>
+    
+    <section id="multithreading">
+      <h3>Multithreading</h3>
+      <p>Allows concurrent execution of two or more parts of a program.</p>
+      
+      <h4>Thread Creation:</h4>
+      <pre><code>// Extending Thread class
+class MyThread extends Thread {
+    public void run() {
+        System.out.println("Thread is running");
+    }
+}
+
+// Implementing Runnable interface
+class MyRunnable implements Runnable {
+    public void run() {
+        System.out.println("Thread is running");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Approach 1
+        MyThread thread1 = new MyThread();
+        thread1.start();
+        
+        // Approach 2
+        Thread thread2 = new Thread(new MyRunnable());
+        thread2.start();
+    }
+}</code></pre>
+      
+      <h4>Synchronization:</h4>
+      <pre><code>class Counter {
+    private int count = 0;
+    
+    public synchronized void increment() {
+        count++;
+    }
+    
+    public int getCount() {
+        return count;
+    }
+}</code></pre>
+    </section>
+    
+    <section id="lambda">
+      <h3>Lambda Expressions</h3>
+      <p>Short block of code that takes parameters and returns a value.</p>
+      
+      <h4>Syntax:</h4>
+      <pre><code>(parameter1, parameter2) -> { code }</code></pre>
+      
+      <h4>Examples:</h4>
+      <pre><code>// With Runnable
+Runnable r = () -> System.out.println("Hello World");
+new Thread(r).start();
+
+// With Comparator
+List&lt;String&gt; names = Arrays.asList("John", "Alice", "Bob");
+Collections.sort(names, (a, b) -> a.compareTo(b));
+
+// With forEach
+List&lt;Integer&gt; numbers = Arrays.asList(1, 2, 3, 4, 5);
+numbers.forEach(n -> System.out.println(n));</code></pre>
+    </section>
+    
+    <section id="streams">
+      <h3>Streams API</h3>
+      <p>Process sequences of elements with functional-style operations.</p>
+      
+      <h4>Stream Operations:</h4>
+      <pre><code>List&lt;String&gt; names = Arrays.asList("John", "Alice", "Bob", "Anna");
+
+// Filter names starting with 'A'
+List&lt;String&gt; filtered = names.stream()
+    .filter(name -> name.startsWith("A"))
+    .collect(Collectors.toList());
+
+// Map to uppercase
+List&lt;String&gt; upper = names.stream()
+    .map(String::toUpperCase)
+    .collect(Collectors.toList());
+
+// Count names with length > 3
+long count = names.stream()
+    .filter(name -> name.length() > 3)
+    .count();
+
+// Sort names
+List&lt;String&gt; sorted = names.stream()
+    .sorted()
+    .collect(Collectors.toList());</code></pre>
+    </section>
+    
+    <section id="file-io">
+      <h3>File I/O</h3>
+      <p>Reading from and writing to files.</p>
+      
+      <h4>Reading Files:</h4>
+      <pre><code>import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+try {
+    File file = new File("filename.txt");
+    Scanner reader = new Scanner(file);
+    while (reader.hasNextLine()) {
+        String data = reader.nextLine();
+        System.out.println(data);
+    }
+    reader.close();
+} catch (FileNotFoundException e) {
+    System.out.println("File not found");
+    e.printStackTrace();
+}</code></pre>
+      
+      <h4>Writing Files:</h4>
+      <pre><code>import java.io.FileWriter;
+import java.io.IOException;
+
+try {
+    FileWriter writer = new FileWriter("filename.txt");
+    writer.write("Hello World!");
+    writer.close();
+    System.out.println("Successfully wrote to file");
+} catch (IOException e) {
+    System.out.println("An error occurred");
+    e.printStackTrace();
+}</code></pre>
+    </section>
+    
+    <section id="networking">
+      <h3>Networking</h3>
+      <p>Creating network applications.</p>
+      
+      <h4>URL Connection:</h4>
+      <pre><code>import java.net.*;
+import java.io.*;
+
+public class URLReader {
+    public static void main(String[] args) throws Exception {
+        URL oracle = new URL("https://www.oracle.com/");
+        BufferedReader in = new BufferedReader(
+            new InputStreamReader(oracle.openStream()));
+        
+        String inputLine;
+        while ((inputLine = in.readLine()) != null)
+            System.out.println(inputLine);
+        in.close();
+    }
+}</code></pre>
+      
+      <h4>Socket Programming:</h4>
+      <pre><code>// Server
+ServerSocket serverSocket = new ServerSocket(8080);
+Socket clientSocket = serverSocket.accept();
+PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+out.println("Hello Client");
+clientSocket.close();
+
+// Client
+Socket socket = new Socket("localhost", 8080);
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(socket.getInputStream()));
+System.out.println(in.readLine());
+socket.close();</code></pre>
+    </section>
+    
+    <section id="jdbc">
+      <h3>JDBC (Java Database Connectivity)</h3>
+      <p>API for connecting and executing queries with databases.</p>
+      
+      <h4>Basic Steps:</h4>
+      <pre><code>// 1. Load driver
+Class.forName("com.mysql.cj.jdbc.Driver");
+
+// 2. Create connection
+Connection con = DriverManager.getConnection(
+    "jdbc:mysql://localhost:3306/mydb", "username", "password");
+
+// 3. Create statement
+Statement stmt = con.createStatement();
+
+// 4. Execute query
+ResultSet rs = stmt.executeQuery("select * from employees");
+
+// 5. Process results
+while (rs.next()) {
+    System.out.println(rs.getInt(1) + " " + rs.getString(2));
+}
+
+// 6. Close connection
+con.close();</code></pre>
+      
+      <h4>Prepared Statement:</h4>
+      <pre><code>String sql = "INSERT INTO Employees VALUES (?, ?)";
+PreparedStatement pstmt = con.prepareStatement(sql);
+pstmt.setInt(1, 101);
+pstmt.setString(2, "John Doe");
+pstmt.executeUpdate();</code></pre>
+    </section>
+  </section>
+  
+  
+<!-- Previous content remains the same until the Advanced Java section -->
+
+<!-- Add these new sections after the JDBC section but before closing article tag -->
+
+  <!-- Java Platform and Tools Section -->
+  <section id="platform-tools">
+    <h2>Java Platform and Tools</h2>
+    
+    <section id="jvm-architecture">
+      <h3>JVM, JDK, JRE Architecture</h3>
+      <p>Java's platform consists of three main components:</p>
+      
+      <h4>1. JVM (Java Virtual Machine):</h4>
+      <ul>
+        <li>Provides runtime environment to execute Java bytecode</li>
+        <li>Performs: Loading, Linking, Initialization, Execution</li>
+        <li>Includes: Classloader, Memory Areas (Heap, Stack, Method Area), Execution Engine</li>
+      </ul>
+      
+      <h4>2. JDK (Java Development Kit):</h4>
+      <ul>
+        <li>Full development package (JRE + development tools)</li>
+        <li>Includes: javac (compiler), java (launcher), javadoc, jdb (debugger)</li>
+        <li>Platform-specific implementations (Windows, Linux, Mac)</li>
+      </ul>
+      
+      <h4>3. JRE (Java Runtime Environment):</h4>
+      <ul>
+        <li>Provides libraries and JVM to run Java programs</li>
+        <li>Includes: Deployment technologies, User interface toolkits</li>
+        <li>Doesn't contain development tools like compiler or debugger</li>
+      </ul>
+      
+      <pre><code>// Compilation process
+javac HelloWorld.java   // Creates HelloWorld.class (bytecode)
+java HelloWorld        // Executes on JVM</code></pre>
+    </section>
+    
+    <section id="compilation-interpretation">
+      <h3>Compilation vs Interpretation</h3>
+      <p>Java uses a two-step process:</p>
+      <ol>
+        <li><strong>Compilation:</strong> Java source code (.java) → Bytecode (.class)</li>
+        <li><strong>Interpretation:</strong> JVM interprets bytecode → Machine code</li>
+      </ol>
+      
+      <h4>Just-In-Time (JIT) Compiler:</h4>
+      <ul>
+        <li>Part of JVM that improves performance</li>
+        <li>Compiles bytecode to native machine code at runtime</li>
+        <li>Caches compiled code for frequently used methods</li>
+      </ul>
+    </section>
+    
+    <section id="packages-imports">
+      <h3>Packages and Imports</h3>
+      <p>Packages organize classes and prevent naming conflicts.</p>
+      
+      <h4>Package Declaration:</h4>
+      <pre><code>package com.example.mypackage;
+
+public class MyClass {
+    // class implementation
+}</code></pre>
+      
+      <h4>Import Statements:</h4>
+      <pre><code>import java.util.ArrayList;  // Single class import
+import java.util.*;         // Wildcard import (all classes in package)
+
+// Static import (for static members)
+import static java.lang.Math.PI;</code></pre>
+      
+      <h4>Common Java Packages:</h4>
+      <ul>
+        <li>java.lang (automatically imported)</li>
+        <li>java.util (collections, date/time)</li>
+        <li>java.io (input/output)</li>
+        <li>java.net (networking)</li>
+        <li>java.sql (database access)</li>
+      </ul>
+    </section>
+    
+    <section id="ides-tools">
+      <h3>IDEs and Development Tools</h3>
+      
+      <h4>Popular Java IDEs:</h4>
+      <ul>
+        <li><strong>Eclipse:</strong> Open-source, plugin-based</li>
+        <li><strong>IntelliJ IDEA:</strong> Smart coding assistance (Community & Ultimate editions)</li>
+        <li><strong>VS Code:</strong> Lightweight with Java extensions</li>
+        <li><strong>NetBeans:</strong> Official Oracle IDE</li>
+      </ul>
+      
+      <h4>Command Line Tools:</h4>
+      <pre><code># Compile Java file
+javac MyClass.java
+
+# Run compiled class
+java MyClass
+
+# Generate documentation
+javadoc MyClass.java
+
+# Create JAR file
+jar cvf myapp.jar MyClass.class</code></pre>
+    </section>
+  </section>
+  
+  <!-- Java 8+ Features Section -->
+  <section id="java8-features">
+    <h2>Java 8+ Features</h2>
+    
+    <section id="functional-interfaces">
+      <h3>Functional Interfaces</h3>
+      <p>Interfaces with exactly one abstract method.</p>
+      
+      <h4>Built-in Functional Interfaces:</h4>
+      <pre><code>// Predicate (boolean-valued function)
+Predicate&lt;String&gt; isLong = s -> s.length() > 10;
+
+// Function (input → output)
+Function&lt;String, Integer&gt; lengthMapper = String::length;
+
+// Consumer (accepts input, no return)
+Consumer&lt;String&gt; printer = System.out::println;
+
+// Supplier (no input, produces output)
+Supplier&lt;Double&gt; randomSupplier = Math::random;</code></pre>
+      
+      <h4>Custom Functional Interface:</h4>
+      <pre><code>@FunctionalInterface
+interface StringProcessor {
+    String process(String input);
+    
+    // Can have default methods
+    default String processTwice(String input) {
+        return process(process(input));
+    }
+}</code></pre>
+    </section>
+    
+    <section id="method-references">
+      <h3>Method References</h3>
+      <p>Shorthand syntax for lambda expressions calling existing methods.</p>
+      
+      <h4>Types of Method References:</h4>
+      <pre><code>// 1. Static method reference
+Function&lt;String, Integer&gt; parser = Integer::parseInt;
+
+// 2. Instance method of particular object
+String str = "Hello";
+Supplier&lt;Integer&gt; lengthSupplier = str::length;
+
+// 3. Instance method of arbitrary object
+Function&lt;String, String&gt; upperCase = String::toUpperCase;
+
+// 4. Constructor reference
+Supplier&lt;ArrayList&lt;String&gt;&gt; listSupplier = ArrayList::new;</code></pre>
+    </section>
+    
+    <section id="optional-class">
+      <h3>Optional Class</h3>
+      <p>Container object which may or may not contain a non-null value.</p>
+      
+      <h4>Optional Usage:</h4>
+      <pre><code>Optional&lt;String&gt; optional = Optional.ofNullable(getString());
+
+// Safe value access
+String value = optional.orElse("default");
+
+// Conditional execution
+optional.ifPresent(System.out::println);
+
+// Throw exception if empty
+String result = optional.orElseThrow(() -> 
+    new IllegalArgumentException("Value not present"));</code></pre>
+    </section>
+    
+    <section id="datetime-api">
+      <h3>java.time API</h3>
+      <p>Modern date-time API introduced in Java 8.</p>
+      
+      <h4>Key Classes:</h4>
+      <pre><code>// Current date
+LocalDate today = LocalDate.now();
+
+// Specific date
+LocalDate birthday = LocalDate.of(1990, Month.JANUARY, 1);
+
+// Current time
+LocalTime now = LocalTime.now();
+
+// Date and time
+LocalDateTime current = LocalDateTime.now();
+
+// Duration (time-based)
+Duration duration = Duration.between(startTime, endTime);
+
+// Period (date-based)
+Period period = Period.between(startDate, endDate);
+
+// Formatting
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+String formatted = today.format(formatter);</code></pre>
+    </section>
+    
+    <section id="interface-methods">
+      <h3>Default & Static Methods in Interfaces</h3>
+      <p>Java 8 allowed interfaces to have implementation.</p>
+      
+      <h4>Default Methods:</h4>
+      <pre><code>interface Vehicle {
+    // Regular abstract method
+    String getBrand();
+    
+    // Default method
+    default String turnAlarmOn() {
+        return "Turning vehicle alarm on";
+    }
+}
+
+class Car implements Vehicle {
+    @Override
+    public String getBrand() {
+        return "Toyota";
+    }
+    
+    // Can override default method
+    @Override
+    public String turnAlarmOn() {
+        return "Turning car alarm on";
+    }
+}</code></pre>
+      
+      <h4>Static Methods:</h4>
+      <pre><code>interface MathOperations {
+    static int add(int a, int b) {
+        return a + b;
+    }
+}
+
+// Usage
+int sum = MathOperations.add(5, 3);</code></pre>
+    </section>
+  </section>
+  
+  <!-- Java 9-17 Features Section -->
+  <section id="java9-17-features">
+    <h2>Java 9-17 Features</h2>
+    
+    <section id="var-keyword">
+      <h3>var Keyword (Java 10)</h3>
+      <p>Local variable type inference.</p>
+      
+      <h4>Usage:</h4>
+      <pre><code>// Before Java 10
+List&lt;String&gt; names = new ArrayList&lt;&gt;();
+
+// With var
+var names = new ArrayList&lt;String&gt;();
+var stream = names.stream();
+var message = "Hello World";
+
+// Limitations:
+// Cannot be used for method parameters or return types
+// Must have initializer
+// Not a keyword (backward compatible)</code></pre>
+    </section>
+    
+    <section id="records">
+      <h3>Records (Java 14+)</h3>
+      <p>Transparent carriers for immutable data.</p>
+      
+      <h4>Record Definition:</h4>
+      <pre><code>// Automatically generates:
+// - Private final fields
+// - Public constructor
+// - Accessor methods
+// - equals(), hashCode(), toString()
+record Person(String name, int age) {}
+
+// Usage
+Person p = new Person("Alice", 30);
+System.out.println(p.name());  // Accessor
+System.out.println(p);        // toString()</code></pre>
+    </section>
+    
+    <section id="pattern-matching">
+      <h3>Pattern Matching for instanceof (Java 16)</h3>
+      <p>Simplifies common pattern of instanceof followed by cast.</p>
+      
+      <h4>Traditional Approach:</h4>
+      <pre><code>if (obj instanceof String) {
+    String s = (String) obj;
+    System.out.println(s.length());
+}</code></pre>
+      
+      <h4>With Pattern Matching:</h4>
+      <pre><code>if (obj instanceof String s) {
+    System.out.println(s.length());
+}</code></pre>
+    </section>
+    
+    <section id="sealed-classes">
+      <h3>Sealed Classes (Java 17)</h3>
+      <p>Restrict which classes can extend/implement them.</p>
+      
+      <h4>Sealed Class Definition:</h4>
+      <pre><code>public sealed class Shape 
+    permits Circle, Rectangle, Square {
+    // Common shape methods
+}
+
+final class Circle extends Shape {
+    // Circle-specific implementation
+}
+
+non-sealed class Rectangle extends Shape {
+    // Rectangle implementation
+}</code></pre>
+    </section>
+    
+    <section id="text-blocks">
+      <h3>Text Blocks (Java 13+)</h3>
+      <p>Multi-line string literals.</p>
+      
+      <h4>Traditional String:</h4>
+      <pre><code>String html = "&lt;html&gt;\n" +
+              "    &lt;body&gt;\n" +
+              "        &lt;p&gt;Hello&lt;/p&gt;\n" +
+              "    &lt;/body&gt;\n" +
+              "&lt;/html&gt;";</code></pre>
+      
+      <h4>Text Block:</h4>
+      <pre><code>String html = """
+              &lt;html&gt;
+                  &lt;body&gt;
+                      &lt;p&gt;Hello&lt;/p&gt;
+                  &lt;/body&gt;
+              &lt;/html&gt;""";</code></pre>
+    </section>
+  </section>
+  
+  <!-- Advanced Collections Section -->
+  <section id="advanced-collections">
+    <h2>Advanced Collections & Algorithms</h2>
+    
+    <section id="comparable-comparator">
+      <h3>Comparable vs Comparator</h3>
+      
+      <h4>Comparable (Natural Ordering):</h4>
+      <pre><code>class Person implements Comparable&lt;Person&gt; {
+    String name;
+    int age;
+    
+    @Override
+    public int compareTo(Person other) {
+        return this.age - other.age;
+    }
+}
+
+// Usage
+Collections.sort(people);</code></pre>
+      
+      <h4>Comparator (Custom Ordering):</h4>
+      <pre><code>Comparator&lt;Person&gt; nameComparator = 
+    Comparator.comparing(Person::getName);
+    
+Comparator&lt;Person&gt; ageThenName = 
+    Comparator.comparingInt(Person::getAge)
+              .thenComparing(Person::getName);
+
+// Usage
+Collections.sort(people, nameComparator);</code></pre>
+    </section>
+    
+    <section id="queue-deque">
+      <h3>Queue, Deque, PriorityQueue</h3>
+      
+      <h4>Queue:</h4>
+      <pre><code>Queue&lt;String&gt; queue = new LinkedList&lt;&gt;();
+queue.offer("First");  // Add to end
+queue.offer("Second");
+String first = queue.poll();  // Remove from front</code></pre>
+      
+      <h4>PriorityQueue:</h4>
+      <pre><code>Queue&lt;Integer&gt; pq = new PriorityQueue&lt;&gt;();
+pq.offer(5);
+pq.offer(1);
+pq.offer(3);
+while (!pq.isEmpty()) {
+    System.out.println(pq.poll());  // 1, 3, 5
+}</code></pre>
+      
+      <h4>Deque (Double Ended Queue):</h4>
+      <pre><code>Deque&lt;String&gt; deque = new ArrayDeque&lt;&gt;();
+deque.offerFirst("First");
+deque.offerLast("Last");
+String first = deque.pollFirst();</code></pre>
+    </section>
+    
+    <section id="map-types">
+      <h3>HashMap vs TreeMap vs LinkedHashMap</h3>
+      
+      <table>
+        <tr>
+          <th>Feature</th>
+          <th>HashMap</th>
+          <th>TreeMap</th>
+          <th>LinkedHashMap</th>
+        </tr>
+        <tr>
+          <td>Order</td>
+          <td>No order</td>
+          <td>Sorted (natural or comparator)</td>
+          <td>Insertion order or access order</td>
+        </tr>
+        <tr>
+          <td>Null keys</td>
+          <td>Allowed (1 null key)</td>
+          <td>Not allowed (if natural ordering)</td>
+          <td>Allowed (1 null key)</td>
+        </tr>
+        <tr>
+          <td>Performance</td>
+          <td>O(1) average</td>
+          <td>O(log n)</td>
+          <td>O(1) average</td>
+        </tr>
+        <tr>
+          <td>Use Case</td>
+          <td>General purpose</td>
+          <td>Sorted maps</td>
+          <td>Maintain insertion order</td>
+        </tr>
+      </table>
+    </section>
+    
+    <section id="set-types">
+      <h3>Set Implementations</h3>
+      
+      <h4>HashSet:</h4>
+      <ul>
+        <li>Backed by HashMap</li>
+        <li>No order guarantees</li>
+        <li>O(1) for basic operations</li>
+      </ul>
+      
+      <h4>TreeSet:</h4>
+      <ul>
+        <li>Backed by TreeMap</li>
+        <li>Elements sorted (natural or comparator)</li>
+        <li>O(log n) for basic operations</li>
+      </ul>
+      
+      <h4>LinkedHashSet:</h4>
+      <ul>
+        <li>Maintains insertion order</li>
+        <li>Slower than HashSet for iteration</li>
+        <li>O(1) for basic operations</li>
+      </ul>
+    </section>
+  </section>
+  
+  <!-- Inner Classes Section -->
+  <section id="inner-classes">
+    <h2>Inner Classes</h2>
+    
+    <section id="static-nonstatic">
+      <h3>Static vs Non-static Nested Classes</h3>
+      
+      <h4>Static Nested Class:</h4>
+      <pre><code>class Outer {
+    static class Nested {
+        // Can access only static members of Outer
+    }
+}
+
+// Instantiation
+Outer.Nested nested = new Outer.Nested();</code></pre>
+      
+      <h4>Non-static Inner Class:</h4>
+      <pre><code>class Outer {
+    private String field;
+    
+    class Inner {
+        // Can access all members of Outer
+        void method() {
+            System.out.println(field);
+        }
+    }
+}
+
+// Instantiation
+Outer outer = new Outer();
+Outer.Inner inner = outer.new Inner();</code></pre>
+    </section>
+    
+    <section id="anonymous-local">
+      <h3>Anonymous and Local Classes</h3>
+      
+      <h4>Anonymous Class:</h4>
+      <pre><code>interface Greeting {
+    void greet();
+}
+
+Greeting g = new Greeting() {
+    @Override
+    public void greet() {
+        System.out.println("Hello");
+    }
+};</code></pre>
+      
+      <h4>Local Class:</h4>
+      <pre><code>class Outer {
+    void method() {
+        class Local {
+            void display() {
+                System.out.println("Local class");
+            }
+        }
+        
+        Local local = new Local();
+        local.display();
+    }
+}</code></pre>
+    </section>
+  </section>
+  
+  <!-- Java I/O Section -->
+  <section id="java-io">
+    <h2>Java I/O (Legacy and NIO)</h2>
+    
+    <section id="stream-types">
+      <h3>Byte Streams vs Character Streams</h3>
+      
+      <h4>Byte Streams (InputStream/OutputStream):</h4>
+      <pre><code>// File copy using byte streams
+try (InputStream in = new FileInputStream("source.txt");
+     OutputStream out = new FileOutputStream("dest.txt")) {
+    byte[] buffer = new byte[1024];
+    int bytesRead;
+    while ((bytesRead = in.read(buffer)) != -1) {
+        out.write(buffer, 0, bytesRead);
+    }
+}</code></pre>
+      
+      <h4>Character Streams (Reader/Writer):</h4>
+      <pre><code>// File copy using character streams
+try (Reader reader = new FileReader("source.txt");
+     Writer writer = new FileWriter("dest.txt")) {
+    char[] buffer = new char[1024];
+    int charsRead;
+    while ((charsRead = reader.read(buffer)) != -1) {
+        writer.write(buffer, 0, charsRead);
+    }
+}</code></pre>
+    </section>
+    
+    <section id="buffered-io">
+      <h3>BufferedReader / BufferedWriter</h3>
+      <p>Improve performance by buffering I/O operations.</p>
+      
+      <h4>Reading Lines:</h4>
+      <pre><code>try (BufferedReader br = new BufferedReader(
+        new FileReader("file.txt"))) {
+    String line;
+    while ((line = br.readLine()) != null) {
+        System.out.println(line);
+    }
+}</code></pre>
+      
+      <h4>Writing Lines:</h4>
+      <pre><code>try (BufferedWriter bw = new BufferedWriter(
+        new FileWriter("file.txt"))) {
+    bw.write("Line 1");
+    bw.newLine();
+    bw.write("Line 2");
+}</code></pre>
+    </section>
+    
+    <section id="serialization">
+      <h3>Serialization/Deserialization</h3>
+      <p>Converting objects to byte streams and back.</p>
+      
+      <h4>Serializable Class:</h4>
+      <pre><code>class Person implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private String name;
+    private transient int age;  // Won't be serialized
+    
+    // Constructor, getters, setters
+}</code></pre>
+      
+      <h4>Serialize Object:</h4>
+      <pre><code>try (ObjectOutputStream oos = new ObjectOutputStream(
+        new FileOutputStream("person.ser"))) {
+    oos.writeObject(new Person("Alice", 30));
+}</code></pre>
+      
+      <h4>Deserialize Object:</h4>
+      <pre><code>try (ObjectInputStream ois = new ObjectInputStream(
+        new FileInputStream("person.ser"))) {
+    Person p = (Person) ois.readObject();
+    System.out.println(p.getName());
+}</code></pre>
+    </section>
+    
+    <section id="nio">
+      <h3>java.nio Package</h3>
+      <p>New I/O API with improved performance and features.</p>
+      
+      <h4>Files and Paths:</h4>
+      <pre><code>Path path = Paths.get("file.txt");
+
+// Read all lines
+List&lt;String&gt; lines = Files.readAllLines(path);
+
+// Write lines
+Files.write(path, lines, StandardOpenOption.APPEND);
+
+// File operations
+Files.copy(source, target);
+Files.move(source, target);
+Files.deleteIfExists(path);</code></pre>
+      
+      <h4>Channels and Buffers:</h4>
+      <pre><code>try (FileChannel channel = FileChannel.open(path, 
+        StandardOpenOption.READ)) {
+    ByteBuffer buffer = ByteBuffer.allocate(1024);
+    while (channel.read(buffer) > 0) {
+        buffer.flip();
+        // Process buffer
+        buffer.clear();
+    }
+}</code></pre>
+    </section>
+  </section>
+  
+  <!-- Annotations and Reflection Section -->
+  <section id="annotations-reflection">
+    <h2>Annotations and Reflection</h2>
+    
+    <section id="builtin-annotations">
+      <h3>Built-in Annotations</h3>
+      
+      <h4>Common Annotations:</h4>
+      <pre><code>@Override  // Indicates method overrides superclass method
+class Parent {
+    void method() {}
+}
+
+class Child extends Parent {
+    @Override
+    void method() {}
+}
+
+@Deprecated  // Marks element as obsolete
+class OldClass {
+    @Deprecated
+    void oldMethod() {}
+}
+
+@FunctionalInterface  // Indicates single abstract method
+interface Runner {
+    void run();
+    
+    default void stop() {}
+}</code></pre>
+    </section>
+    
+    <section id="custom-annotations">
+      <h3>Custom Annotations</h3>
+      
+      <h4>Annotation Definition:</h4>
+      <pre><code>@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface TestCase {
+    int id();
+    String description() default "";
+    String[] tags() default {};
+}</code></pre>
+      
+      <h4>Annotation Usage:</h4>
+      <pre><code>class TestSuite {
+    @TestCase(id = 1, description = "Login test", tags = {"smoke"})
+    public void testLogin() {
+        // Test implementation
+    }
+}</code></pre>
+    </section>
+    
+    <section id="reflection">
+      <h3>Reflection API</h3>
+      <p>Examine or modify runtime behavior of classes.</p>
+      
+      <h4>Basic Reflection:</h4>
+      <pre><code>Class&lt;?&gt; clazz = Class.forName("com.example.MyClass");
+
+// Get all public methods
+Method[] methods = clazz.getMethods();
+
+// Get declared fields (including private)
+Field[] fields = clazz.getDeclaredFields();
+
+// Create instance
+Object instance = clazz.getDeclaredConstructor().newInstance();
+
+// Invoke method
+Method method = clazz.getMethod("methodName", parameterTypes);
+method.invoke(instance, args);</code></pre>
+      
+      <h4>Accessing Private Members:</h4>
+      <pre><code>Field privateField = clazz.getDeclaredField("privateField");
+privateField.setAccessible(true);
+Object value = privateField.get(instance);</code></pre>
+    </section>
+  </section>
+
+
+
+  
+</article>
+</body>
+</html>

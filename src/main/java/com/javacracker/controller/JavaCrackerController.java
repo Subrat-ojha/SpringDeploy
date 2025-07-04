@@ -10,5 +10,10 @@ public class JavaCrackerController {
 	public String getHome() {
 		return "home";
 	}
+	
+	@GetMapping("/learn")
+	public String goLearn() {
+		return "learn";
+	}
 }
 	
