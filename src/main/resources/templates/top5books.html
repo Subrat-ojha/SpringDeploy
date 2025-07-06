@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 5 Java Books</title>
+       <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            /* Light mode variables */
+            --bg-primary: #f5f1eb;
+            --bg-secondary: #e8ddd4;
+            --bg-container: rgba(255, 255, 255, 0.7);
+            --bg-header: rgba(255, 255, 255, 0.9);
+            --bg-card: white;
+            --bg-search: white;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --text-muted: #aab8c2;
+            --border-color: rgba(0, 0, 0, 0.05);
+            --shadow-color: rgba(0, 0, 0, 0.08);
+            --shadow-hover: rgba(0, 0, 0, 0.15);
+            --accent-color: #d4a574;
+            --accent-hover: #c19660;
+            --button-bg: #e8ddd4;
+            --button-text: #5d4e37;
+            --button-hover: #d4c4b0;
+        }
+
+        [data-theme="dark"] {
+            /* Dark mode variables */
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2d2d2d;
+            --bg-container: rgba(45, 45, 45, 0.7);
+            --bg-header: rgba(45, 45, 45, 0.9);
+            --bg-card: #333333;
+            --bg-search: #404040;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-muted: #888888;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --shadow-hover: rgba(0, 0, 0, 0.5);
+            --accent-color: #d4a574;
+            --accent-hover: #c19660;
+            --button-bg: #404040;
+            --button-text: #ffffff;
+            --button-hover: #505050;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            transition: background 0.3s ease;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            background: var(--bg-container);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            transition: background 0.3s ease;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: var(--bg-header);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: 2px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-tab {
+            padding: 8px 20px;
+            border-radius: 20px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tab:hover {
+            background: var(--accent-hover);
+        }
+
+        .nav-tab.inactive {
+            background: transparent;
+            color: var(--text-secondary);
+        }
+
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--button-bg);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--text-primary);
+        }
+
+        .icon-btn:hover {
+            background: var(--button-hover);
+        }
+
+        .theme-toggle {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-hover);
+        }
+
+        .main-content {
+            display: flex;
+            padding: 40px 5%;
+            gap: 40px;
+            flex: 1;
+            min-height: calc(100vh - 80px);
+        }
+
+        .left-section {
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            line-height: 1.2;
+            transition: color 0.3s ease;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            background: var(--bg-search);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .featured-book {
+            background: linear-gradient(135deg, #2d5a5a 0%, #1a3333 100%);
+            border-radius: 15px;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-book::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            pointer-events: none;
+        }
+
+        .badge {
+            background: #f39c12;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .featured-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .featured-author {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .right-section {
+            flex: 2;
+            min-width: 0;
+        }
+
+        .audio-player {
+            background: var(--accent-color);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            color: white;
+            text-align: center;
+        }
+
+        .audio-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .audio-author {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .play-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .play-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .small-btn {
+            width: 30px;
+            height: 30px;
+            font-size: 0.9rem;
+        }
+
+        .books-section {
+            background: var(--bg-card);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .books-section h3 {
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding-bottom: 20px;
+        }
+
+        .book-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px var(--shadow-color);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            width: 100%;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px var(--shadow-hover);
+        }
+
+        .book-cover {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .book-cover.java-1 {
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+        }
+
+        .book-cover.java-2 {
+            background: linear-gradient(135deg, #50c878 0%, #3e9b59 100%);
+        }
+
+        .book-cover.java-3 {
+            background: linear-gradient(135deg, #ff6b6b 0%, #e55252 100%);
+        }
+
+        .book-cover.java-4 {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+        }
+
+        .book-cover.java-5 {
+            background: linear-gradient(135deg, #f39c12 0%, #d68910 100%);
+        }
+
+        .book-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .book-author {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .stars {
+            color: #f39c12;
+            font-size: 0.8rem;
+        }
+
+        .rating-text {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .download-btn {
+            background: var(--button-bg);
+            color: var(--button-text);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .download-btn:hover {
+            background: var(--button-hover);
+            transform: translateY(-1px);
+        }
+
+        .coming-soon-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .coming-soon-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 20px 60px var(--shadow-hover);
+            transform: scale(0.7);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .coming-soon-modal.show .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .modal-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .modal-secondary-btn {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            margin-right: 10px;
+        }
+
+        .modal-secondary-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 3%;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .nav-tabs {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                margin-top: 10px;
+            }
+            
+            .main-content {
+                flex-direction: column;
+                padding: 20px 3%;
+                gap: 20px;
+            }
+            
+            .left-section {
+                max-width: none;
+                min-width: auto;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .books-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: 15px;
+            }
+            
+            .book-card {
+                padding: 15px;
+            }
+            
+            .book-cover {
+                height: 160px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 10px 2%;
+            }
+            
+            .logo {
+                font-size: 1.2rem;
+            }
+            
+            .nav-tab {
+                padding: 6px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .main-content {
+                padding: 15px 2%;
+                gap: 15px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .books-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 12px;
+            }
+            
+            .book-card {
+                padding: 12px;
+            }
+            
+            .book-cover {
+                height: 140px;
+                font-size: 0.8rem;
+            }
+            
+            .book-title {
+                font-size: 0.8rem;
+            }
+            
+            .book-author {
+                font-size: 0.7rem;
+            }
+            
+            .download-btn {
+                padding: 6px 12px;
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .book-card {
+                max-width: 200px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+   <header class="header">
+            <a href="/" class="logo">Java<span>Cracker</span></a>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+             <nav class="nav" id="mobileNav">
+                  <a href="/learn">Learn Java</a>
+                <a href="/questions">Practice Questions</a>
+                <a href="/interviewquestions">Interview Guide</a>
+                <a href="/cheatsheet">Cheat Sheets</a>
+                <a href="/top5books">Top 5 Books</a>
+                <a href="/projects">Projects</a>
+                <a href="/blog">Blog</a>
+            </nav>
+            <div class="auth">
+                   <!-- Custom Switch UI Component from Uiverse.io by elijahgummer -->
+<input type="checkbox" class="theme-checkbox" id="themeToggle" onchange="toggleTheme()" />
+
+                <button class="btn login">Log in</button>
+                <button class="btn signup">Sign up</button>
+            </div>
+            </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Left Section -->
+            <div class="left-section">
+                <h1 class="section-title">New & Trending</h1>
+                <p class="section-subtitle">Explore new worlds from authors</p>
+                
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="Titles, author, or topics">
+                </div>
+
+                <div class="featured-book">
+                    <div class="badge">#1 Book for Start Java</div>
+                    <h3 class="featured-title">Head First Java</h3>
+                    <p class="featured-author">Kathy Sierraa & Bert Bates</p>
+                </div>
+            </div>
+
+            <!-- Right Section -->
+            <div class="right-section">
+               <!--  <div class="audio-player">
+                    <div class="audio-title">Effective Java</div>
+                    <div class="audio-author">Joshua Bloch</div>
+                    <div class="play-controls">
+                        <button class="play-btn small-btn">⏮</button>
+                        <button class="play-btn">⏸</button>
+                        <button class="play-btn small-btn">⏭</button>
+                    </div>
+                </div> -->
+
+                <div class="books-section">
+                    <h3 style="margin-bottom: 20px; color: var(--text-primary); font-size: 1.2rem; font-weight: 600;">Top 5 Java Books</h3>
+                    <div class="books-grid">
+                        <div class="book-card">
+                            <div class="book-cover java-1">
+                                <div><img src="\image\Effective java.jpg" alt=""></div>
+                            </div>
+                            <h4 class="book-title">Effective Java</h4>
+                            <p class="book-author">Joshua Bloch</p>
+                            <div class="rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.8</span>
+                            </div>
+                            <a href="https://drive.google.com/file/d/1POP8JIG_mf9hJpgyaEB_RunqX74l8v87/view?usp=drive_link" target="_blank" class="download-btn" style="text-decoration: none; display: inline-block; text-align: center;">Download</a>
+                        </div>
+
+                        <div class="book-card">
+                            <div class="book-cover java-2">
+                                <div><img src="\image\Thinking_in_java_cover.jpg" alt=""></div>
+                            </div>
+                            <h4 class="book-title">Thinking in java</h4>
+                            <p class="book-author">Bruce Eckel</p>
+                            <div class="rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.7</span>
+                            </div>
+                            <a href="https://drive.google.com/file/d/1ApvNzFmhqezYLQ5UfGL9ME2ku6tMK2Dx/view?usp=drive_link" target="_blank" class="download-btn" style="text-decoration: none; display: inline-block; text-align: center;">Download</a>
+                        </div>
+
+                        <div class="book-card">
+                            <div class="book-cover java-3">
+                                <div><img src="\image\A beginners guide.jpg" alt=""></div>
+                            </div>
+                            <h4 class="book-title">Java A Beginner's Guide</h4>
+                            <p class="book-author">Herbert Schildt</p>
+                            <div class="rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="rating-text">4.6</span>
+                            </div>
+                            <a href="https://drive.google.com/file/d/1jfAc-pmyjrCCGzkY6rGsIXQdhvRr-f3t/view?usp=drive_link" target="_blank" class="download-btn" style="text-decoration: none; display: inline-block; text-align: center;">Download</a>
+                        </div>
+
+                        <div class="book-card">
+                            <div class="book-cover java-4">
+                                <div><img src="\image\Java_-_The_Complete_Reference_Twelfth_Edition_2395.jpg" alt=""></div>
+                            </div>
+                            <h4 class="book-title">Java The Complete Reference</h4>
+                            <p class="book-author">Herbert Schildt</p>
+                            <div class="rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9</span>
+                            </div>
+                            <a href="https://drive.google.com/file/d/13JDG1ET0JcxiG-VpO6PxnOZtTTMIp48p/view?usp=drive_link" target="_blank" class="download-btn" style="text-decoration: none; display: inline-block; text-align: center;">Download</a>
+                        </div>
+
+                        <div class="book-card">
+                            <div class="book-cover java-5">
+                                <div><img src="\image\Head First Java.jpg" alt=""></div>
+                            </div>
+                            <h4 class="book-title">Head First Java</h4>
+                            <p class="book-author">Kathy Sierraa & Bert Bates</p>
+                            <div class="rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="rating-text">4.5</span>
+                            </div>
+                            <a href="https://drive.google.com/file/d/1bue5GAQcxOjBw2GND6nn705Li1HlfQO4/view?usp=drive_link" target="_blank" class="download-btn" style="text-decoration: none; display: inline-block; text-align: center;">Download</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coming Soon Modal -->
+    <div id="comingSoonModal" class="coming-soon-modal">
+        <div class="modal-content">
+            <div class="modal-icon">🚀</div>
+            <h3 class="modal-title">Coming Soon!</h3>
+            <p class="modal-subtitle">We're working hard to bring you this feature. Stay tuned!</p>
+            <div class="modal-buttons">
+                <button class="modal-secondary-btn" onclick="showComingSoon('Notify Me')">Notify Me</button>
+                <button class="modal-close" onclick="hideComingSoon()">Got it!</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme management
+        let currentTheme = localStorage.getItem('theme') || 'light';
+        
+        function initializeTheme() {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            updateThemeButton();
+        }
+        
+        function toggleTheme() {
+            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            localStorage.setItem('theme', currentTheme);
+            updateThemeButton();
+        }
+        
+        function updateThemeButton() {
+            const themeToggle = document.getElementById('themeToggle');
+            if (currentTheme === 'dark') {
+                themeToggle.textContent = '☀️';
+                themeToggle.title = 'Switch to Light Mode';
+            } else {
+                themeToggle.textContent = '🌙';
+                themeToggle.title = 'Switch to Dark Mode';
+            }
+        }
+        
+        // Initialize theme on page load
+        initializeTheme();
+
+        function showComingSoon(feature) {
+            const modal = document.getElementById('comingSoonModal');
+            const modalTitle = modal.querySelector('.modal-title');
+            const modalSubtitle = modal.querySelector('.modal-subtitle');
+            
+            modalTitle.textContent = `${feature} Coming Soon!`;
+            modalSubtitle.textContent = `We're working hard to bring you the ${feature} feature. Stay tuned!`;
+            
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideComingSoon() {
+            const modal = document.getElementById('comingSoonModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        function showActiveTab(tab) {
+            if (tab === 'books') {
+                // Already on books tab - could add some visual feedback
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: var(--accent-color);
+                    color: white;
+                    padding: 15px 20px;
+                    border-radius: 10px;
+                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                    z-index: 1000;
+                    font-weight: 600;
+                    transform: translateX(100%);
+                    transition: transform 0.3s ease;
+                `;
+                notification.textContent = '📚 You are already on the Books page!';
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(0)';
+                }, 100);
+
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 300);
+                }, 2000);
+            }
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('comingSoonModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideComingSoon();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                hideComingSoon();
+            }
+        });
+
+
+
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            const bgColor = type === 'success' ? '#d4a574' : 
+                           type === 'error' ? '#e74c3c' : 
+                           type === 'warning' ? '#f39c12' : '#d4a574';
+            
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${bgColor};
+                color: white;
+                padding: 15px 20px;
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                z-index: 1000;
+                font-weight: 600;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                max-width: 300px;
+                word-wrap: break-word;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    if (document.body.contains(notification)) {
+                        document.body.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        // Play button functionality
+        document.querySelectorAll('.play-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (this.innerHTML === '⏸') {
+                    this.innerHTML = '▶️';
+                } else if (this.innerHTML === '▶️') {
+                    this.innerHTML = '⏸';
+                }
+            });
+        });
+
+        // Search functionality
+        document.querySelector('.search-input').addEventListener('input', function() {
+            if (this.value.toLowerCase().includes('java')) {
+                document.querySelector('.books-section').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,3323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java Cracker - Java Interview Preparation</title>
+<style>
+:root {
+    --bg-color: #f0f2f5;
+    --paper-bg: #ffffff;
+    --text-color: #333333;
+    --border-color: #ddd;
+    --accent-color: #007bff;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --paper-bg: #2d2d2d;
+    --text-color: #e0e0e0;
+    --border-color: #404040;
+    --accent-color: #4a9eff;
+    --shadow: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+/* Paper Style */
+.paper-container {
+    width: 100%;
+    padding: 0;
+}
+
+.paper-sheet {
+    background: var(--paper-bg);
+    margin: 0;
+    padding: 3rem;
+    min-height: 100vh;
+    position: relative;
+    background-image: 
+        repeating-linear-gradient(
+            transparent,
+            transparent 24px,
+            var(--border-color) 24px,
+            var(--border-color) 25px
+        );
+    background-size: 100% 25px;
+    background-position: 0 40px;
+}
+
+.paper-sheet::before {
+    content: '';
+    position: absolute;
+    left: 60px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #ff6b6b;
+    opacity: 0.6;
+}
+
+.paper-holes {
+    position: absolute;
+    left: 25px;
+    top: 0;
+    bottom: 0;
+    width: 10px;
+}
+
+.paper-hole {
+    width: 8px;
+    height: 8px;
+    background: var(--bg-color);
+    border-radius: 50%;
+    position: absolute;
+    border: 1px solid var(--border-color);
+}
+
+.paper-hole:nth-child(1) { top: 80px; }
+.paper-hole:nth-child(2) { top: 160px; }
+.paper-hole:nth-child(3) { top: 240px; }
+.paper-hole:nth-child(4) { top: 320px; }
+.paper-hole:nth-child(5) { top: 400px; }
+
+.question-item {
+    margin: 2rem 0;
+    padding-left: 80px;
+    position: relative;
+    z-index: 1;
+}
+
+.question-number {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.question-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.answer-text {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+/* Mobile Responsive for Paper Only */
+@media (max-width: 768px) {
+    .paper-sheet {
+        padding: 2rem 1rem;
+        min-height: 100vh;
+    }
+
+    .paper-sheet::before {
+        left: 40px;
+    }
+
+    .paper-holes {
+        left: 15px;
+    }
+
+    .question-item {
+        padding-left: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .paper-sheet {
+        padding: 1.5rem 0.5rem;
+        min-height: 100vh;
+    }
+
+    .question-item {
+        padding-left: 40px;
+    }
+
+    .paper-sheet::before {
+        left: 30px;
+    }
+
+    .paper-holes {
+        left: 10px;
+    }
+}
+</style>
+             <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="container">
+    <div class="content-wrapper">
+        <header class="header">
+            <a href="/" class="logo">Java<span>Cracker</span></a>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            <nav class="nav" id="mobileNav">
+                 <a href="/learn">Learn Java</a>
+                <a href="/questions">Practice Questions</a>
+                <a href="/interviewquestions">Interview Guide</a>
+                <a href="/cheatsheet">Cheat Sheets</a>
+                <a href="/top5books">Top 5 Books</a>
+                <a href="/projects">Projects</a>
+                <a href="/blog">Blog</a>
+            </nav>
+            <div class="auth">
+                <input type="checkbox" class="theme-checkbox" id="themeToggle" onchange="toggleTheme()" />
+                <button class="btn login">Log in</button>
+                <button class="btn signup">Sign up</button>
+            </div>
+        </header>
+
+        <div class="paper-container">
+            <div class="paper-sheet">
+                <div class="paper-holes">
+                    <div class="paper-hole"></div>
+                    <div class="paper-hole"></div>
+                    <div class="paper-hole"></div>
+                    <div class="paper-hole"></div>
+                    <div class="paper-hole"></div>
+                </div>
+                
+               <div class="question-container">
+    <!-- Questions 1-10 -->
+    <div class="question-item">
+        <div class="question-number">1. What is the difference between JDK and JRE, JVM and JIT Compiler?</div>
+        <div class="answer-text">
+            JDK (Java Development Kit) is the complete development environment including JRE plus development tools. JRE (Java Runtime Environment) includes JVM and libraries needed to run Java applications. JVM (Java Virtual Machine) executes bytecode. JIT (Just-In-Time) compiler is part of JVM that improves performance by compiling bytecode to native machine code at runtime.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">2. What is Java Virtual Machine (JVM)?</div>
+        <div class="answer-text">
+            JVM is an abstract computing machine that provides runtime environment to execute Java bytecode. It converts Java bytecode into machine language and executes it. JVM is platform dependent and performs memory management, garbage collection, and security.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">3. What are the different types of memory areas allocated by JVM?</div>
+        <div class="answer-text">
+            JVM allocates memory in: 1) Method Area (class structures), 2) Heap (objects), 3) Java Stacks (thread execution), 4) PC Registers (thread instruction pointers), and 5) Native Method Stacks (native method calls).
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">4. What is JIT compiler?</div>
+        <div class="answer-text">
+            JIT (Just-In-Time) compiler is part of JVM that improves Java performance by compiling bytecode to native machine code at runtime. It compiles frequently executed code paths (hot spots) to native code for faster execution.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">5. How Java platform is different from other platforms?</div>
+        <div class="answer-text">
+            Java platform is software-only platform that runs on top of hardware platforms. Unlike other platforms that are either hardware or OS, Java platform consists of JVM and Java API, providing "write once, run anywhere" capability.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">6. What is platform independency in java?</div>
+        <div class="answer-text">
+            Platform independency means Java programs can run on any platform without recompilation. This is achieved by compiling Java code to bytecode (platform-neutral) which is then interpreted by JVM (platform-specific).
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">7. How many class loaders in java?</div>
+        <div class="answer-text">
+            Java has three built-in class loaders: 1) Bootstrap ClassLoader (loads core Java classes), 2) Extension ClassLoader (loads extension classes), and 3) Application/System ClassLoader (loads application classes from classpath).
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">8. What is delegation Hierarchy Algorithm?</div>
+        <div class="answer-text">
+            The delegation hierarchy algorithm is the process where a class loader delegates class loading request to its parent before attempting to load the class itself. This ensures core Java classes cannot be overridden by application classes.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">9. Can we write main method as public void static instead of public static void?</div>
+        <div class="answer-text">
+            No, the main method must be declared as "public static void main(String[] args)". The order of "static" and "void" cannot be changed as it's part of Java language specification for the entry point of a program.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">10. In Java, if we do not specify any value for local variables, then what will be the default value of the local variables?</div>
+        <div class="answer-text">
+            Local variables in Java don't have default values. They must be initialized before use. Unlike instance variables (which get default values like 0, null, false), using an uninitialized local variable causes compile-time error.
+        </div>
+    </div>
+
+    <!-- Questions 11-20 -->
+    <div class="question-item">
+        <div class="question-number">11. Let say, we run a java class without passing any arguments. What will be the value of String array of arguments in Main method?</div>
+        <div class="answer-text">
+            The String array will not be null, but it will be empty (length 0). Java always creates the args array even when no arguments are passed.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">12. What is the difference between byte and char data types in Java?</div>
+        <div class="answer-text">
+            byte is a signed 8-bit integer (-128 to 127), while char is an unsigned 16-bit Unicode character (0 to 65535). byte is used for raw binary data, char for text characters.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">13. Ascending order of numeric data types?</div>
+        <div class="answer-text">
+            byte (8-bit) < short (16-bit) < int (32-bit) < long (64-bit) < float (32-bit floating) < double (64-bit floating)
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">14. Can I take multi classes in single java file?</div>
+        <div class="answer-text">
+            Yes, but only one class can be public and must match the filename. Other classes can be package-private (no access modifier) and used within the same file.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">15. OOPS</div>
+        <div class="answer-text">
+            OOPS stands for Object-Oriented Programming System. It's a programming paradigm based on objects containing data (attributes) and behavior (methods), with principles like encapsulation, inheritance, polymorphism, and abstraction.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">16. What are the main principles of Object Oriented Programming?</div>
+        <div class="answer-text">
+            The four main principles are: 1) Encapsulation (data hiding), 2) Inheritance (code reuse), 3) Polymorphism (many forms), and 4) Abstraction (hiding complexity).
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">17. What is the difference between Object Oriented Programming language and Object Based Programming language?</div>
+        <div class="answer-text">
+            Object-Oriented languages support all OOP principles (inheritance, polymorphism, etc.), while Object-Based languages support objects but lack inheritance and polymorphism (e.g., JavaScript before ES6).
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">18. In Java what is the default value of an object reference defined as an instance variable in an Object?</div>
+        <div class="answer-text">
+            The default value is null for all object references (non-primitive types). For primitive instance variables: numeric types default to 0, boolean to false, char to '\u0000'.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">19. Why do we need constructor in Java?</div>
+        <div class="answer-text">
+            Constructors are needed to: 1) Initialize object state, 2) Allocate resources, 3) Set default values, 4) Perform validation, and 5) Provide different ways to create objects (overloading).
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">20. Why do we need default constructor in Java classes?</div>
+        <div class="answer-text">
+            Default constructor (no-arg) is needed when: 1) No other constructors are defined, 2) Framework requires it (e.g., JPA, Spring), 3) For subclass instantiation, 4) Reflection API uses it to create instances.
+        </div>
+    </div>
+
+    <!-- Questions 21-30 -->
+    <div class="question-item">
+        <div class="question-number">21. What is the value returned by Constructor in Java?</div>
+        <div class="answer-text">
+            Constructors don't return any value (not even void). They implicitly return the newly created instance of the class. The 'new' keyword handles the assignment of the returned object reference.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">22. Can we inherit a Constructor?</div>
+        <div class="answer-text">
+            No, constructors are not inherited in Java. Each subclass must define its own constructors, though it can call superclass constructors using super().
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">23. Why constructors cannot be final, static, or abstract in Java?</div>
+        <div class="answer-text">
+            Constructors cannot be: final (they initialize objects, no overriding needed), static (they create instance-specific objects), or abstract (they must have implementation to create objects).
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">24. What is the purpose of 'this' keyword in java?</div>
+        <div class="answer-text">
+            'this' refers to the current object instance. It's used to: 1) Differentiate instance variables from parameters, 2) Call other constructors (this()), 3) Pass current object as parameter, 4) Return current object.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">25. Explain the concept of a static variable. How is it different from an instance variable?</div>
+        <div class="answer-text">
+            Static variable: Class-level, shared by all instances, loaded when class loads. Instance variable: Per-object state, each instance has its own copy. Static variables use less memory but can cause thread-safety issues.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">26. Explain the concept of Inheritance?</div>
+        <div class="answer-text">
+            Inheritance allows a class (subclass) to acquire properties and behaviors of another class (superclass). It enables code reuse and polymorphism. In Java, it's achieved using 'extends' keyword (single inheritance for classes).
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">27. Which class in Java is superclass of every other class?</div>
+        <div class="answer-text">
+            Object class (java.lang.Object) is the superclass of all classes in Java, either directly or indirectly. It provides basic methods like equals(), hashCode(), toString(), etc.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">28. Why Java does not support multiple inheritance?</div>
+        <div class="answer-text">
+            Java avoids multiple inheritance of classes to prevent the "diamond problem" (ambiguity when same method exists in multiple parent classes). Instead, it supports multiple interface inheritance.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">29. In OOPS, what is meant by composition?</div>
+        <div class="answer-text">
+            Composition is a "has-a" relationship where a class contains references to other objects. It provides stronger encapsulation than inheritance and allows runtime behavior changes by changing component objects.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">30. How aggregation and composition are different concepts?</div>
+        <div class="answer-text">
+            Both are "has-a" relationships. Composition: Strong relationship, child can't exist without parent (e.g., Room in House). Aggregation: Weak relationship, child can exist independently (e.g., Student in School).
+        </div>
+    </div>
+
+    <!-- Questions 31-40 -->
+    <div class="question-item">
+        <div class="question-number">31. Why there are no pointers in Java?</div>
+        <div class="answer-text">
+            Java doesn't have explicit pointers to: 1) Ensure security by preventing memory access violations, 2) Simplify memory management with garbage collection, 3) Make language more robust and less prone to errors.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">32. What is encapsulation in Java, and why is it considered a fundamental principle of object-oriented programming?</div>
+        <div class="answer-text">
+            Encapsulation is bundling data (variables) and code (methods) together while hiding implementation details. It's fundamental because: 1) Protects object integrity, 2) Reduces complexity, 3) Allows flexible implementation changes, 4) Improves maintainability.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">33. What is the purpose of 'super' keyword in java?</div>
+        <div class="answer-text">
+            'super' is used to: 1) Call superclass constructor (super()), 2) Access superclass methods/fields when overridden in subclass, 3) Resolve naming conflicts between superclass and subclass members.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">34. Is it possible to use this() and super() both in same constructor?</div>
+        <div class="answer-text">
+            No, they must be the first statement in a constructor, so only one can be used. this() calls another constructor in same class, super() calls parent class constructor.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">35. What is the meaning of object cloning in Java?</div>
+        <div class="answer-text">
+            Object cloning creates an exact copy of an object. It's achieved by implementing Cloneable interface and overriding clone() method. Shallow copy (default) copies field values, deep copy creates new objects for reference fields.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">36. In Java, why do we use static variable?</div>
+        <div class="answer-text">
+            Static variables are used for: 1) Class-level constants (final static), 2) Sharing data across all instances, 3) Maintaining count of instances, 4) Utility methods that don't need instance state.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">37. Why it is not a good practice to create static variables in Java?</div>
+        <div class="answer-text">
+            Overusing static variables can: 1) Cause thread-safety issues, 2) Make code harder to test (global state), 3) Reduce flexibility (tight coupling), 4) Increase memory usage (live for application lifetime).
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">38. What is the purpose of static method in Java?</div>
+        <div class="answer-text">
+            Static methods are used for: 1) Utility/helper functions (Math.sqrt()), 2) Factory methods, 3) Operations that don't need instance state, 4) Main method entry point. They can be called without creating an instance.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">39. Why do we mark main method as static in Java?</div>
+        <div class="answer-text">
+            main() is static because: 1) It needs to be called before any objects exist, 2) JVM can call it without creating an instance, 3) It serves as the entry point that's independent of object state.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">40. In what scenario do we use a static block?</div>
+        <div class="answer-text">
+            Static blocks are used for: 1) Initializing static variables that need complex logic, 2) Loading native libraries, 3) One-time class initialization tasks, 4) Setting up static resources before any instance is created.
+        </div>
+    </div>
+
+    <!-- Questions 41-50 -->
+    <div class="question-item">
+        <div class="question-number">41. Is it possible to execute a program without defining a main() method?</div>
+        <div class="answer-text">
+            Prior to Java 7, yes using static blocks (but program exits after). From Java 7 onwards, main() is strictly required for application execution. Applets/servlets have different entry points.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">42. What happens when static modifier is not mentioned in the signature of main method?</div>
+        <div class="answer-text">
+            The program will compile but won't run. JVM looks specifically for "public static void main(String[])" as the entry point. Non-static main would require an instance, but JVM can't create one before calling main.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">43. What is the difference between static method and instance method in Java?</div>
+        <div class="answer-text">
+            Static methods: Belong to class, called via ClassName.method(), can only access static members. Instance methods: Belong to objects, called via instance.method(), can access both instance and static members.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">44. What is the other name of Method Overloading?</div>
+        <div class="answer-text">
+            Method overloading is also called compile-time polymorphism or static polymorphism because the method to call is determined at compile time based on arguments.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">45. How will you implement method overloading in Java?</div>
+        <div class="answer-text">
+            Method overloading is implemented by: 1) Different number of parameters, 2) Different parameter types, 3) Different parameter order. Methods must have same name but different parameter lists.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">46. What kinds of argument variations are allowed in Method Overloading?</div>
+        <div class="answer-text">
+            Allowed variations: 1) Number of parameters, 2) Parameter types, 3) Parameter order. Not allowed: 1) Just return type change, 2) Just parameter names change, 3) Just exception list change.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">47. Why it is not possible to do method overloading by changing return type of method in java?</div>
+        <div class="answer-text">
+            Because method calls can ignore return values ("method();"), making calls ambiguous. The compiler wouldn't know which method to call when return type is the only difference.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">48. Is it allowed to overload main() method in Java?</div>
+        <div class="answer-text">
+            Yes, main() can be overloaded like any other method. However, only "public static void main(String[])" is called by JVM. Other overloaded versions must be called explicitly.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">49. How do we implement method overriding in Java?</div>
+        <div class="answer-text">
+            Method overriding requires: 1) Inheritance relationship, 2) Same method signature (name, parameters, return type), 3) Subclass method cannot be more restrictive (access modifier), 4) @Override annotation recommended.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">50. Are we allowed to override a static method in Java?</div>
+        <div class="answer-text">
+            No, static methods cannot be overridden - they can only be hidden (redefined in subclass). This is because static methods are bound at compile time (static binding) while instance methods use runtime binding.
+        </div>
+    </div>
+
+    <!-- Questions 51-60 -->
+    <div class="question-item">
+        <div class="question-number">51. Why Java does not allow overriding a static method?</div>
+        <div class="answer-text">
+            Static methods belong to the class, not instances, so they're resolved at compile time (static binding). Overriding depends on runtime polymorphism which requires instance methods (dynamic binding).
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">52. Is it allowed to override an overloaded method?</div>
+        <div class="answer-text">
+            Yes, an overloaded method (same name, different parameters) can be overridden in a subclass if it meets overriding rules. Overloading and overriding are independent concepts.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">53. What is the difference between method overloading and method overriding in Java?</div>
+        <div class="answer-text">
+            Overloading: Same class, same name, different parameters, compile-time binding. Overriding: Subclass, same signature, runtime binding. Overloading adds methods, overriding changes behavior.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">54. Does Java allow virtual functions?</div>
+        <div class="answer-text">
+            All non-static, non-private methods in Java are virtual by default (can be overridden). To prevent overriding: 1) Make method final, 2) Make class final, 3) Use private/static modifier.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">55. What is meant by covariant return type in Java?</div>
+        <div class="answer-text">
+            Covariant return allows overriding method to return a subtype of the original return type. Introduced in Java 5, it enables more specific return types in overridden methods.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">56. What is Runtime Polymorphism?</div>
+        <div class="answer-text">
+            Runtime polymorphism (dynamic method dispatch) is when JVM determines which method to call at runtime based on actual object type (not reference type). Achieved through method overriding.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">57. Is it possible to achieve Runtime Polymorphism by data members in Java?</div>
+        <div class="answer-text">
+            No, polymorphism applies only to methods, not fields. Field access is always resolved at compile time based on reference type (static binding), regardless of actual object type.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">58. Explain the difference between static and dynamic binding?</div>
+        <div class="answer-text">
+            Static binding (compile-time): Resolved using reference type (fields, static methods, private/final methods). Dynamic binding (runtime): Resolved using actual object type (overridden instance methods).
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">59. What is Abstraction in Object Oriented programming?</div>
+        <div class="answer-text">
+            Abstraction is hiding complex implementation details and showing only essential features. In Java, achieved via abstract classes (partial abstraction) and interfaces (full abstraction).
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">60. How is Abstraction different from Encapsulation?</div>
+        <div class="answer-text">
+            Abstraction focuses on hiding complexity and showing essentials (what). Encapsulation focuses on bundling data and methods while restricting access (how). Abstraction is achieved through encapsulation.
+        </div>
+    </div>
+
+    <!-- Questions 61-70 -->
+    <div class="question-item">
+        <div class="question-number">61. What is an abstract class in Java?</div>
+        <div class="answer-text">
+            An abstract class: 1) Can't be instantiated, 2) May contain abstract methods (no body), 3) Can have concrete methods, 4) Used as base class, 5) Subclasses must implement abstract methods unless they're also abstract.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">62. Is it allowed to mark a method abstract method without marking the class abstract?</div>
+        <div class="answer-text">
+            No, if a class has any abstract methods, the class itself must be declared abstract. Only abstract classes can contain abstract methods (except for interface methods which are implicitly abstract).
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">63. Is it allowed to mark a method abstract as well as final?</div>
+        <div class="answer-text">
+            No, these modifiers conflict. abstract requires the method to be overridden, final prevents overriding. The compiler will give an error if both are used together.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">64. Can we instantiate an abstract class in Java?</div>
+        <div class="answer-text">
+            No, we cannot directly instantiate an abstract class. But we can: 1) Create anonymous subclass instances, 2) Instantiate concrete subclasses, 3) Use factory methods that return subclass instances.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">65. What is an interface in Java?</div>
+        <div class="answer-text">
+            An interface is a reference type that contains: 1) Abstract methods (implicitly public abstract), 2) Default methods (Java 8+), 3) Static methods (Java 8+), 4) Constant variables (public static final). It defines a contract.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">66. Is it allowed to mark an interface method as static?</div>
+        <div class="answer-text">
+            Yes, since Java 8 interfaces can have static methods. These methods belong to the interface (not implementing classes) and must have a body. They're called via InterfaceName.method().
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">67. Why an Interface cannot be marked as final in Java?</div>
+        <div class="answer-text">
+            final means cannot be extended, but the whole purpose of interfaces is to be implemented by classes. Making an interface final would make it useless as it couldn't be implemented.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">68. What is a marker interface?</div>
+        <div class="answer-text">
+            A marker interface is an empty interface used to mark classes with special meaning (e.g., Serializable, Cloneable). It provides runtime type information but no methods. Largely replaced by annotations now.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">69. What can we use instead of Marker interface?</div>
+        <div class="answer-text">
+            Annotations (introduced in Java 5) are the preferred alternative to marker interfaces. They provide more flexibility and can include metadata. Examples: @Override, @Deprecated, custom annotations.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">70. How Annotations are better than Marker Interfaces?</div>
+        <div class="answer-text">
+            Annotations are better because: 1) Can have parameters, 2) More flexible application (@Target), 3) Better tooling support, 4) Don't affect class hierarchy, 5) Can be processed at compile time.
+        </div>
+    </div>
+
+    <!-- Questions 71-80 -->
+    <div class="question-item">
+        <div class="question-number">71. What is the difference between abstract class and interface in Java?</div>
+        <div class="answer-text">
+            Abstract class: Can have state (fields), constructors, any access modifiers. Interface: No state (only constants), no constructors, all methods public. Since Java 8: interfaces can have default/static methods.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">72. Does Java allow us to use private and protected modifiers for variables in interfaces?</div>
+        <div class="answer-text">
+            No, all interface variables are implicitly public static final (constants). All methods are public. Since Java 9: private methods are allowed (for helper methods in default methods).
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">73. How can we cast to an object reference to an interface reference?</div>
+        <div class="answer-text">
+            If the object's class implements the interface, you can cast directly: Interface i = (Interface)object;. If unsure, use instanceof check first. ClassCastException occurs if object doesn't implement interface.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">74. How can you change the value of a final variable in Java?</div>
+        <div class="answer-text">
+            Normally final variables cannot be changed. Exceptions: 1) Blank final variables can be initialized once in constructor, 2) Final object references can have their internal state changed (not the reference itself).
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">75. Can a class be marked final in Java?</div>
+        <div class="answer-text">
+            Yes, a final class cannot be extended (no subclasses). Examples from Java API: String, Integer, Double etc. Reasons to make class final: 1) Security, 2) Immutability, 3) Prevent behavior changes.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">76. How can we create a final method in Java?</div>
+        <div class="answer-text">
+            Add final modifier to method: "public final void method()". Final methods cannot be overridden by subclasses. Used to: 1) Prevent behavior changes, 2) Allow compiler optimizations, 3) Security critical methods.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">77. How can we prohibit inheritance in Java?</div>
+        <div class="answer-text">
+            Three ways: 1) Declare class as final, 2) Make all constructors private, 3) Use sealed classes (Java 17+). Final is most common approach.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">78. Why Integer class in final in Java?</div>
+        <div class="answer-text">
+            Integer is final to: 1) Ensure immutability (critical for caching, thread-safety), 2) Maintain consistent behavior (e.g., == comparison), 3) Security (prevent malicious subclassing), 4) Allow JVM optimizations.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">79. What is a blank final variable in Java?</div>
+        <div class="answer-text">
+            A final variable declared without initialization. Must be initialized exactly once before use: 1) In constructor (instance variables), 2) In static block (static variables), 3) At declaration.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">80. How can we initialize a blank final variable?</div>
+        <div class="answer-text">
+            Instance blank finals: Initialize in constructor. Static blank finals: Initialize in static block. Local blank finals: Must be initialized before use. All must be initialized exactly once.
+        </div>
+    </div>
+
+    <!-- Questions 81-90 -->
+    <div class="question-item">
+        <div class="question-number">81. Is it allowed to declare main method as final?</div>
+        <div class="answer-text">
+            Yes, you can declare main method as final (e.g., "public static final void main(String[])"). It doesn't affect program execution since main() isn't overridden anyway. However, it's unconventional.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">82. What is the purpose of package in Java?</div>
+        <div class="answer-text">
+            Packages are used to: 1) Organize related classes, 2) Prevent naming conflicts, 3) Control access (package-private), 4) Provide namespace management, 5) Enable package-level documentation and annotations.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">83. What is java.lang package?</div>
+        <div class="answer-text">
+            java.lang is the most fundamental package, automatically imported. Contains core classes like: Object, String, System, Math, wrapper classes (Integer), exceptions, and threading classes.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">84. Which is the most important class in Java?</div>
+        <div class="answer-text">
+            Object class (java.lang.Object) is most important as it's the root of class hierarchy. Provides basic methods like: equals(), hashCode(), toString(), clone(), finalize(), getClass() etc.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">85. Is it mandatory to import java.lang package every time?</div>
+        <div class="answer-text">
+            No, java.lang is automatically imported by the compiler for all Java programs. Its classes (String, System, Object etc.) can be used directly without explicit import.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">86. Can you import same package or class twice in your class?</div>
+        <div class="answer-text">
+            Yes, but redundant imports are ignored by compiler. Multiple imports of same class/package don't cause errors but are unnecessary. Modern IDEs typically optimize imports to remove duplicates.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">87. What is a static import in Java?</div>
+        <div class="answer-text">
+            Static import (since Java 5) allows using static members (methods/fields) without class qualification. Syntax: "import static package.Class.*;" or "import static package.Class.member;". Use sparingly to avoid confusion.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">88. What is the difference between import static com.test.Foo class and import com.test.Foo class?</div>
+        <div class="answer-text">
+            import com.test.Foo: Imports class Foo for normal use (Foo.method()). import static com.test.Foo: Imports static members of Foo to use directly (method() instead of Foo.method()).
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">89. What is Locale in Java?</div>
+        <div class="answer-text">
+            Locale (java.util.Locale) represents a specific geographical, political, or cultural region. Used for internationalization (i18n) to format dates, numbers, currencies etc. according to regional conventions.
+        </div>
+    </div>
+
+    <div class="question-item">
+        <div class="question-number">90. How will you use a specific Locale in Java?</div>
+        <div class="answer-text">
+            Create Locale object: 1) new Locale("en", "US"), 2) Locale.US (predefined). Use with formatters: NumberFormat.getInstance(Locale.FRANCE), DateFormat
+
+            </div>
+        </div>
+        
+        <!-- Questions 91-100 -->
+<div class="question-item">
+    <div class="question-number">91. What is serialization?</div>
+    <div class="answer-text">
+        Serialization is the process of converting an object's state (including its data and relationships) into a byte stream that can be persisted to storage or transmitted across a network.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">92. What is the purpose of serialization?</div>
+    <div class="answer-text">
+        Serialization enables: 1) Object persistence, 2) Network transmission of objects, 3) Deep copying of objects, 4) Communication between JVMs, 5) Storing session data in web applications.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">93. What is Deserialization?</div>
+    <div class="answer-text">
+        Deserialization is the reverse process of serialization - reconstructing an object from its byte stream representation, restoring it to its original state in memory.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">94. What is Serialization and Deserialization conceptually?</div>
+    <div class="answer-text">
+        Conceptually, serialization is like packing an object for storage/transit, while deserialization is unpacking it. It allows objects to outlive the JVM process that created them.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">95. Why do we mark a data member transient?</div>
+    <div class="answer-text">
+        We mark fields as transient to exclude them from serialization when: 1) They contain sensitive data, 2) They're derived/calculated fields, 3) They're runtime-specific (like file handles or threads).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">96. Is it allowed to mark a method as transient?</div>
+    <div class="answer-text">
+        No, transient is only applicable to instance variables. Methods are not part of an object's serialized state, so marking methods transient would be meaningless and causes a compiler error.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">97. How does marking a field as transient makes it possible to serialize an object?</div>
+    <div class="answer-text">
+        By marking non-serializable fields as transient, we allow the rest of the object to be serialized. During deserialization, transient fields get default values (null, 0, false) unless custom readObject() is implemented.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">98. What is Externalizable interface in Java?</div>
+    <div class="answer-text">
+        Externalizable extends Serializable and provides two methods (writeExternal() and readExternal()) for complete control over serialization process, unlike default Java serialization.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">99. What is the difference between Serializable and Externalizable interface?</div>
+    <div class="answer-text">
+        Serializable: Automatic serialization, uses reflection, slower. Externalizable: Manual control, must implement methods, faster, more flexible. Serializable is marker interface, Externalizable has methods.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">100. What is Reflection in Java?</div>
+    <div class="answer-text">
+        Reflection is an API that allows inspection and modification of class structure/behavior at runtime. It can examine fields, methods, constructors, and create objects/invoke methods dynamically.
+    </div>
+</div>
+
+<!-- Questions 101-110 -->
+<div class="question-item">
+    <div class="question-number">101. What are the uses of Reflection in Java?</div>
+    <div class="answer-text">
+        Reflection is used for: 1) IDE features, 2) Debuggers, 3) Testing frameworks, 4) Dependency injection, 5) Class browsers, 6) Serialization, 7) ORM frameworks, 8) Dynamic proxies.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">102. How can we access private method of a class from outside the class?</div>
+    <div class="answer-text">
+        Using Reflection: getDeclaredMethod() then setAccessible(true). This bypasses access control but requires SecurityManager permission. Generally discouraged except for testing frameworks.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">103. How can we create an Object dynamically at Runtime in Java?</div>
+    <div class="answer-text">
+        Using Class.newInstance() or Constructor.newInstance() via Reflection. Also possible through: 1) Cloning, 2) Deserialization, 3) Factory patterns, 4) Dependency injection containers.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">104. What is Garbage Collection in Java?</div>
+    <div class="answer-text">
+        Garbage Collection is JVM's automatic memory management that reclaims memory occupied by unreachable objects. It prevents memory leaks and manual memory management errors.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">105. Why Java provides Garbage Collector?</div>
+    <div class="answer-text">
+        To: 1) Automate memory management, 2) Prevent memory leaks, 3) Avoid dangling pointers, 4) Reduce programmer burden, 5) Improve program safety and reliability.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">106. What is the purpose of gc() in Java?</div>
+    <div class="answer-text">
+        System.gc() suggests JVM to run garbage collection, but doesn't guarantee it. It's a hint that more memory might be available if GC runs. Generally should be avoided in production code.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">107. How does Garbage Collection work in Java?</div>
+    <div class="answer-text">
+        GC works by: 1) Marking reachable objects (from GC roots), 2) Sweeping unreachable objects, 3) Compacting memory (optional). Modern JVMs use generational collection with different algorithms (Mark-Sweep, Mark-Compact, Copying).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">108. When does an object become eligible for Garbage Collection in Java?</div>
+    <div class="answer-text">
+        When: 1) No references point to it, 2) All references are null, 3) Reference is only from other garbage objects, 4) Weak/Soft/Phantom references aren't preventing collection, 5) It's in an isolated island of objects.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">109. Why do we use finalize() method in Java?</div>
+    <div class="answer-text">
+        finalize() is called before GC reclaims an object, allowing cleanup of non-memory resources (like file handles). However, it's unreliable (may never be called) and deprecated since Java 9 (use Cleaner instead).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">110. What are the different types of References in Java?</div>
+    <div class="answer-text">
+        1) Strong (normal references), 2) Soft (cleared when memory is low), 3) Weak (cleared when GC runs), 4) Phantom (enqueued after finalization). Soft/Weak/Phantom are in java.lang.ref package.
+    </div>
+</div>
+
+<!-- Questions 111-120 -->
+<div class="question-item">
+    <div class="question-number">111. How can we reference an unreferenced object again?</div>
+    <div class="answer-text">
+        Once an object is unreachable, it cannot be referenced again normally. However, during finalize(), the object can make itself reachable again by assigning 'this' to a static field (object resurrection), though this is bad practice.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">112. What kind of process is the Garbage collector thread?</div>
+    <div class="answer-text">
+        GC runs in a daemon thread (for most collectors). It's typically low-priority but can become high-priority when memory is low. Modern JVMs have sophisticated multi-threaded collectors (like G1, ZGC).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">113. What is the purpose of the Runtime class?</div>
+    <div class="answer-text">
+        Runtime provides: 1) Interface to JVM environment, 2) Memory management (gc(), totalMemory()), 3) Process execution (exec()), 4) Shutdown hooks, 5) Debugging info. Singleton accessed via Runtime.getRuntime().
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">114. How can we invoke an external process in Java?</div>
+    <div class="answer-text">
+        Using Runtime.exec() or ProcessBuilder. ProcessBuilder is preferred (since Java 5) as it provides better control over environment, working directory, and I/O streams.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">115. What are the uses of Runtime class?</div>
+    <div class="answer-text">
+        Runtime is used for: 1) Running external processes, 2) Getting memory stats, 3) Adding shutdown hooks, 4) Forcing GC, 5) Getting available processors, 6) Loading dynamic libraries.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">116. What is a Nested class?</div>
+    <div class="answer-text">
+        A class defined within another class. Types: 1) Static nested class, 2) Inner class (non-static), 3) Local class (in method), 4) Anonymous class. Improves encapsulation and organization.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">117. How many types of Nested classes are in Java?</div>
+    <div class="answer-text">
+        Four types: 1) Static nested classes, 2) Non-static inner classes, 3) Local classes (defined in methods/blocks), 4) Anonymous classes (unnamed one-time use classes).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">118. Why do we use Nested Classes?</div>
+    <div class="answer-text">
+        To: 1) Group related classes, 2) Increase encapsulation, 3) Improve readability, 4) Access outer class members, 5) Create helper classes, 6) Implement callbacks, 7) Reduce namespace pollution.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">119. What is the difference between a Nested class and an Inner class in Java?</div>
+    <div class="answer-text">
+        "Nested class" is umbrella term for all classes defined within another class. "Inner class" specifically means non-static nested class that has access to outer class instance members.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">120. What is a Nested interface?</div>
+    <div class="answer-text">
+        An interface defined within another class or interface. By default static (even without keyword). Used to group related interfaces and improve encapsulation. Example: Map.Entry in Java Collections.
+    </div>
+</div>
+
+<!-- Questions 121-130 -->
+<div class="question-item">
+    <div class="question-number">121. How can we access the non-final local variable, inside a Local Inner class?</div>
+    <div class="answer-text">
+        Since Java 8, local variables accessed in inner classes only need to be effectively final (not necessarily declared final). The value cannot be changed after initialization.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">122. Can an Interface be defined in a Class?</div>
+    <div class="answer-text">
+        Yes, interfaces can be nested inside classes (static by default). Example: class Outer { interface Nested { } }. The interface can be public, private, or package-private.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">123. Do we have to explicitly mark a Nested Interface public static?</div>
+    <div class="answer-text">
+        No, nested interfaces are implicitly static (whether declared inside class or another interface). The static modifier can be included but is redundant. Access modifiers are optional.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">124. Why do we use Static Nested interface in Java?</div>
+    <div class="answer-text">
+        Static nested interfaces are used to: 1) Group related interfaces, 2) Improve encapsulation, 3) Provide namespace separation, 4) Create helper interfaces, 5) Implement design patterns like Builder.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">125. What is the meaning of Immutable in the context of String class in Java?</div>
+    <div class="answer-text">
+        Immutable means String objects cannot be changed after creation. Any modification creates a new String. This ensures thread-safety, security in class loading, and enables string pooling.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">126. Why a String object is considered immutable in java?</div>
+    <div class="answer-text">
+        Strings are immutable because: 1) Security (prevent tampering), 2) Thread-safety, 3) Caching (string pool), 4) Hashcode caching, 5) Class loading safety, 6) Performance optimization.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">127. How many objects does following code create? String s = new String("hello");</div>
+    <div class="answer-text">
+        Creates 2 objects: 1) String literal "hello" in string pool (if not already present), 2) New String object in heap via constructor. The reference 's' points to the heap object.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">128. How many ways are there in Java to create a String object?</div>
+    <div class="answer-text">
+        Main ways: 1) String literals (String s = "hello";), 2) new keyword (String s = new String("hello");), 3) char arrays, 4) StringBuffer/StringBuilder, 5) Concatenation (+ operator), 6) valueOf() methods.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">129. How many objects does following code create? String s1 = "hello"; String s2 = "hello";</div>
+    <div class="answer-text">
+        Creates 1 object. Both references point to the same "hello" literal in string pool. JVM reuses string literals to optimize memory usage.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">130. What is String interning?</div>
+    <div class="answer-text">
+        String interning is JVM's optimization that stores only one copy of each distinct string literal in string pool. intern() method adds runtime strings to pool. Saves memory for duplicate strings.
+    </div>
+</div>
+
+<!-- Questions 131-140 -->
+<div class="question-item">
+    <div class="question-number">131. Why Java uses String literal concept?</div>
+    <div class="answer-text">
+        String literals enable: 1) Memory efficiency (pooling), 2) Performance (quick comparison via ==), 3) Immutability safety, 4) Compile-time optimization, 5) Security in class loading.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">132. What is the basic difference between a String and StringBuffer object?</div>
+    <div class="answer-text">
+        String is immutable (thread-safe but creates new objects on modification). StringBuffer is mutable (modifies existing object), thread-safe (synchronized), slower than StringBuilder.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">133. How will you create an immutable class in Java?</div>
+    <div class="answer-text">
+        To create immutable class: 1) Make class final, 2) Make fields private final, 3) No setter methods, 4) Initialize all fields in constructor, 5) Return deep copies of mutable fields, 6) Don't leak 'this'.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">134. What is the use of toString() method in java?</div>
+    <div class="answer-text">
+        toString() provides string representation of an object. Used by: 1) System.out.println(), 2) String concatenation, 3) Debugging, 4) Logging. Default implementation returns className@hashCode.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">135. Arrange the three classes String, StringBuffer and StringBuilder in the order of efficiency for String processing operations?</div>
+    <div class="answer-text">
+        StringBuilder (fastest, non-sync) > StringBuffer (sync, thread-safe) > String (slowest for modifications due to immutability). For concatenation in loops, StringBuilder is 1000x faster than String.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">136. What is Exception Handling in Java?</div>
+    <div class="answer-text">
+        Exception handling manages runtime errors using: try (risky code), catch (handle exceptions), finally (cleanup), throw (raise exception), throws (declare exceptions). Prevents program termination on errors.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">137. In Java, what are the differences between a Checked and Unchecked?</div>
+    <div class="answer-text">
+        Checked exceptions: Must be declared/caught (IOException, SQLException). Unchecked (RuntimeException): Optional handling (NullPointerException, ArrayIndexOutOfBounds). Errors (unchecked): Serious JVM failures.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">138. What is the base class for Error and Exception classes in Java?</div>
+    <div class="answer-text">
+        Throwable is the base class for both Error and Exception. Error indicates serious JVM failures (OutOfMemoryError). Exception covers recoverable conditions (IOException, RuntimeException).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">139. What is a finally block in Java?</div>
+    <div class="answer-text">
+        finally is a block that always executes after try-catch, regardless of exceptions. Used for cleanup (closing files, DB connections). Guaranteed to run unless: 1) JVM exits, 2) Thread dies, 3) System crash.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">140. What is the use of finally block in Java?</div>
+    <div class="answer-text">
+        finally ensures resource cleanup (file/DB handles) happens whether code succeeds or fails. Prevents resource leaks. Critical for proper resource management even when exceptions occur.
+    </div>
+</div>
+
+<!-- Questions 141-150 -->
+<div class="question-item">
+    <div class="question-number">141. Can we create a finally block without creating a catch block?</div>
+    <div class="answer-text">
+        Yes, try-finally is valid (no catch required). Useful when you don't want to handle exception but need cleanup. Exceptions will propagate up after finally executes.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">142. Do we have to always put a catch block after a try block?</div>
+    <div class="answer-text">
+        No, try can be followed by either catch or finally or both. At least one catch or finally is required. try-finally is valid when you want cleanup but don't handle exceptions locally.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">143. In what scenarios, a finally block will not be executed?</div>
+    <div class="answer-text">
+        finally won't execute if: 1) JVM exits (System.exit()), 2) Thread is killed, 3) System crash/power failure, 4) Infinite loop in try/catch, 5) Daemon thread dies with JVM exit.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">144. Can we re-throw an Exception in Java?</div>
+    <div class="answer-text">
+        Yes, by using 'throw' in catch block. Can rethrow same exception or wrap in new exception (exception chaining). Useful for logging before propagating, or translating exception types.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">145. What is the difference between throw and throws in Java?</div>
+    <div class="answer-text">
+        throw: Used to explicitly raise an exception (throw new Exception()). throws: Declares exceptions a method might throw (void method() throws IOException). throw is action, throws is declaration.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">146. What is the concept of Exception Propagation?</div>
+    <div class="answer-text">
+        Exception propagation is when an uncaught exception moves up the call stack until: 1) Caught by a matching catch block, or 2) Reaches main() and terminates program (with stack trace).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">147. When we override a method in a Child class, can we throw an additional Exception that is not thrown by the Parent class method?</div>
+    <div class="answer-text">
+        For checked exceptions: No, subclass method can throw same or subclass exceptions, or none. Cannot add new checked exceptions. Unchecked exceptions (RuntimeException) can always be added.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">148. How Multi-threading works in Java?</div>
+    <div class="answer-text">
+        Java multithreading: 1) Threads share process resources but have own stack, 2) JVM schedules threads (preemptive/time-slicing), 3) Threads can run concurrently (multi-core) or alternately (single-core).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">149. What are the advantages of Multithreading?</div>
+    <div class="answer-text">
+        Advantages: 1) Better CPU utilization, 2) Improved responsiveness, 3) Simplified modeling, 4) Parallel processing, 5) Asynchronous operations, 6) Better throughput for I/O bound tasks.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">150. What are the disadvantages of Multithreading?</div>
+    <div class="answer-text">
+        Disadvantages: 1) Complexity, 2) Synchronization overhead, 3) Hard-to-reproduce bugs, 4) Deadlocks, 5) Context switching overhead, 6) Resource contention, 7) Testing difficulty.
+    </div>
+</div>
+
+<!-- Questions 151-160 -->
+<div class="question-item">
+    <div class="question-number">151. What is a Thread in Java?</div>
+    <div class="answer-text">
+        Thread is a lightweight sub-process that executes code independently. Each thread has its own call stack. Ways to create: 1) Extend Thread class, 2) Implement Runnable, 3) Implement Callable.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">152. What is a Thread's priority and how it is used in scheduling?</div>
+    <div class="answer-text">
+        Thread priority (1-10, default 5) suggests to scheduler which threads are more important. Higher priority threads get preference in scheduling but isn't guaranteed (depends on OS).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">153. What are the differences between Pre-emptive Scheduling Scheduler and Time Slicing Scheduler?</div>
+    <div class="answer-text">
+        Preemptive: Higher priority threads immediately preempt lower ones. Time-slicing: Each thread gets fixed time quantum. Java doesn't specify - depends on JVM/OS implementation.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">154. Is it possible to call run() method instead of start() on a thread in Java?</div>
+    <div class="answer-text">
+        Yes, but run() executes in current thread (no new thread created). start() creates new thread which calls run(). Calling run() directly defeats purpose of threading.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">155. How will you make a user thread into daemon thread if it has already started?</div>
+    <div class="answer-text">
+        Cannot change daemon status after thread starts. Must set thread.setDaemon(true) before start(). Attempting to change later throws IllegalThreadStateException.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">156. Can we start a thread two times in Java?</div>
+    <div class="answer-text">
+        No, calling start() twice on same thread throws IllegalThreadStateException. Once a thread completes execution, it cannot be restarted - must create new Thread instance.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">157. In what scenarios can we interrupt a thread?</div>
+    <div class="answer-text">
+        Thread can be interrupted to: 1) Cancel long-running task, 2) Signal shutdown, 3) Break out of wait/sleep, 4) Terminate blocked I/O (with closed resources). Interruption is cooperative - thread must check interrupted status.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">158. In Java, is it possible to lock an object for exclusive use by a thread?</div>
+    <div class="answer-text">
+        Yes, using synchronized blocks/methods or explicit Lock objects. synchronized(object) { } gives exclusive access to object's monitor. ReentrantLock provides more flexible locking.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">159. How notify() method is different from notifyAll() method?</div>
+    <div class="answer-text">
+        notify() wakes one waiting thread (arbitrary choice), notifyAll() wakes all waiting threads. notify() is more efficient but riskier (can lead to missed signals). Generally prefer notifyAll().
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">160. What are the differences between the two data structures: a Vector and an ArrayList?</div>
+    <div class="answer-text">
+        Vector: Synchronized (thread-safe), slower, increments capacity by 100% or capacityIncrement. ArrayList: Not synchronized, faster, increments by 50%. Both implement List with dynamic resizing.
+    </div>
+</div>
+
+<!-- Questions 161-170 -->
+<div class="question-item">
+    <div class="question-number">161. What are the differences between Collection and Collections in Java?</div>
+    <div class="answer-text">
+        Collection is root interface of collection hierarchy (List, Set etc.). Collections is utility class with static methods for collection operations (sort(), synchronizedList(), emptyList() etc.).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">162. In which scenario, LinkedList is better than ArrayList in Java?</div>
+    <div class="answer-text">
+        LinkedList is better for: 1) Frequent insertions/deletions (especially middle), 2) When memory is fragmented, 3) As queue/deque, 4) When final size is unknown. ArrayList better for random access.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">163. What are the differences between a List and Set collection in Java?</div>
+    <div class="answer-text">
+        List: Ordered (by index), allows duplicates, allows null. Set: No ordering (except LinkedHashSet/TreeSet), no duplicates, allows one null (except TreeSet). List has get(index), Set doesn't.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">164. What are the differences between a HashSet and TreeSet collection in Java?</div>
+    <div class="answer-text">
+        HashSet: Hash table, unordered, O(1) operations, allows null. TreeSet: Red-black tree, sorted (natural order or Comparator), O(log n) operations, no nulls (if natural ordering used).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">165. In Java, how will you decide when to use a List, Set or a Map collection?</div>
+    <div class="answer-text">
+        Use List: Ordered elements, duplicates allowed. Set: Unique elements, fast contains(). Map: Key-value pairs, fast lookup by key. Consider ordering, duplicates, and access patterns.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">166. What are the differences between a HashMap and a Hashtable in Java?</div>
+    <div class="answer-text">
+        HashMap: Not synchronized, allows one null key/many null values, faster. Hashtable: Synchronized, no null keys/values, slower. HashMap is preferred unless thread-safety needed (then use ConcurrentHashMap).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">167. What are the differences between a HashMap and a TreeMap?</div>
+    <div class="answer-text">
+        HashMap: Hash table, unordered keys, O(1) operations, allows null key/value. TreeMap: Red-black tree, sorted keys, O(log n) operations, no null keys (if natural ordering used).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">168. What are the differences between Comparable and Comparator?</div>
+    <div class="answer-text">
+        Comparable: Natural ordering (compareTo()), implemented by class, single ordering. Comparator: Custom ordering (compare()), separate class, multiple orderings possible. Both used for sorting.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">169. In Java, what is the purpose of Properties file?</div>
+    <div class="answer-text">
+        Properties files store configuration as key-value pairs. Used for: 1) Externalizing configuration, 2) Internationalization, 3) Simple persistence. Easy to read/write via java.util.Properties class.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">170. What is the reason for overriding equals() method?</div>
+    <div class="answer-text">
+        Override equals() to: 1) Define logical equality (not just reference), 2) Work correctly with collections, 3) Maintain equals-hashCode contract, 4) Support value-based comparison.
+    </div>
+</div>
+
+<!-- Questions 171-180 -->
+<div class="question-item">
+    <div class="question-number">171. How does hashCode() method work in Java?</div>
+    <div class="answer-text">
+        hashCode() returns an int used by hash-based collections (HashMap, HashSet). Contract: 1) Same object must return same hash, 2) Equal objects must have same hash, 3) Unequal objects should have different hashes (but can collide).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">172. Is it a good idea to use Generics in collections?</div>
+    <div class="answer-text">
+        Yes, generics provide: 1) Type safety (compile-time checks), 2) Eliminate casting, 3) Better readability, 4) Enables compiler optimizations. Always use generics with collections in modern Java.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">173. What are Wrapper classes in Java?</div>
+    <div class="answer-text">
+        Wrapper classes (Integer, Double etc.) wrap primitives as objects. Used for: 1) Collections (which require objects), 2) Utility methods (parseInt()), 3) Nullability, 4) Conversion between types.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">174. What is the purpose of native method in Java?</div>
+    <div class="answer-text">
+        Native methods: 1) Interface with platform-specific libraries, 2) Access system/hardware features, 3) Improve performance for critical sections, 4) Reuse legacy code. Implemented in other languages (typically C/C++).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">175. What is System class?</div>
+    <div class="answer-text">
+        System is final class in java.lang with static methods for: 1) Standard I/O streams (in, out, err), 2) Environment variables, 3) Current time, 4) Array copying, 5) Garbage collection, 6) Security, 7) System properties.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">176. What is System, out and println in System.out.println method call?</div>
+    <div class="answer-text">
+        System: Final class in java.lang. out: Static PrintStream field initialized to standard output stream. println: Method of PrintStream that prints line to output stream. Together: Prints to console.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">177. What is the other name of Shallow Copy in Java?</div>
+    <div class="answer-text">
+        Shallow copy is also called field-by-field copy. It copies primitive values and object references (not referenced objects themselves). clone() by default creates shallow copy unless overridden.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">178. What is the difference between Shallow Copy and Deep Copy in Java?</div>
+    <div class="answer-text">
+        Shallow copy: Copies primitive fields and object references (shared). Deep copy: Copies primitive fields and creates new objects for reference fields (independent). Deep copy is more expensive but safer.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">179. What is a Singleton class?</div>
+    <div class="answer-text">
+        Singleton ensures only one instance exists by: 1) Private constructor, 2) Static instance field, 3) Static getInstance() method. Used for: Logging, drivers, caching, thread pools. Must handle multithreading.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">180. What is the difference between Singleton class and Static class?</div>
+    <div class="answer-text">
+        Singleton: Single instance, can implement interfaces, can extend classes, supports polymorphism. Static class: No instances, only static members, cannot be instantiated or extended, simpler but less flexible.
+    </div>
+</div>
+
+<!-- Questions 181-190 -->
+<div class="question-item">
+    <div class="question-number">181. What is the difference between Collection and Collections Framework in Java?</div>
+    <div class="answer-text">
+        Collection is an interface (root of collection hierarchy). Collections Framework is a unified architecture (interfaces + implementations + algorithms) for representing and manipulating collections.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">182. What are the main benefits of Collections Framework in Java?</div>
+    <div class="answer-text">
+        Benefits: 1) Reduces programming effort, 2) Increases performance, 3) Promotes reuse, 4) Provides interoperability, 5) Reduces effort to learn/use new APIs, 6) Provides standard interfaces.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">183. What is the root interface of Collection hierarchy in Java?</div>
+    <div class="answer-text">
+        The root interface is java.util.Collection (not to be confused with Collections utility class). All collection interfaces (List, Set, Queue) and classes implement or extend Collection.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">184. What are the main differences between Collection and Collections?</div>
+    <div class="answer-text">
+        Collection: Interface representing group of objects. Collections: Utility class with static methods for collection operations (sorting, synchronization, empty collections etc.).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">185. What are the Thread-safe classes in Java Collections framework?</div>
+    <div class="answer-text">
+        Legacy: Vector, Hashtable. Concurrent: ConcurrentHashMap, CopyOnWriteArrayList, CopyOnWriteArraySet, BlockingQueue implementations. Wrappers: Collections.synchronizedXXX() methods.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">186. How will you efficiently remove elements while iterating a Collection?</div>
+    <div class="answer-text">
+        Use Iterator.remove() during iteration. For Lists: ListIterator.remove(). Java 8+: collection.removeIf(filter). Avoid: 1) For-loop with index (except for ArrayList), 2) Modifying while enhanced for-loop (throws CME).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">187. How will you convert a List into an array of integers like int[]?</div>
+    <div class="answer-text">
+        For List<Integer>: list.stream().mapToInt(i->i).toArray(). For other Lists: iterate and copy. Note: Can't directly cast due to primitive vs object difference.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">188. How will you convert an array of primitive integers int[] to a List collection?</div>
+    <div class="answer-text">
+        Java 8+: Arrays.stream(intArray).boxed().collect(Collectors.toList()). Pre-Java 8: Manually loop and add to List. Note: Arrays.asList() doesn't work with primitives.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">189. How will you run a filter on a Collection?</div>
+    <div class="answer-text">
+        Java 8+: collection.stream().filter(predicate).collect(...). Pre-Java 8: Iterate and collect matching elements into new collection. For removal: iterator.remove() or collection.removeIf().
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- Questions 191-200 -->
+<!-- <div class="question-item">
+    <div class="question-number">191. How will you remove duplicate elements from an ArrayList?</div>
+    <div class="answer-text">
+        1) Convert to Set then back: new ArrayList<>(new HashSet<>(list)). 2) Java 8+: list.stream().distinct().collect(Collectors.toList()). 3) Iterate with contains() check (O(n²) time).
+    </div>
+</div> -->
+
+<div class="question-item">
+    <div class="question-number">192. How can you maintain a Collection with elements in Sorted order?</div>
+    <div class="answer-text">
+        Use TreeSet (for Set) or TreeMap (for Map). For List: 1) Collections.sort(), 2) Use PriorityQueue, 3) Maintain insertion order with manual sorting. Elements must be Comparable or use Comparator.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">193. What is the difference between Collections.emptyList() and creating new instance of Collection?</div>
+    <div class="answer-text">
+        emptyList() returns immutable, singleton, empty list (memory efficient). new ArrayList() creates mutable, resizable empty list (memory overhead). Use emptyList() when you need read-only empty collection.
+    </div>
+</div>
+
+<!-- <div class="question-item">
+    <div class="question-number">194. How will you copy elements from a Source List to another list?</div>
+    <div class="answer-text">
+        1) Constructor: new ArrayList<>(sourceList). 2) addAll(): targetList.addAll(sourceList). 3) Java 8+: targetList = sourceList.stream().collect(toList()). Note: These are shallow copies.
+    </div>
+</div> -->
+
+<div class="question-item">
+    <div class="question-number">195. What are the Java Collection classes that implement List interface?</div>
+    <div class="answer-text">
+        ArrayList, LinkedList, Vector, Stack, CopyOnWriteArrayList. Common implementations: ArrayList (resizable array), LinkedList (doubly-linked list), Vector (thread-safe array).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">196. What are the Java Collection classes that implement Set interface?</div>
+    <div class="answer-text">
+        HashSet, LinkedHashSet, TreeSet, EnumSet, CopyOnWriteArraySet. Common implementations: HashSet (hash table), TreeSet (red-black tree), LinkedHashSet (hash table + linked list).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">197. What is the difference between an Iterator and ListIterator in Java?</div>
+    <div class="answer-text">
+        ListIterator extends Iterator with: 1) Bidirectional traversal (hasPrevious()), 2) Index access (nextIndex()), 3) Add/set elements during iteration, 4) Works only with Lists.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">198. What is the difference between Iterator and Enumeration?</div>
+    <div class="answer-text">
+        Iterator: 1) Can remove elements, 2) Faster, 3) Modern (since Java 1.2). Enumeration: 1) Read-only, 2) Legacy (since Java 1.0), 3) Used in legacy classes (Vector, Hashtable).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">199. What is the difference between an ArrayList and a LinkedList data structure?</div>
+    <div class="answer-text">
+        ArrayList: Resizable array, fast random access (O(1)), slow insert/delete (except at end). LinkedList: Doubly-linked list, slow random access (O(n)), fast insert/delete (O(1) if have iterator position).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">200. What is the difference between a Set and a Map in Java?</div>
+    <div class="answer-text">
+        Set: Collection of unique elements (implements Collection). Map: Collection of key-value pairs (doesn't extend Collection). Set uses Map internally (e.g., HashSet uses HashMap).
+    </div>
+</div>
+
+<!-- Questions 201-210 -->
+<div class="question-item">
+    <div class="question-number">201. What is the use of a Dictionary class?</div>
+    <div class="answer-text">
+        Dictionary is abstract legacy class (since Java 1.0) superceded by Map interface. Not used directly - Hashtable extends it. Modern code should use Map interface instead.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">202. What is the default size of load factor in a HashMap collection in Java?</div>
+    <div class="answer-text">
+        Default load factor is 0.75 (75% full). When HashMap reaches (capacity * load factor) size, it rehashes (doubles capacity and rebuilds internal storage).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">203. What is the significance of load factor in a HashMap in Java?</div>
+    <div class="answer-text">
+        Load factor (0.0-1.0) determines when HashMap resizes. Higher value: more memory efficient but increased collisions. Lower value: more memory but better performance. Default 0.75 balances time/space.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">204. What are the major differences between a HashSet and a HashMap?</div>
+    <div class="answer-text">
+        HashSet: Implements Set, stores only values (uses HashMap internally). HashMap: Implements Map, stores key-value pairs. Both use hash table, have same performance characteristics.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">205. What are the similarities between a HashSet and a HashMap in Java?</div>
+    <div class="answer-text">
+        Both: 1) Use hash table, 2) Allow one null (key for HashMap, element for HashSet), 3) Not synchronized, 4) O(1) average case performance, 5) Don't maintain insertion order (unless Linked version).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">206. What is the reason for overriding equals() method?</div>
+    <div class="answer-text">
+        Override equals() to: 1) Define logical equality (not just reference), 2) Work correctly with collections, 3) Maintain equals-hashCode contract, 4) Support value-based comparison.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">207. How can we synchronize the elements of a List, a Set or a Map?</div>
+    <div class="answer-text">
+        Use: 1) Collections.synchronizedList/Set/Map() wrappers, 2) Concurrent collections (CopyOnWriteArrayList, ConcurrentHashMap), 3) Legacy synchronized collections (Vector, Hashtable). Prefer concurrent collections.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">208. What is Hash Collision? How Java handles hash-collision in HashMap?</div>
+    <div class="answer-text">
+        Hash collision: Different keys produce same hash. Java handles by: 1) Chaining (linked list/tree in each bucket), 2) Good hash distribution, 3) Resizing when needed. Since Java 8: uses balanced tree for long chains.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">209. What are the Hash Collision resolution techniques?</div>
+    <div class="answer-text">
+        Main techniques: 1) Separate chaining (linked list in buckets), 2) Open addressing (linear/quadratic probing), 3) Robin Hood hashing. Java HashMap uses chaining with tree conversion for long chains.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">210. What is the difference between Queue and Stack data structures?</div>
+    <div class="answer-text">
+        Queue: FIFO (add at end, remove from front) - use LinkedList, PriorityQueue. Stack: LIFO (add/remove from top) - use Deque (ArrayDeque). Stack class exists but Deque is preferred.
+    </div>
+</div>
+
+<!-- Questions 211-220 -->
+<div class="question-item">
+    <div class="question-number">211. What is an Iterator in Java?</div>
+    <div class="answer-text">
+        Iterator is interface for traversing collections with methods: hasNext(), next(), remove(). Provides: 1) Uniform way to access collections, 2) Safe element removal during iteration.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">212. What is the difference between Iterator and Enumeration in Java?</div>
+    <div class="answer-text">
+        Iterator: 1) Can remove elements, 2) Faster, 3) Modern (since Java 1.2). Enumeration: 1) Read-only, 2) Legacy (since Java 1.0), 3) Used in legacy classes (Vector, Hashtable).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">213. What is the design pattern used in the implementation of Enumeration in Java?</div>
+    <div class="answer-text">
+        Iterator Pattern - provides way to access elements sequentially without exposing underlying representation. Enumeration is simple iterator variant (read-only, legacy).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">214. Which methods do we need to override to use an object as key in a HashMap?</div>
+    <div class="answer-text">
+        Must override: 1) hashCode() - equal objects must return same hash, 2) equals() - for key comparison. Best practice: also override toString() and implement Comparable for TreeMap.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">215. How will you reverse a List in Java?</div>
+    <div class="answer-text">
+        1) Collections.reverse(list), 2) list.sort(Comparator.reverseOrder()), 3) Java 8+: list.stream().sorted(reverseOrder()).collect(toList()), 4) Manual swapping of elements.
+    </div>
+</div>
+
+<!-- <div class="question-item">
+    <div class="question-number">216. How will you convert an array of String objects into a List?</div>
+    <div class="answer-text">
+        1) Arrays.asList(stringArray) - fixed-size list backed by array, 2) new ArrayList<>(Arrays.asList(stringArray)) - modifiable list, 3) Java 8+: Arrays.stream(stringArray).collect(toList()).
+    </div>
+</div> -->
+
+<div class="question-item">
+    <div class="question-number">217. What is the difference between peek(), poll() and remove() methods of Queue interface in java?</div>
+    <div class="answer-text">
+        peek(): Retrieves but doesn't remove head (returns null if empty). poll(): Retrieves and removes head (returns null if empty). remove(): Like poll() but throws NoSuchElementException if empty.
+    </div>
+</div>
+
+<!-- <div class="question-item">
+    <div class="question-number">218. What is the difference between Array and ArrayList in Java?</div>
+    <div class="answer-text">
+        Array: Fixed size, can hold primitives/objects, faster, syntax: int[]. ArrayList: Dynamic size, holds only objects, more methods, implements List, syntax: ArrayList<Integer>.
+    </div>
+</div>
+ -->
+<div class="question-item">
+    <div class="question-number">219. How will you insert, delete and retrieve elements from a HashMap collection in Java?</div>
+    <div class="answer-text">
+        Insert: put(key, value). Delete: remove(key). Retrieve: get(key). Bulk operations: putAll(), clear(). Java 8+: compute(), merge(), getOrDefault(). Check existence: containsKey(), containsValue().
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">220. What are the main differences between HashMap and ConcurrentHashMap in Java?</div>
+    <div class="answer-text">
+        HashMap: Not thread-safe, allows one null key, faster. ConcurrentHashMap: Thread-safe (fine-grained locking), doesn't allow null keys, slightly slower, designed for concurrent access.
+    </div>
+</div>
+
+<!-- Questions 221-230 -->
+<!-- <div class="question-item">
+    <div class="question-number">221. What is the increasing order of performance for following collection classes in Java?</div>
+    <div class="answer-text">
+        (Slowest) Vector < Hashtable < Collections.synchronizedXXX < ConcurrentHashMap < HashMap (Fastest). For reads: CopyOnWriteArrayList is fast but expensive writes.
+    </div>
+</div>
+ -->
+<div class="question-item">
+    <div class="question-number">222. Why does Map interface not extend Collection interface in Java?</div>
+    <div class="answer-text">
+        Map represents key-value pairs while Collection represents group of elements. Map operations (put/get) are fundamentally different from Collection operations (add/remove). Would violate interface segregation.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">223. What are the different ways to iterate elements of a list in Java?</div>
+    <div class="answer-text">
+        1) for-loop with index, 2) Enhanced for-loop, 3) Iterator, 4) ListIterator, 5) Java 8+ forEach(), 6) Java 8+ streams. For parallel processing: parallelStream().
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">224. What is CopyOnWriteArrayList? How it is different from ArrayList in Java?</div>
+    <div class="answer-text">
+        CopyOnWriteArrayList: Thread-safe variant where all mutative operations create fresh copy. Differences: 1) Thread-safe, 2) No ConcurrentModificationException, 3) Expensive writes, 4) Fast reads.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">225. How remove() method is implemented in a HashMap?</div>
+    <div class="answer-text">
+        remove() in HashMap: 1) Computes hash of key, 2) Finds bucket, 3) Traverses chain/tree in bucket, 4) Removes node if key matches (using equals()), 5) May resize if needed.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">226. What is BlockingQueue in Java Collections?</div>
+    <div class="answer-text">
+        BlockingQueue is thread-safe Queue that blocks when: 1) Full on put (until space), 2) Empty on take (until element available). Implementations: ArrayBlockingQueue, LinkedBlockingQueue, PriorityBlockingQueue.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">227. How is TreeMap class implemented in Java?</div>
+    <div class="answer-text">
+        TreeMap is implemented as Red-Black tree (self-balancing binary search tree). Maintains keys in sorted order (natural or Comparator). Provides O(log n) time for put/get/remove operations.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">228. What is the difference between Fail-fast and Fail-safe iterator in Java?</div>
+    <div class="answer-text">
+        Fail-fast: Throws ConcurrentModificationException if collection modified during iteration (ArrayList, HashMap). Fail-safe: Works on clone or doesn't throw CME (CopyOnWriteArrayList, ConcurrentHashMap).
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">229. How does ConcurrentHashMap work in Java?</div>
+    <div class="answer-text">
+        ConcurrentHashMap: 1) Divides table into segments (Java 7) or uses CAS (Java 8+), 2) Allows concurrent reads/writes, 3) No locking for reads, 4) Fine-grained locking for writes, 5) Uses volatile/synchronized/CAS.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">230. What is the importance of hashCode() and equals() methods?</div>
+    <div class="answer-text">
+        hashCode(): Used by hash-based collections for bucketing. equals(): Used for equality comparison. Contract: 1) Equal objects must have same hash, 2) Must be consistent (same result for same input).
+    </div>
+</div>
+
+<!-- Questions 231-240 -->
+<div class="question-item">
+    <div class="question-number">231. What is the contract of hashCode() and equals() methods in Java?</div>
+    <div class="answer-text">
+        Contract: 1) If a.equals(b) then a.hashCode() == b.hashCode(), 2) Consistent: multiple calls return same value unless object changes, 3) a.equals(b) must match b.equals(a), 4) Transitive/non-null.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">232. What is an EnumSet in Java?</div>
+    <div class="answer-text">
+        EnumSet is high-performance Set implementation for enum types. Features: 1) Bit-vector representation, 2) Extremely compact/efficient, 3) All elements from single enum, 4) Not thread-safe.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">233. What are the main Concurrent Collection classes in Java?</div>
+    <div class="answer-text">
+        ConcurrentHashMap, CopyOnWriteArrayList, CopyOnWriteArraySet, BlockingQueue implementations (ArrayBlockingQueue, LinkedBlockingQueue), ConcurrentSkipListMap, ConcurrentSkipListSet, ConcurrentLinkedQueue.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">234. How will you convert a Collection to SynchronizedCollection in Java?</div>
+    <div class="answer-text">
+        Use Collections.synchronizedCollection(collection). Returns thread-safe wrapper. Similar methods exist for List (synchronizedList), Set (synchronizedSet), Map (synchronizedMap). Prefer concurrent collections.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">235. How IdentityHashMap is different from a regular Map in Java?</div>
+    <div class="answer-text">
+        IdentityHashMap uses == (reference equality) instead of equals() for key comparison. Used when object identity matters more than value. Not general-purpose - violates Map contract.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">236. What is the main use of IdentityHashMap?</div>
+    <div class="answer-text">
+        Main uses: 1) Maintaining proxy objects, 2) Object graph traversal (avoid cycles), 3) When == semantics are required, 4) Interned strings/objects comparison. Rarely needed in application code.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">237. How can we improve the performance of IdentityHashMap?</div>
+    <div class="answer-text">
+        1) Set appropriate initial capacity, 2) Use for small maps (performance degrades with size), 3) Avoid when value-based equality is sufficient, 4) Consider WeakHashMap if weak references are needed.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">238. Is IdentityHashMap thread-safe?</div>
+    <div class="answer-text">
+        No, IdentityHashMap is not thread-safe. For concurrent access: 1) Use Collections.synchronizedMap(), 2) Use external synchronization, 3) Consider ConcurrentHashMap if reference equality isn't required.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">239. What is a WeakHashMap in Java?</div>
+    <div class="answer-text">
+        WeakHashMap is a Map where keys are held via weak references. Entries are automatically removed when key is no longer referenced elsewhere. Useful for caches/lookup tables without memory leaks.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">240. How can you make a Collection class readOnly in Java?</div>
+    <div class="answer-text">
+        Use: 1) Collections.unmodifiableCollection/List/Set/Map(), 2) Immutable collections (Guava), 3) Copy constructor + no modification methods. Note: Wrappers throw UnsupportedOperationException on mutation.
+    </div>
+</div>
+
+<!-- Questions 241-250 -->
+<div class="question-item">
+    <div class="question-number">241. When is UnsupportedOperationException thrown in Java?</div>
+    <div class="answer-text">
+        Thrown by: 1) Unmodifiable collections on mutation, 2) Arrays.asList() on resize, 3) Optional operations in collections, 4) When implementation doesn't support requested operation.
+    </div>
+</div>
+
+<!-- <div class="question-item">
+    <div class="question-number">242. Let say there is a Customer class. We add objects of Customer class to an ArrayList. How can we sort the Customer objects in ArrayList by using customer firstName attribute of Customer class?</div>
+    <div class="answer-text">
+        1) Implement Comparable<Customer> and override compareTo() in Customer class, 2) Use Comparator: Collections.sort(list, Comparator.comparing(Customer::getFirstName)), 3) Java 8+: list.sort(comparing(Customer::getFirstName)).
+    </div>
+</div> -->
+
+<div class="question-item">
+    <div class="question-number">243. What is the difference between Synchronized Collection and Concurrent Collection?</div>
+    <div class="answer-text">
+        Synchronized: Wrappers with coarse-grained locking (entire collection locked). Concurrent: Fine-grained locking (ConcurrentHashMap) or copy-on-write (CopyOnWriteArrayList). Concurrent collections scale better.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">244. What is the scenario to use ConcurrentHashMap in Java?</div>
+    <div class="answer-text">
+        Use when: 1) High concurrency needed, 2) Read-heavy workloads, 3) Thread-safe Map required, 4) Atomic operations needed (computeIfAbsent etc.), 5) Avoiding synchronizedMap performance bottlenecks.
+    </div>
+</div>
+
+<!-- <div class="question-item">
+    <div class="question-number">245. How will you create an empty Map in Java?</div>
+    <div class="answer-text">
+        1) new HashMap<>() (mutable), 2) Collections.emptyMap() (immutable singleton), 3) Map.of() (Java 9+, immutable), 4) new ConcurrentHashMap<>() (thread-safe). For immutable maps: Guava's ImmutableMap.of().
+    </div>
+</div> -->
+
+<div class="question-item">
+    <div class="question-number">246. What is the difference between remove() method of Collection and remove() method of Iterator?</div>
+    <div class="answer-text">
+        Collection.remove(): Removes first occurrence of element (by equals()). Iterator.remove(): Removes current element in iteration. Only Iterator.remove() is safe during iteration.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">247. Between an Array and ArrayList, which one is the preferred collection for storing objects?</div>
+    <div class="answer-text">
+        Prefer ArrayList: 1) Dynamic sizing, 2) Rich API, 3) Part of Collections framework. Use arrays: 1) Performance-critical code, 2) Primitives storage, 3) Fixed size needed, 4) API requirements.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">248. Is it possible to replace Hashtable with ConcurrentHashMap in Java?</div>
+    <div class="answer-text">
+        Yes, ConcurrentHashMap is modern replacement for Hashtable. Advantages: 1) Better performance, 2) More flexible, 3) Additional atomic operations. Note: ConcurrentHashMap doesn't allow nulls like Hashtable.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">249. How CopyOnWriteArrayList class is different from ArrayList and Vector classes?</div>
+    <div class="answer-text">
+        CopyOnWriteArrayList: 1) Thread-safe without synchronization, 2) Creates new array on modification, 3) No ConcurrentModificationException, 4) Expensive writes but fast reads. Vector uses synchronized methods.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">250. Why ListIterator has add() method but Iterator does not have?</div>
+    <div class="answer-text">
+        ListIterator is for Lists which: 1) Have defined insertion order, 2) Support positional access. Iterator is more general (works for Sets too) where add() wouldn't have clear semantics.
+    </div>
+</div>
+
+<!-- Questions 251-260 -->
+<div class="question-item">
+    <div class="question-number">251. Why do we sometime get ConcurrentModificationException during iteration?</div>
+    <div class="answer-text">
+        CME occurs when collection is structurally modified (add/remove) during iteration, except through Iterator's own methods. Solution: 1) Use Iterator.remove(), 2) Use concurrent collections, 3) Copy collection first.
+    </div>
+</div>
+
+<!-- <div class="question-item">
+    <div class="question-number">252. How will you convert a Map to a List in Java?</div>
+    <div class="answer-text">
+        1) Keys: new ArrayList<>(map.keySet()), 2) Values: new ArrayList<>(map.values()), 3) Entries: new ArrayList<>(map.entrySet()). Java 8+: map.entrySet().stream().map(...).collect(toList()).
+    </div>
+</div> -->
+
+<div class="question-item">
+    <div class="question-number">253. How can we create a Map with reverse view and lookup in Java?</div>
+    <div class="answer-text">
+        1) Guava's BiMap (inverse view), 2) Apache's BidiMap, 3) Manual: MapUtils.invertMap(existingMap), 4) Java 8+: map.entrySet().stream().collect(toMap(Map.Entry::getValue, Map.Entry::getKey)).
+    </div>
+</div>
+
+<!-- <div class="question-item">
+    <div class="question-number">254. How will you create a shallow copy of a Map?</div>
+    <div class="answer-text">
+        1) Constructor: new HashMap<>(originalMap), 2) putAll(): newMap.putAll(originalMap), 3) Java 8+: originalMap.entrySet().stream().collect(toMap(...)), 4) clone() (not recommended). Note: Keys/values aren't cloned.
+    </div>
+</div> -->
+
+<div class="question-item">
+    <div class="question-number">255. Why we cannot create a generic array in Java?</div>
+    <div class="answer-text">
+        Due to type erasure and array covariance: 1) Arrays know their type at runtime (would cause ClassCastException), 2) Generics are erased, 3) Would break type safety. Workaround: Use ArrayList or cast.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">256. What is a PriorityQueue in Java?</div>
+    <div class="answer-text">
+        PriorityQueue is unbounded queue based on priority heap. Elements ordered: 1) Natural ordering, or 2) Comparator. Head is least element. Not thread-safe. O(log n) time for enque/deque operations.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">257. What are the important points to remember while using Java Collections Framework?</div>
+    <div class="answer-text">
+        Key points: 1) Choose right collection type, 2) Understand performance characteristics, 3) Handle nulls properly, 4) Implement equals/hashCode, 5) Consider thread safety, 6) Prefer interfaces over implementations.
+    </div>
+</div>
+
+<!-- <div class="question-item">
+    <div class="question-number">258. How can we pass a Collection as an argument to a method and ensure that method will not be able to modify it?</div>
+    <div class="answer-text">
+        1) Pass Collections.unmodifiableCollection(original), 2) For List/Set/Map use corresponding unmodifiableXxx() methods, 3) Pass copy of collection (new ArrayList<>(original)), 4) Use immutable collections (Guava).
+    </div>
+</div> -->
+
+<div class="question-item">
+    <div class="question-number">259. Can you explain how HashMap works in Java?</div>
+    <div class="answer-text">
+        HashMap: 1) Array of buckets (nodes), 2) Uses hashCode() to find bucket, 3) Handles collisions with chaining (linked list/tree), 4) Load factor triggers resizing, 5) get/put/remove in O(1) average case.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">260. What is a NavigableMap in Java?</div>
+    <div class="answer-text">
+        NavigableMap (extends SortedMap) provides navigation methods: 1) lower/floor/ceiling/higherKey(), 2) first/lastEntry(), 3) pollFirst/lastEntry(), 4) descendingMap(). Implemented by TreeMap, ConcurrentSkipListMap.
+    </div>
+</div>
+
+<!-- Questions 261-270 -->
+<div class="question-item">
+    <div class="question-number">261. How will you sort objects by Natural order in a Java List?</div>
+    <div class="answer-text">
+        To sort by natural order: 1) Implement Comparable interface in the objects, 2) Use Collections.sort(list) for List or list.sort(null) (Java 8+), 3) For streams: stream.sorted().collect(toList())
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">262. How can we get a Stream from a List in Java?</div>
+    <div class="answer-text">
+        Convert List to Stream using: 1) list.stream() - sequential stream, 2) list.parallelStream() - parallel stream, 3) Stream.of() with list as parameter, 4) StreamSupport.stream() for custom iterators
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">263. Can we get a Map from a Stream in Java?</div>
+    <div class="answer-text">
+        Yes, using Collectors.toMap(): stream.collect(Collectors.toMap(keyMapper, valueMapper)). For duplicate keys: toMap(keyMapper, valueMapper, mergeFunction). For custom Map: toMap(..., mapSupplier)
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">264. What are the popular implementations of Deque in Java?</div>
+    <div class="answer-text">
+        Common Deque implementations: 1) ArrayDeque (resizable array), 2) LinkedList (doubly-linked list), 3) ConcurrentLinkedDeque (thread-safe), 4) LinkedBlockingDeque (thread-safe with capacity bounds)
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">265. What is a Thread in Java?</div>
+    <div class="answer-text">
+        A Thread is: 1) Lightweight sub-process, 2) Independent execution path, 3) Shares process resources, 4) Has own call stack, 5) Managed by JVM scheduler. Ways to create: extend Thread, implement Runnable/Callable
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">266. What is the priority of a Thread and how it is used in scheduling?</div>
+    <div class="answer-text">
+        Thread priority (1-10) suggests execution order to scheduler. Higher priority threads get preference but not guaranteed. Default priority is 5 (NORM_PRIORITY). Actual scheduling depends on OS/JVM implementation
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">267. What is the default priority of a thread in Java?</div>
+    <div class="answer-text">
+        Default priority is Thread.NORM_PRIORITY (5). Range: MIN_PRIORITY (1) to MAX_PRIORITY (10). Main thread starts with NORM_PRIORITY. Child threads inherit parent's priority
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">268. What are the three different priorities that can be set on a Thread in Java?</div>
+    <div class="answer-text">
+        Three standard priorities: 1) Thread.MIN_PRIORITY (1), 2) Thread.NORM_PRIORITY (5), 3) Thread.MAX_PRIORITY (10). Can also set values between 1-10 using setPriority(int)
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">269. What is the purpose of join() method in Thread class?</div>
+    <div class="answer-text">
+        join() makes current thread wait until target thread completes. Can specify timeout: join(millis). Throws InterruptedException. Used to coordinate thread execution order
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">270. What is the fundamental difference between wait() and sleep() methods?</div>
+    <div class="answer-text">
+        wait(): Releases lock, called on object, used for inter-thread communication, requires notify(). sleep(): Keeps lock, called on Thread, just pauses execution, doesn't need notification
+    </div>
+</div>
+
+<!-- Questions 271-280 -->
+<div class="question-item">
+    <div class="question-number">271. Is it possible to call run() method instead of start() on a thread in Java?</div>
+    <div class="answer-text">
+        Yes, but run() executes in current thread (no new thread created). start() creates new thread which calls run(). Calling run() directly defeats purpose of threading
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">272. What is a daemon thread in Java?</div>
+    <div class="answer-text">
+        Daemon thread: 1) Runs in background, 2) JVM exits when only daemon threads remain, 3) Used for GC, signal dispatching etc., 4) Created by setDaemon(true) before start()
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">273. How can we make a regular thread Daemon thread in Java?</div>
+    <div class="answer-text">
+        Call setDaemon(true) before starting thread: Thread t = new Thread(); t.setDaemon(true); t.start(); Cannot change daemon status after thread starts
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">274. How will you make a user thread into daemon thread if it has already started?</div>
+    <div class="answer-text">
+        Cannot change daemon status after thread starts. Must set daemon status before start() using setDaemon(true). Attempting to change later throws IllegalThreadStateException
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">275. Can we start a thread two times in Java?</div>
+    <div class="answer-text">
+        No, calling start() twice on same thread throws IllegalThreadStateException. Once a thread completes execution, it cannot be restarted - must create new Thread instance
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">276. What is a Shutdown hook in Java?</div>
+    <div class="answer-text">
+        Shutdown hook (Thread) registered with Runtime.addShutdownHook(). Executes when JVM shuts down normally. Used for cleanup. Not guaranteed in abrupt termination (kill -9)
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">277. What is synchronization in Java?</div>
+    <div class="answer-text">
+        Synchronization: 1) Controls access to shared resources, 2) Prevents thread interference, 3) Avoids memory consistency errors, 4) Achieved via synchronized blocks/methods or Lock objects
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">278. What is the purpose of Synchronized block in Java?</div>
+    <div class="answer-text">
+        Synchronized block: 1) Provides finer control than synchronized methods, 2) Locks on specified object, 3) Reduces contention by minimizing critical sections, 4) More flexible than method synchronization
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">279. What is static synchronization?</div>
+    <div class="answer-text">
+        static synchronized method locks on class object (MyClass.class) rather than instance. Needed when static data needs protection. Different from instance-level synchronization
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">280. What is a Deadlock situation?</div>
+    <div class="answer-text">
+        Deadlock occurs when: 1) Two+ threads wait forever for locks held by each other, 2) Circular wait condition, 3) All four Coffman conditions met: mutual exclusion, hold and wait, no preemption, circular wait
+    </div>
+</div>
+
+<!-- Questions 281-290 -->
+<div class="question-item">
+    <div class="question-number">281. What is the meaning of concurrency?</div>
+    <div class="answer-text">
+        Concurrency: 1) Multiple tasks making progress simultaneously, 2) Not necessarily parallel (can be interleaved on single core), 3) In Java achieved via threads, executors, fork-join
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">282. What is the main difference between process and thread?</div>
+    <div class="answer-text">
+        Process: Independent, has own memory space. Thread: Lightweight, shares process memory. Threads cheaper to create/context switch. Processes more isolated but heavier
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">283. What is a process and thread in the context of Java?</div>
+    <div class="answer-text">
+        In Java: Process - separate JVM instance. Thread - execution path within JVM. All Java threads run within single JVM process. Native threads map to OS threads in most JVMs
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">284. What is a Scheduler?</div>
+    <div class="answer-text">
+        Thread scheduler: 1) Part of JVM/OS, 2) Determines which thread runs next, 3) Uses priorities (hints), 4) May use preemptive or time-slicing scheduling. Behavior is JVM/OS dependent
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">285. What is the minimum number of Threads in a Java program?</div>
+    <div class="answer-text">
+        Minimum 2 threads: 1) main thread, 2) DestroyJavaVM thread. Additional threads: 1) Reference handler, 2) Finalizer, 3) Signal dispatcher etc. depending on JVM
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">286. What are the properties of a Java thread?</div>
+    <div class="answer-text">
+        Thread properties: 1) ID (unique), 2) Name, 3) Priority, 4) State (NEW, RUNNABLE etc.), 5) Daemon status, 6) Thread group, 7) Stack size, 8) Uncaught exception handler
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">287. What are the different states of a Thread in Java?</div>
+    <div class="answer-text">
+        Thread states (Thread.State enum): NEW, RUNNABLE, BLOCKED, WAITING, TIMED_WAITING, TERMINATED. Transition via start(), wait(), notify(), sleep(), I/O completion etc.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">288. How will you set the priority of a thread in Java?</div>
+    <div class="answer-text">
+        Set priority using setPriority(int) (1-10) or constants (MIN_PRIORITY, NORM_PRIORITY, MAX_PRIORITY). Example: thread.setPriority(Thread.MAX_PRIORITY); Note: Actual scheduling depends on OS
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">289. What is the purpose of ThreadGroups in Java?</div>
+    <div class="answer-text">
+        ThreadGroup: 1) Manages threads as group, 2) Can set max priority for group, 3) Can interrupt all threads in group, 4) Security boundary. Largely superseded by Executors in modern code
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">290. Why we should not stop a thread by calling its stop() method?</div>
+    <div class="answer-text">
+        stop() is deprecated because: 1) Releases all locks abruptly, 2) Can leave objects in inconsistent state, 3) Throws ThreadDeath error. Safe alternative: Use volatile flag or interrupt()
+    </div>
+</div>
+
+<!-- Questions 291-300 -->
+<div class="question-item">
+    <div class="question-number">291. How will you create a Thread in Java?</div>
+    <div class="answer-text">
+        Ways to create thread: 1) Extend Thread class, override run(), 2) Implement Runnable, pass to Thread constructor, 3) Implement Callable, submit to ExecutorService, 4) Java 8+: lambda expression
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">292. How can we stop a thread in the middle of execution in Java?</div>
+    <div class="answer-text">
+        Safe ways: 1) Use volatile boolean flag, 2) Call interrupt(), check isInterrupted(), 3) For blocking ops - handle InterruptedException. Avoid stop(), suspend(), resume() (deprecated)
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">293. How do you access the current thread in a Java program?</div>
+    <div class="answer-text">
+        Use Thread.currentThread(): Returns reference to currently executing thread. Example: Thread current = Thread.currentThread(); String name = current.getName();
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">294. What is Busy waiting in Multi-threading?</div>
+    <div class="answer-text">
+        Busy waiting: Thread repeatedly checks condition in loop (while(!condition)), wasting CPU. Better alternatives: 1) wait/notify, 2) Condition.await/signal, 3) BlockingQueue, 4) CountDownLatch etc.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">295. How can we prevent busy waiting in Java?</div>
+    <div class="answer-text">
+        Prevent busy waiting by: 1) Using wait/notify, 2) Higher-level concurrency utilities (BlockingQueue, CountDownLatch etc.), 3) Thread.sleep() in loop (still wasteful), 4) Proper synchronization
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">296. Can we use Thread.sleep() method for real-time processing in Java?</div>
+    <div class="answer-text">
+        Not reliable for real-time: 1) sleep() is not precise, 2) JVM/OS may delay wakeup, 3) Depends on system timer resolution. For real-time: Use real-time Java (RTSJ) or native code
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">297. Can we wake up a thread that has been put to sleep by using Thread.sleep() method?</div>
+    <div class="answer-text">
+        Yes, by interrupting it: thread.interrupt(). This causes sleep() to throw InterruptedException. The thread must handle this exception to wake up early
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">298. What are the two ways to check if a Thread has been interrupted?</div>
+    <div class="answer-text">
+        1) Thread.interrupted(): Checks and clears interrupt status (static method), 2) thread.isInterrupted(): Checks without clearing status (instance method). Both return boolean
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">299. How can we make sure that Parent thread waits for termination of Child thread?</div>
+    <div class="answer-text">
+        Use join(): parentThread calls childThread.join(). Can specify timeout: join(millis). Throws InterruptedException. Alternative: Use CountDownLatch or Future with ExecutorService
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">300. How will you handle InterruptedException in Java?</div>
+    <div class="answer-text">
+        Proper handling: 1) Restore interrupt status (Thread.currentThread().interrupt()), 2) Clean up resources, 3) Exit method if appropriate. Don't swallow exception unless intentional
+    </div>
+</div>
+
+<!-- Questions 301-310 -->
+<div class="question-item">
+    <div class="question-number">301. Which intrinsic lock is acquired by a synchronized method in Java?</div>
+    <div class="answer-text">
+        synchronized instance method: locks on the object instance (this). synchronized static method: locks on the Class object (MyClass.class). This is the intrinsic monitor lock
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">302. Can we mark a constructor as synchronized in Java?</div>
+    <div class="answer-text">
+        No, constructors cannot be synchronized. It would be meaningless - only the thread creating the object has access to it during construction. Use synchronized block inside if needed
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">303. Can we use primitive values for intrinsic locks?</div>
+    <div class="answer-text">
+        No, intrinsic locks (synchronized) require objects. Primitives can't be used. Workaround: Use wrapper objects (Integer etc.) or dedicated lock objects. Note: Autoboxing creates new objects
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">304. Do we have re-entrant property in intrinsic locks?</div>
+    <div class="answer-text">
+        Yes, Java intrinsic locks are re-entrant: a thread can acquire the same lock multiple times (e.g., recursive synchronized methods). Must release lock same number of times
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">305. What is an atomic operation?</div>
+    <div class="answer-text">
+        Atomic operation: 1) Completes fully or not at all, 2) No intermediate visible state, 3) Not interruptible, 4) Thread-safe by design. Examples: volatile read/write, AtomicInteger operations
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">306. Can we consider the statement i++ as an atomic operation in Java?</div>
+    <div class="answer-text">
+        No, i++ involves: 1) Read i, 2) Increment, 3) Write i. Not atomic. For atomic increment: use AtomicInteger, synchronized block, or volatile (with careful design)
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">307. What are the Atomic operations in Java?</div>
+    <div class="answer-text">
+        Atomic operations: 1) java.util.concurrent.atomic classes (AtomicInteger etc.), 2) volatile read/write, 3) Reference assignment, 4) Some JVM operations. For others: use synchronization
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">308. Can you check if following code is thread-safe for retrieving an integer value from a Queue?</div>
+    <div class="answer-text">
+        Without seeing code: general principles - 1) Use thread-safe Queue implementation, 2) Synchronize if using non-thread-safe queue, 3) Consider atomic variables for counters, 4) Check for race conditions
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">309. What are the minimum requirements for a Deadlock situation in a program?</div>
+    <div class="answer-text">
+        Deadlock requires all four: 1) Mutual exclusion, 2) Hold and wait, 3) No preemption, 4) Circular wait. Prevent by breaking any one condition (e.g., lock ordering, timeouts)
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">310. How can we prevent a Deadlock?</div>
+    <div class="answer-text">
+        Prevent deadlock by: 1) Lock ordering (always acquire locks in same order), 2) Lock timeouts, 3) Deadlock detection, 4) Avoid nested locks, 5) Use higher-level concurrency utilities
+    </div>
+</div>
+
+<!-- Questions 311-320 -->
+<div class="question-item">
+    <div class="question-number">311. How can we detect a Deadlock situation?</div>
+    <div class="answer-text">
+        Detect deadlocks: 1) ThreadMXBean.findDeadlockedThreads(), 2) JConsole/VisualVM thread view, 3) Analyze thread dumps (jstack), 4) Timeout-based detection, 5) Application logging
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">312. What is a Livelock?</div>
+    <div class="answer-text">
+        Livelock: Threads keep changing state but make no progress (like "politeness" deadlock). Example: Two threads trying to pass each other keep stepping aside. Solution: Introduce randomness
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">313. What is Thread starvation?</div>
+    <div class="answer-text">
+        Starvation: Thread cannot gain access to resources (CPU, locks) due to other threads. Causes: 1) High priority threads monopolizing CPU, 2) Unfair lock acquisition. Solution: Fair locks, proper priorities
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">314. How can a synchronized block cause Thread starvation in Java?</div>
+    <div class="answer-text">
+        Synchronized blocks can starve threads by: 1) No fairness guarantee, 2) Long critical sections, 3) Nested synchronization. Solution: Use ReentrantLock with fairness=true, minimize critical sections
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">315. What is a Race condition?</div>
+    <div class="answer-text">
+        Race condition: Behavior depends on relative timing of threads. Occurs when: 1) Multiple threads access shared data, 2) At least one thread modifies data, 3) No proper synchronization
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">316. What is a Fairlock in multi-threading?</div>
+    <div class="answer-text">
+        Fair lock: Grants access in FIFO order (longest-waiting thread gets lock next). Implemented by ReentrantLock(true). Tradeoff: Fairness reduces throughput due to overhead
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">317. Which two methods of Object class can be used to implement a Producer Consumer scenario?</div>
+    <div class="answer-text">
+        wait() and notify()/notifyAll(): 1) Producer waits if buffer full, notifies when adds item, 2) Consumer waits if buffer empty, notifies when removes item. Modern alternative: BlockingQueue
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">318. How JVM determines which thread should wake up on notify()?</div>
+    <div class="answer-text">
+        notify() wakes arbitrary thread waiting on the object's monitor. notifyAll() wakes all. No fairness guarantee. Modern alternative: Use Condition objects with explicit wakeup conditions
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">319. Check if following code is thread-safe for retrieving an integer value from a Queue?</div>
+    <div class="answer-text">
+        General thread-safe queue retrieval: 1) Use thread-safe queue (BlockingQueue), 2) Synchronize if using non-thread-safe queue, 3) Handle null/empty cases, 4) Consider atomic operations
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">320. How can we check if a thread has a monitor lock on a given object?</div>
+    <div class="answer-text">
+        Use Thread.holdsLock(obj): Returns true if current thread holds lock on specified object. Example: if (Thread.holdsLock(obj)) { ... }. Note: Only checks lock status of current thread
+    </div>
+</div>
+
+<!-- Questions 321-330 -->
+<div class="question-item">
+    <div class="question-number">321. What is the use of yield() method in Thread class?</div>
+    <div class="answer-text">
+        yield() suggests to scheduler that current thread is willing to yield CPU. It's a hint - no guarantee. Used to improve fairness but generally not reliable for thread coordination. Modern alternative: proper synchronization
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">322. What is an important point to consider while passing an object from one thread to another thread?</div>
+    <div class="answer-text">
+        Key considerations: 1) Safe publication (use volatile/final/synchronized), 2) Immutability, 3) Happens-before relationship, 4) Avoid sharing mutable state, 5) Use thread-safe collections when needed
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">323. What are the rules for creating Immutable Objects?</div>
+    <div class="answer-text">
+        Rules: 1) Make class final, 2) Fields private final, 3) No setters, 4) Initialize all fields in constructor, 5) Don't leak 'this', 6) Return deep copies of mutable fields, 7) Make defensive copies in constructors
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">324. What is the use of ThreadLocal class?</div>
+    <div class="answer-text">
+        ThreadLocal provides thread-local variables. Each thread has independent copy. Used for: 1) Per-thread context (e.g., user sessions), 2) Avoiding synchronization, 3) Carrying thread-specific data through call stack
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">325. What are the scenarios suitable for using ThreadLocal class?</div>
+    <div class="answer-text">
+        Suitable when: 1) Need per-thread instances, 2) Avoid synchronization overhead, 3) Passing context through call stack, 4) Storing thread-specific data (e.g., transaction ID). Common uses: Spring security context, JDBC connections
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">326. How will you improve the performance of an application by multi-threading?</div>
+    <div class="answer-text">
+        Improve performance by: 1) Identifying parallelizable tasks, 2) Using thread pools, 3) Minimizing lock contention, 4) Using concurrent collections, 5) Balancing workload, 6) Avoiding false sharing, 7) Proper synchronization granularity
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">327. What is scalability in a Software program?</div>
+    <div class="answer-text">
+        Scalability: System's ability to handle increased load by adding resources (CPU, memory, nodes). Vertical scaling (more power to single node), Horizontal scaling (more nodes). Multi-threading enables vertical scaling
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">328. How will you calculate the maximum speed up of an application by using multiple processors?</div>
+    <div class="answer-text">
+        Amdahl's Law: Max speedup = 1 / (S + P/N) where S is serial portion, P is parallel portion (S+P=1), N is processors. Even with infinite processors, speedup limited by serial portion
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">329. What is Lock contention in multi-threading?</div>
+    <div class="answer-text">
+        Lock contention occurs when multiple threads compete for same lock. Symptoms: 1) High CPU wait time, 2) Poor throughput, 3) Threads blocked in synchronized blocks. Caused by coarse-grained locking or high concurrency
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">330. What are the techniques to reduce Lock contention?</div>
+    <div class="answer-text">
+        Reduce contention by: 1) Lock splitting/striping, 2) ReadWriteLock, 3) Atomic variables, 4) Concurrent collections, 5) Reduce lock scope, 6) Non-blocking algorithms, 7) Thread-local storage, 8) Optimistic locking
+    </div>
+</div>
+
+<!-- Questions 331-340 -->
+<div class="question-item">
+    <div class="question-number">331. What technique can be used in following code to reduce Lock contention?</div>
+    <div class="answer-text">
+        Without seeing code: Common techniques are 1) Lock splitting (divide one lock into multiple), 2) Lock striping (partition data), 3) ReadWriteLock (separate read/write locks), 4) Atomic variables, 5) Reduce critical section size
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">332. What is Lock splitting technique?</div>
+    <div class="answer-text">
+        Lock splitting: Replace single coarse-grained lock with multiple fine-grained locks. Example: Separate locks for different independent variables instead of one lock for all. Increases concurrency but adds complexity
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">333. Which technique is used in ReadWriteLock class for reducing Lock contention?</div>
+    <div class="answer-text">
+        ReadWriteLock uses: 1) Multiple readers/single writer model, 2) Separate read and write locks, 3) Allows concurrent reads when no writes, 4) Exclusive access for writes. Dramatically improves read-heavy workloads
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">334. What is Lock striping?</div>
+    <div class="answer-text">
+        Lock striping: Partition data into stripes, each with own lock. Example: ConcurrentHashMap uses 16 locks by default. Benefits: 1) Higher concurrency, 2) Reduced contention. Tradeoff: More memory for locks
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">335. What is a CAS operation?</div>
+    <div class="answer-text">
+        CAS (Compare-And-Swap): Atomic operation that: 1) Compares memory value to expected value, 2) If equal, updates to new value, 3) Returns success/failure. Foundation for non-blocking algorithms. Implemented via CPU instructions
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">336. Which Java classes use CAS operation?</div>
+    <div class="answer-text">
+        Classes using CAS: 1) AtomicInteger/AtomicLong etc., 2) ConcurrentHashMap, 3) ConcurrentLinkedQueue, 4) CountDownLatch, 5) Semaphore. Most java.util.concurrent.atomic and concurrent collections use CAS
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">337. Is it always possible to improve performance by object pooling in a multi-threading application?</div>
+    <div class="answer-text">
+        No, object pooling can hurt performance due to: 1) Synchronization overhead, 2) Cache contention, 3) GC is often faster than manual management. Modern JVMs optimize short-lived objects. Pool only expensive objects
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">338. How can techniques used for performance improvement in a single thread application may degrade the performance in a multi-threading application?</div>
+    <div class="answer-text">
+        Single-thread optimizations that can hurt concurrency: 1) Object pooling (synchronization), 2) Caching (invalidation), 3) Shared mutable state, 4) Coarse-grained locking, 5) Static variables (contention)
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">339. What is the relation between Executor and ExecutorService interface?</div>
+    <div class="answer-text">
+        Executor: Basic interface (execute(Runnable)). ExecutorService extends Executor adding: 1) Lifecycle methods, 2) Future tracking, 3) Batch submission. ScheduledExecutorService adds scheduling
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">340. What will happen on calling submit() method of an ExecutorService instance whose queue is already full?</div>
+    <div class="answer-text">
+        Depends on ExecutorService implementation: 1) FixedThreadPool with unbounded queue - never rejects, 2) With bounded queue - may throw RejectedExecutionException, 3) Custom handlers can be set via RejectedExecutionHandler
+    </div>
+</div>
+
+<!-- Questions 341-350 -->
+<div class="question-item">
+    <div class="question-number">341. What is a ScheduledExecutorService?</div>
+    <div class="answer-text">
+        ScheduledExecutorService extends ExecutorService to: 1) Schedule commands to run after delay (schedule()), 2) Execute periodically (scheduleAtFixedRate(), scheduleWithFixedDelay()). Implemented by ScheduledThreadPoolExecutor
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">342. How will you create a Thread pool in Java?</div>
+    <div class="answer-text">
+        Using Executors factory methods: 1) newFixedThreadPool(n) - fixed size, 2) newCachedThreadPool() - expands as needed, 3) newSingleThreadExecutor() - single thread, 4) newScheduledThreadPool(n) - for scheduling
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">343. What is the main difference between Runnable and Callable interface?</div>
+    <div class="answer-text">
+        Runnable: 1) No return value, 2) Cannot throw checked exceptions, 3) Since Java 1.0. Callable: 1) Returns value (Future), 2) Can throw exceptions, 3) Since Java 1.5, 4) Used with ExecutorService
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">344. What are the uses of Future interface in Java?</div>
+    <div class="answer-text">
+        Future represents async computation result. Used to: 1) Check if computation done (isDone()), 2) Get result (get()), 3) Cancel task (cancel()), 4) Check cancellation (isCancelled()). Returned by ExecutorService.submit()
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">345. What is the difference in concurrency in HashMap and in Hashtable?</div>
+    <div class="answer-text">
+        Hashtable: Thread-safe via synchronized methods (coarse locking). HashMap: Not thread-safe. ConcurrentHashMap: Thread-safe via fine-grained locking (Java 5+). Prefer ConcurrentHashMap over Hashtable
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">346. How will you create synchronized instance of List or Map Collection?</div>
+    <div class="answer-text">
+        Use Collections utility methods: 1) Collections.synchronizedList(list), 2) Collections.synchronizedMap(map), 3) Collections.synchronizedSet(set). Returns thread-safe wrapper. Prefer concurrent collections for better performance
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">347. What is a Semaphore in Java?</div>
+    <div class="answer-text">
+        Semaphore controls access to resource pool. Maintains set of permits: acquire() blocks if none available, release() adds permit. Can be fair (FIFO) or unfair. Used for resource pooling/throttling
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">348. What is a CountDownLatch in Java?</div>
+    <div class="answer-text">
+        CountDownLatch: Synchronization aid allowing threads to wait until count reaches zero. Initialize with count, await() blocks until countDown() reduces count to 0. One-time use. Useful for "ready, set, go" scenarios
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">349. What is the difference between CountDownLatch and CyclicBarrier?</div>
+    <div class="answer-text">
+        CountDownLatch: 1) One-time use, 2) Countdown by external events, 3) Threads wait at single point. CyclicBarrier: 1) Reusable, 2) Threads wait for each other, 3) Can have Runnable barrier action
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">350. What are the scenarios suitable for using Fork/Join framework?</div>
+    <div class="answer-text">
+        Fork/Join is ideal for: 1) Divide-and-conquer algorithms, 2) Recursive tasks with clear splitting, 3) CPU-intensive work, 4) Embarrassingly parallel problems. Less suitable for IO-bound tasks
+    </div>
+</div>
+
+<!-- Questions 351-360 -->
+<div class="question-item">
+    <div class="question-number">351. What is the difference between RecursiveTask and RecursiveAction class?</div>
+    <div class="answer-text">
+        RecursiveTask: Returns result (compute() returns V). RecursiveAction: No result (compute() void). Both extend ForkJoinTask. Use RecursiveTask when need return value, RecursiveAction for side-effects only
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">352. In Java 8, can we process stream operations with a Thread pool?</div>
+    <div class="answer-text">
+        Yes, by using custom ForkJoinPool: ForkJoinPool pool = new ForkJoinPool(n); pool.submit(() -> stream.parallel().forEach(...)). Note: Global ForkJoinPool used by default for parallel streams
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">353. What are the scenarios to use parallel stream in Java 8?</div>
+    <div class="answer-text">
+        Use parallel streams when: 1) Large dataset, 2) CPU-intensive operations, 3) No shared mutable state, 4) Operations are stateless, 5) Order doesn't matter. Avoid for small data or IO-bound tasks
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">354. How Stack and Heap work in Java multi-threading environment?</div>
+    <div class="answer-text">
+        Stack: Per-thread (stores local primitives/references, call frames). Heap: Shared (stores objects, class metadata). Each thread has own stack but shares heap. Synchronization needed for heap access
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">355. How can we take Thread dump in Java?</div>
+    <div class="answer-text">
+        Ways to take thread dump: 1) jstack PID, 2) Ctrl+\ or Ctrl+Break (Windows), 3) kill -3 PID (Unix), 4) JMX (ThreadMXBean), 5) VisualVM/JConsole. Dump shows all threads' stack traces and states
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">356. Which parameter can be used to control stack size of a thread in Java?</div>
+    <div class="answer-text">
+        Use -Xss size (e.g., -Xss1m) JVM option to set thread stack size. Can also be set via constructor of Thread class (but platform-dependent). Default varies by JVM (typically 512k-1m)
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">357. There are two threads T1 and T2? How will you ensure that these threads run in sequence T1, T2 in Java?</div>
+    <div class="answer-text">
+        Ensure sequence by: 1) T1 calls t2.join() at end, 2) Use CountDownLatch (T2 awaits T1's countdown), 3) Single-threaded executor, 4) Synchronized blocks with condition, 5) BlockingQueue for handoff
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">358. What are the new features released in Java 8?</div>
+    <div class="answer-text">
+        Major Java 8 features: 1) Lambdas, 2) Stream API, 3) Functional interfaces, 4) Default methods, 5) New Date/Time API, 6) Nashorn JS engine, 7) Type annotations, 8) Optional, 9) Method references
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">359. What are the main benefits of new features introduced in Java 8?</div>
+    <div class="answer-text">
+        Benefits: 1) More concise code (lambdas), 2) Better parallel processing (streams), 3) Interface evolution (default methods), 4) Improved date handling, 5) Functional programming support, 6) Better collections processing
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">360. What is a Lambda expression in Java 8?</div>
+    <div class="answer-text">
+        Lambda: Anonymous function with: 1) Parameter list, 2) Arrow token -&gt;, 3) Body. Example: (a, b) -&gt; a + b. Enables functional programming. Type inferred from context. Can be assigned to functional interface
+    </div>
+</div>
+
+<!-- Questions 361-370 -->
+<div class="question-item">
+    <div class="question-number">361. What are the three main parts of a Lambda expression in Java?</div>
+    <div class="answer-text">
+        Lambda parts: 1) Parameter list - (x, y), 2) Arrow token - -&gt;, 3) Body - expression or block. Examples: (a) a*a, (a,b) -&gt; a+b, () -&gt; System.out.println("Hi"), (s) -&gt; { return s.length(); }
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">362. What is the data type of a Lambda expression?</div>
+    <div class="answer-text">
+        Lambda's type is a functional interface - interface with single abstract method (e.g., Runnable, Comparator). The interface provides target type for lambda. Same lambda can have different types in different contexts
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">363. What is the meaning of following lambda expression?</div>
+    <div class="answer-text">
+        Without seeing expression: Lambdas typically represent implementations of functional interfaces. Example: () -&gt; "Hello" might be Supplier&lt;String&gt;. Body can be expression or block, parameters can have types or not
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">364. Why did Oracle release a new version of Java like Java 8?</div>
+    <div class="answer-text">
+        Reasons: 1) Modernize language (lambdas), 2) Better support for multi-core (parallel streams), 3) Improve collections API, 4) Fix date/time issues, 5) Compete with other JVM languages (Scala, Groovy), 6) Developer productivity
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">365. What are the advantages of a lambda expression?</div>
+    <div class="answer-text">
+        Advantages: 1) Concise syntax, 2) Enables functional programming, 3) Readable collection operations, 4) Easier parallelization, 5) Reduced boilerplate, 6) More expressive code, 7) Better library APIs
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">366. What is a Functional interface in Java 8?</div>
+    <div class="answer-text">
+        Functional interface: Interface with exactly one abstract method (SAM). May have default/static methods. Can be annotated with @FunctionalInterface. Examples: Runnable, Comparator, Predicate, Function
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">367. What is a Single Abstract Method (SAM) interface in Java 8?</div>
+    <div class="answer-text">
+        SAM interface = Functional interface. Interface with single abstract method (excluding Object methods). Can be implemented via lambda. Pre-Java 8 examples: Runnable, Callable. Java 8 added many more (Predicate, Function etc.)
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">368. How can we define a Functional interface in Java 8?</div>
+    <div class="answer-text">
+        Define by: 1) Create interface with one abstract method, 2) (Optional) Add @FunctionalInterface annotation. Example: @FunctionalInterface interface MyFunc { void execute(); } Annotation helps compiler check
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">369. Why do we need Functional interface in Java?</div>
+    <div class="answer-text">
+        Needed because: 1) Lambdas need target types, 2) Enable functional programming, 3) Provide common function signatures, 4) Support method references, 5) Foundation for Stream API, 6) Better library design
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">370. Is it mandatory to use @FunctionalInterface annotation to define a Functional interface in Java 8?</div>
+    <div class="answer-text">
+        No, annotation is optional. Any interface with single abstract method is functional. Annotation helps: 1) Compiler checks, 2) Documentation, 3) Prevents accidental addition of abstract methods
+    </div>
+</div>
+
+<!-- Questions 371-380 -->
+<div class="question-item">
+    <div class="question-number">371. What are the differences between Collection and Stream API in Java 8?</div>
+    <div class="answer-text">
+        Collection: 1) Stores data, 2) Eager operations, 3) External iteration, 4) Can be modified. Stream: 1) No storage, 2) Lazy operations, 3) Internal iteration, 4) Immutable data, 5) Supports parallel processing
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">372. What are the main uses of Stream API in Java 8?</div>
+    <div class="answer-text">
+        Stream API is used for: 1) Declarative data processing, 2) Filter/map/reduce operations, 3) Parallel processing, 4) Avoiding explicit loops, 5) Working with collections/lambdas, 6) Functional-style programming
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">373. What are the differences between Intermediate and Terminal Operations in Java 8 Streams?</div>
+    <div class="answer-text">
+        Intermediate ops (filter, map): 1) Lazy, 2) Return Stream, 3) Can be chained. Terminal ops (collect, forEach): 1) Eager, 2) Return non-Stream or void, 3) Trigger pipeline execution, 4) End of chain
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">374. What is a Spliterator in Java 8?</div>
+    <div class="answer-text">
+        Spliterator = Splittable Iterator. Used by Streams for: 1) Traversing elements, 2) Partitioning for parallel processing, 3) Getting characteristics (SIZED, ORDERED etc.). Can be obtained from Collection.spliterator()
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">375. What are the differences between Iterator and Spliterator in Java 8?</div>
+    <div class="answer-text">
+        Iterator: 1) Sequential traversal, 2) Single-threaded, 3) Basic remove(). Spliterator: 1) Supports parallel traversal, 2) Can estimate size, 3) Has characteristics, 4) Can trySplit() for parallelism
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">376. What is Type Inference in Java 8?</div>
+    <div class="answer-text">
+        Type inference: Compiler deduces types without explicit declaration. Java 8 improvements: 1) Lambda parameter types, 2) Method reference context, 3) Generic method calls. Reduced verbosity while maintaining type safety
+    </div>
+</div>
+
+<!-- <div class="question-item">
+    <div class="question-number">377. Does Java 7 support Type Inference?</div>
+    <div class="answer-text">
+        Java 7 had limited type inference: 1) Diamond operator (<>) for generics, 2) Generic method invocation. Java 8 expanded it significantly for lambdas/method references. Java 10 added var for local variables
+    </div>
+</div> -->
+
+<div class="question-item">
+    <div class="question-number">378. How does Internal Iteration work in Java 8?</div>
+    <div class="answer-text">
+        Internal iteration: Collection controls iteration (vs external iterator). In Java 8: 1) Stream operations handle iteration internally, 2) Library decides sequential/parallel, 3) Operations passed as lambdas
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">379. What are the main differences between Internal and External Iterator?</div>
+    <div class="answer-text">
+        External (Iterator): 1) Client controls iteration, 2) Sequential only, 3) Explicit next/hasNext. Internal (Stream): 1) Library controls iteration, 2) Can be parallel, 3) Declarative operations, 4) More concise
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">380. What are the main advantages of Internal Iterator over External Iterator in Java 8?</div>
+    <div class="answer-text">
+        Advantages: 1) More concise, 2) Enables parallel processing, 3) Library can optimize, 4) More declarative, 5) Better abstraction, 6) Functional style, 7) Method chaining, 8) Lazy evaluation possible
+    </div>
+</div>
+
+<!-- Questions 381-390 -->
+<div class="question-item">
+    <div class="question-number">381. What are the applications in which we should use Internal Iteration?</div>
+    <div class="answer-text">
+        Use internal iteration when: 1) Processing collections, 2) Need parallel processing, 3) Using functional style, 4) Chaining operations, 5) Don't need explicit control, 6) Working with Streams
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">382. What is the main disadvantage of Internal Iteration over External Iteration?</div>
+    <div class="answer-text">
+        Disadvantages: 1) Less control over iteration, 2) Harder to debug, 3) Limited exception handling, 4) Some operations harder (e.g., break/continue), 5) Learning curve, 6) Performance overhead for small collections
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">383. Can we provide implementation of a method in a Java Interface?</div>
+    <div class="answer-text">
+        Since Java 8: Yes, via 1) Default methods (instance), 2) Static methods. Example: interface MyInt { default void foo() {...} static void bar() {...} }. Prior to Java 8: Only abstract methods allowed
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">384. What is a Default Method in an Interface?</div>
+    <div class="answer-text">
+        Default method: Interface method with implementation (default keyword). Purpose: 1) Interface evolution, 2) Provide common implementation, 3) Avoid breaking existing implementations. Can be overridden by classes
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">385. Why do we need Default method in a Java 8 Interface?</div>
+    <div class="answer-text">
+        Needed to: 1) Add methods to interfaces without breaking implementations, 2) Provide common behavior, 3) Support multiple inheritance of behavior, 4) Enable Stream API methods on Collections
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">386. What is the purpose of a Static method in an Interface in Java 8?</div>
+    <div class="answer-text">
+        Static methods in interfaces: 1) Utility methods related to interface, 2) Factory methods, 3) Alternative to helper classes, 4) Not inherited by implementing classes. Example: Comparator.comparing()
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">387. What are the core ideas behind the Date/Time API of Java 8?</div>
+    <div class="answer-text">
+        Core ideas: 1) Immutability (thread-safe), 2) Fluent API, 3) Clear separation of machine/human time, 4) Timezone handling, 5) Precision (nanoseconds), 6) Domain-driven design (LocalDate, Instant etc.)
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">388. What are the advantages of new Date and Time API in Java 8 over old Date API?</div>
+    <div class="answer-text">
+        Advantages: 1) Immutable (thread-safe), 2) Clearer (no 0-based months), 3) Better timezone support, 4) More operations, 5) Fluent API, 6) Separation of date/time concepts, 7) Nanosecond precision
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">389. What are the main differences between legacy Date/Time API in Java and Date/Time API of Java 8?</div>
+    <div class="answer-text">
+        Differences: 1) Legacy: mutable, new: immutable, 2) Legacy: confusing (0=Jan), new: clear, 3) Legacy: poor timezone, new: good, 4) Legacy: few operations, new: rich, 5) Legacy: Date does both date/time
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">390. How can we get duration between two dates or time in Java 8?</div>
+    <div class="answer-text">
+        Use Duration.between() for time-based (hours, mins, secs) or Period.between() for date-based (years, months, days). Examples: Duration.between(instant1, instant2), Period.between(localDate1, localDate2)
+    </div>
+</div>
+
+<!-- Questions 391-400 -->
+<div class="question-item">
+    <div class="question-number">391. What is the new method family introduced in Java 8 for processing of Arrays on multi core machines?</div>
+    <div class="answer-text">
+        Arrays.parallel*() methods: parallelSort(), parallelSetAll(), parallelPrefix(). Utilize ForkJoinPool for parallel processing. Similar to Stream parallel operations but work directly on arrays
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">392. How does Java 8 solve Diamond problem of Multiple Inheritance?</div>
+    <div class="answer-text">
+        For default methods: 1) Class implementation wins over interface defaults, 2) Most specific interface wins, 3) Explicit override required if ambiguous. Doesn't apply to abstract classes
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">393. What are the differences between Predicate, Supplier and Consumer in Java 8?</div>
+    <div class="answer-text">
+        Predicate: boolean test(T) - filter. Supplier: T get() - generate. Consumer: void accept(T) - consume. Function: R apply(T) - transform. These core functional interfaces cover most lambda use cases
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">394. Is it possible to have default method definition in an interface without marking it with default keyword?</div>
+    <div class="answer-text">
+        No, default keyword is mandatory for default methods in interfaces. Without it, method is abstract. Compiler enforces this. Static methods don't need default keyword (use static)
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">395. Can we create a class that implements two Interfaces with default methods of same name and signature?</div>
+    <div class="answer-text">
+        Yes, but must override the method to resolve conflict. Can: 1) Provide new implementation, 2) Call specific interface's method (Interface.super.method()), 3) Combine results. Compiler forces resolution
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">396. How Java 8 supports Multiple Inheritance?</div>
+    <div class="answer-text">
+        Java 8 supports MI of: 1) Type (always via interfaces), 2) Behavior (via default methods). Still no MI of state (fields). Diamond problem resolved via precedence rules and mandatory overrides
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">397. In case we create a class that extends a base class and implements an interface. If both base class and interface have a default method with same name and arguments, then which definition will be picked by JVM?</div>
+    <div class="answer-text">
+        Class wins rule: 1) Class method (abstract/concrete) wins over interface default, 2) Subinterface wins over superinterface, 3) Must override if two unrelated interfaces conflict. Ensures backward compatibility
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">398. If we create same method and define it in a class, in its parent class and in an interface implemented by the class, then definition will be invoked if we access it using the reference of Interface and the object of class?</div>
+    <div class="answer-text">
+        Actual runtime type (class) determines method called, regardless of reference type. If class doesn't override, parent class version wins over interface default. Reference type only affects compile-time checks
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">399. Can we access a static method of an interface by using reference of the interface?</div>
+    <div class="answer-text">
+        No, interface static methods are only accessible via interface name (MyInterface.staticMethod()). Not inherited by implementing classes. Different from class static methods which can be called via references (though discouraged)
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">400. How can you get the name of Parameter in Java by using reflection?</div>
+    <div class="answer-text">
+        Java 8: Enable -parameters compiler flag, then Parameter.getName() works. Without flag, names are arg0, arg1 etc. Alternative: Use annotation processors or bytecode parsing libraries before Java 8
+    </div>
+</div>
+
+<!-- Questions 401-410 -->
+<div class="question-item">
+    <div class="question-number">401. What is Optional in Java 8?</div>
+    <div class="answer-text">
+        Optional: Container that may or may not contain non-null value. Used to: 1) Avoid null checks, 2) Explicitly represent optionality, 3) Chain operations (map, flatMap), 4) Provide alternatives (orElse)
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">402. What are the uses of Optional?</div>
+    <div class="answer-text">
+        Uses: 1) Return values that might be null, 2) Stream terminal ops (findAny etc.), 3) Chain operations safely, 4) Force null handling, 5) Better API documentation. Not for: fields, method parameters, collections
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">403. Which method in Optional provides the fallback mechanism in case of null value?</div>
+    <div class="answer-text">
+        Fallback methods: 1) orElse(default), 2) orElseGet(Supplier), 3) orElseThrow(). Examples
+        </div>
+</div>
+
+<!-- Questions 404-413 -->
+<div class="question-item">
+    <div class="question-number">404. How can we get current time by using Date/Time API of Java 8?</div>
+    <div class="answer-text">
+        Java 8 provides several options: 1) Instant.now() - current timestamp, 2) LocalDateTime.now() - current date/time, 3) ZonedDateTime.now() - with timezone, 4) Clock.systemDefaultZone().instant()
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">405. Is it possible to define a static method in an Interface?</div>
+    <div class="answer-text">
+        Yes, since Java 8. Interface static methods: 1) Must have implementation, 2) Called via InterfaceName.method(), 3) Not inherited by implementing classes, 4) Used for utility methods
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">406. How can we analyze the dependencies in Java classes and packages?</div>
+    <div class="answer-text">
+        Tools: 1) JDK's jdeps (classfile analyzer), 2) Maven/Gradle dependency plugins, 3) IDE features, 4) Bytecode analysis tools (ASM), 5) Architecture tests (ArchUnit), 6) SonarQube
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">407. What are the new JVM arguments introduced by Java 8?</div>
+    <div class="answer-text">
+        Java 8 JVM args: 1) -XX:+UseG1GC (G1 garbage collector), 2) -XX:+UseStringDeduplication, 3) -XX:MaxMetaspaceSize, 4) -XX:ReservedCodeCacheSize, 5) -XX:+TieredCompilation (default)
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">408. What are the popular annotations introduced in Java 8?</div>
+    <div class="answer-text">
+        Java 8 annotations: 1) @FunctionalInterface, 2) @Repeatable, 3) Type annotations (@NonNull, @Nullable etc.), 4) @Native (for native methods), 5) Parameter name annotations
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">409. What is a StringJoiner in Java 8?</div>
+    <div class="answer-text">
+        StringJoiner: Utility to join strings with delimiter, prefix and suffix. Used internally by String.join() and Collectors.joining(). Example: new StringJoiner(",").add("a").add("b").toString()
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">410. What is the type of a Lambda expression in Java 8?</div>
+    <div class="answer-text">
+        Lambda's type is a functional interface - interface with single abstract method (e.g., Runnable, Predicate). The target type context determines the lambda's type. Same lambda can have different types in different contexts
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">411. What is the target type of a lambda expression?</div>
+    <div class="answer-text">
+        Target type is the type the lambda is being converted to (functional interface). Determined by: 1) Variable declaration, 2) Method parameter, 3) Return type, 4) Cast expression. Enables type inference
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">412. What are the main differences between an interface with default method and an abstract class in Java 8?</div>
+    <div class="answer-text">
+        Interface: 1) Multiple inheritance, 2) No instance fields, 3) Default methods only, 4) All methods public. Abstract class: 1) Single inheritance, 2) Can have state, 3) Can have any visibility, 4) Constructors
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">413. What is the Stream API in Java?</div>
+    <div class="answer-text">
+        Stream API: Sequence of elements supporting functional-style operations (filter/map/reduce). Features: 1) No storage, 2) Lazy evaluation, 3) Parallel processing, 4) Internal iteration. Used with collections, arrays, I/O
+    </div>
+</div>
+
+<!-- Questions 414-423 -->
+<div class="question-item">
+    <div class="question-number">414. What are the main advantages of using the Stream API?</div>
+    <div class="answer-text">
+        Advantages: 1) Declarative style, 2) Parallel processing easy, 3) Reduced boilerplate, 4) Lazy evaluation, 5) Method chaining, 6) Immutable data, 7) Better readability, 8) Functional programming support
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">415. How do you create a stream?</div>
+    <div class="answer-text">
+        Ways to create streams: 1) Collection.stream(), 2) Arrays.stream(), 3) Stream.of(values), 4) Stream.iterate/generate, 5) Files.lines(), 6) IntStream.range(), 7) Pattern.splitAsStream()
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">416. What are intermediate and terminal operations?</div>
+    <div class="answer-text">
+        Intermediate ops (filter, map): 1) Lazy, return Stream, build pipeline. Terminal ops (collect, forEach): 1) Eager, trigger processing, 2) Return non-Stream or void, 3) Close stream
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">417. What is the map() operation?</div>
+    <div class="answer-text">
+        map(): Intermediate op that transforms each element using Function. Returns new Stream. Example: names.stream().map(String::toUpperCase). Original stream unchanged. For 1:1 element transformation
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">418. How does filtering work in streams?</div>
+    <div class="answer-text">
+        filter(): Intermediate op using Predicate. Keeps elements where predicate is true. Example: numbers.stream().filter(n -> n%2==0). Lazy - only evaluates when terminal op executes
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">419. What is the difference between collect() and reduce()?</div>
+    <div class="answer-text">
+        collect(): 1) Mutable reduction, 2) Uses Collector, 3) Better for collections. reduce(): 1) Immutable reduction, 2) Returns Optional, 3) Associative ops only. collect() more flexible for complex cases
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">420. Can you perform parallel processing with the Stream API?</div>
+    <div class="answer-text">
+        Yes, via: 1) parallelStream() on collections, 2) parallel() on existing stream. Uses ForkJoinPool.commonPool(). Considerations: 1) Thread-safety, 2) Stateless ops, 3) Avoid blocking ops, 4) Measure performance
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">421. What is the purpose of the flatMap() operation?</div>
+    <div class="answer-text">
+        flatMap(): 1) Maps each element to stream, 2) Flattens resulting streams into one stream. For 1:N transformations. Example: words.stream().flatMap(word -> letters(word)) - stream of all letters
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">422. How can you limit the number of elements in a stream?</div>
+    <div class="answer-text">
+        Use limit(n): Short-circuiting intermediate op. Returns stream with first n elements. Example: Stream.iterate(1, i -> i+1).limit(10) - numbers 1-10. Efficient with infinite streams
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">423. What does skip() do in a stream?</div>
+    <div class="answer-text">
+        skip(n): Intermediate op that discards first n elements. Returns stream of remaining elements. Example: Stream.of(1,2,3,4).skip(2) - [3,4]. Often used with limit() for pagination
+    </div>
+</div>
+
+<!-- Questions 424-435 -->
+<div class="question-item">
+    <div class="question-number">424. What are primitive streams?</div>
+    <div class="answer-text">
+        Specialized streams: IntStream, LongStream, DoubleStream. Avoid boxing overhead. Created via: 1) Arrays.stream(int[]), 2) IntStream.range(), 3) mapToInt() etc. Have specialized ops (sum(), average())
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">425. What is the difference between findFirst() and findAny()?</div>
+    <div class="answer-text">
+        findFirst(): Returns first element (stable in parallel). findAny(): Returns any element (more parallel-friendly). Both return Optional. Prefer findAny() for parallel when order doesn't matter
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">426. What is the purpose of the peek() operation?</div>
+    <div class="answer-text">
+        peek(): Intermediate op for debugging - performs action without modifying stream. Example: .peek(System.out::println). Should be non-interfering. Not for business logic - use map()/forEach() instead
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">427. How do you combine multiple streams?</div>
+    <div class="answer-text">
+        Combine via: 1) Stream.concat(a, b) - two streams, 2) flatMap() - nested streams, 3) Stream.of(s1, s2).flatMap(s -> s) - multiple streams. Note: concat() creates new stream, doesn't modify inputs
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">428. What is the allMatch(), anyMatch(), and noneMatch()?</div>
+    <div class="answer-text">
+        Terminal predicate ops: 1) allMatch(Predicate) - all elements match, 2) anyMatch() - at least one matches, 3) noneMatch() - no elements match. Short-circuiting (may not process all elements)
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">429. What is the Collectors class?</div>
+    <div class="answer-text">
+        Collectors: Factory for Collector implementations used with Stream.collect(). Common collectors: toList(), toSet(), toMap(), joining(), groupingBy(), partitioningBy(), reducing(), summarizingInt() etc.
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">430. How do you use toList()?</div>
+    <div class="answer-text">
+        Collect stream to List: stream.collect(Collectors.toList()). Since Java 16: stream.toList() (returns unmodifiable list). For ArrayList: collect(Collectors.toCollection(ArrayList::new))
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">431. How can you use toMap() to create a map from a stream?</div>
+    <div class="answer-text">
+        toMap() variants: 1) toMap(keyMapper, valueMapper), 2) with merge function for duplicates, 3) with map supplier. Example: persons.collect(toMap(Person::id, Function.identity(), (p1,p2) -> p1))
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">432. What does the joining() collector do?</div>
+    <div class="answer-text">
+        joining(): Concatenates CharSequence elements. Options: 1) joining() - no delimiter, 2) joining(delimiter), 3) joining(delimiter, prefix, suffix). Example: names.collect(joining(", ", "[", "]"))
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">433. How do you use groupingBy()?</div>
+    <div class="answer-text">
+        groupingBy(): Creates Map of groups. Variants: 1) groupingBy(classifier), 2) with downstream collector, 3) with map factory. Example: persons.collect(groupingBy(Person::department, counting()))
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">434. What is partitioningBy()?</div>
+    <div class="answer-text">
+        partitioningBy(): Special case of groupingBy() with boolean key (two groups). Example: numbers.collect(partitioningBy(n -> n%2==0)) - splits into even/odd. More efficient than groupingBy() for boolean keys
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-number">435. What is reducing()?</div>
+    <div class="answer-text">
+        reducing(): Collector for custom reductions. Variants: 1) reducing(identity, op), 2) reducing(op), 3) reducing(identity, mapper, op). Similar to reduce() but as Collector for use with groupingBy()
+    </div>
+</div>
+
+        
+    </div>
+</div>
+
+<script>
+function toggleTheme() {
+    const html = document.documentElement;
+    
+    if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+    } else {
+        html.setAttribute('data-theme', 'dark');
+    }
+}
+
+function toggleMobileMenu() {
+    const nav = document.getElementById('mobileNav');
+    nav.classList.toggle('active');
+}
+
+document.addEventListener('click', function(event) {
+    const nav = document.getElementById('mobileNav');
+    const toggle = document.querySelector('.mobile-menu-toggle');
+
+    if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+        nav.classList.remove('active');
+    }
+});
+
+window.addEventListener('resize', function() {
+    const nav = document.getElementById('mobileNav');
+    if (window.innerWidth > 768) {
+        nav.classList.remove('active');
+    }
+});
+</script>
+
+</body>
+</html>

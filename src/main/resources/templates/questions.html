@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java Cracker - Java Interview Preparation</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* Coming Soon Section Styles - White mode by default */
+.coming-soon {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+    background: #ffffff;
+    position: relative;
+}
+
+.coming-soon-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.coming-soon h1 {
+    font-size: 5rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    letter-spacing: -0.02em;
+}
+
+/* Exact gradient colors from image */
+.coming-soon h1 .c1 { color: #4ade80; }
+.coming-soon h1 .c2 { color: #22c55e; }
+.coming-soon h1 .c3 { color: #16a34a; }
+.coming-soon h1 .c4 { color: #15803d; }
+.coming-soon h1 .c5 { color: #166534; }
+.coming-soon h1 .c6 { color: #0891b2; }
+.coming-soon h1 .c7 { color: #0ea5e9; }
+.coming-soon h1 .c8 { color: #3b82f6; }
+.coming-soon h1 .c9 { color: #6366f1; }
+.coming-soon h1 .c10 { color: #8b5cf6; }
+
+.coming-soon p {
+    font-size: 1.1rem;
+    color: #6b7280;
+    margin-bottom: 50px;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.email-signup {
+    display: flex;
+    gap: 0;
+    margin-bottom: 30px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.email-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid #d1d5db;
+    background: #f9fafb;
+    color: #374151;
+    font-size: 0.9rem;
+    border-radius: 6px 0 0 6px;
+    outline: none;
+}
+
+.email-input::placeholder {
+    color: #9ca3af;
+}
+
+.email-input:focus {
+    border-color: #6b7280;
+    background: #ffffff;
+}
+
+.notify-btn {
+    padding: 12px 24px;
+    background: #1f2937;
+    border: none;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 0 6px 6px 0;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.notify-btn:hover {
+    background: #374151;
+}
+
+.notify-text {
+    color: #9ca3af;
+    font-size: 0.8rem;
+    margin-top: 20px;
+    font-weight: 400;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .coming-soon h1 {
+        font-size: 3rem;
+    }
+    
+    .coming-soon p {
+        font-size: 1rem;
+    }
+    
+    .email-signup {
+        flex-direction: column;
+        border-radius: 6px;
+    }
+    
+    .email-input {
+        border-radius: 6px 6px 0 0;
+    }
+    
+    .notify-btn {
+        border-radius: 0 0 6px 6px;
+    }
+}
+
+/* Dark theme support */
+[data-theme="dark"] .coming-soon {
+    background: #1a1a1a;
+}
+
+[data-theme="dark"] .coming-soon p {
+    color: #9ca3af;
+}
+
+[data-theme="dark"] .email-input {
+    border-color: #374151;
+    background: #374151;
+    color: #d1d5db;
+}
+
+[data-theme="dark"] .email-input:focus {
+    border-color: #6b7280;
+    background: #4b5563;
+}
+
+[data-theme="dark"] .notify-btn {
+    background: white;
+    color: #1f2937;
+}
+
+[data-theme="dark"] .notify-btn:hover {
+    background: #f3f4f6;
+}
+
+[data-theme="dark"] .notify-text {
+    color: #6b7280;
+}
+</style>
+
+</head>
+<body>
+<div class="container">
+<div class="content-wrapper">
+<header class="header">
+<a href="/" class="logo">Java<span>Cracker</span></a>
+<button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+<nav class="nav" id="mobileNav">
+  <a href="/learn">Learn Java</a>
+                <a href="/questions">Practice Questions</a>
+                <a href="/interviewquestions">Interview Guide</a>
+                <a href="/cheatsheet">Cheat Sheets</a>
+                <a href="/top5books">Top 5 Books</a>
+                <a href="/projects">Projects</a>
+                <a href="/blog">Blog</a>
+</nav>
+<div class="auth">
+<!-- Custom Switch UI Component from Uiverse.io by elijahgummer -->
+<input type="checkbox" class="theme-checkbox" id="themeToggle" onchange="toggleTheme()" />
+
+<button class="btn login">Log in</button>
+<button class="btn signup">Sign up</button>
+</div>
+</header>
+
+<!-- Coming Soon Section - Exact match to image -->
+<section class="coming-soon">
+    <div class="coming-soon-content">
+        <h1>
+            <span class="c1">C</span><span class="c2">o</span><span class="c3">m</span><span class="c4">i</span><span class="c5">n</span><span class="c6">g</span>
+            <span class="c7">S</span><span class="c8">o</span><span class="c9">o</span><span class="c10">n</span>
+        </h1>
+        <p>From automation of people processes to creating<br>an engaged and driven culture.</p>
+        
+        <div class="email-signup">
+            <input type="email" class="email-input" placeholder="Please enter your email address" id="emailInput">
+            <button class="notify-btn" onclick="handleNotifyMe()">Notify Me</button>
+        </div>
+        
+        <p class="notify-text">-- Notify me when App is launched --</p>
+    </div>
+</section>
+
+</div>
+</div>
+
+<script>
+// Theme toggle functionality
+function toggleTheme() {
+const html = document.documentElement;
+const themeToggle = document.querySelector('.theme-toggle');
+
+if (html.getAttribute('data-theme') === 'dark') {
+html.removeAttribute('data-theme');
+themeToggle.textContent = '🌙';
+// Note: localStorage removed for Claude.ai compatibility
+} else {
+html.setAttribute('data-theme', 'dark');
+themeToggle.textContent = '☀️';
+// Note: localStorage removed for Claude.ai compatibility
+}
+}
+
+// Mobile menu toggle
+function toggleMobileMenu() {
+const nav = document.getElementById('mobileNav');
+nav.classList.toggle('active');
+}
+
+// Initialize theme
+document.addEventListener('DOMContentLoaded', function() {
+const themeToggle = document.querySelector('.theme-toggle');
+themeToggle.textContent = '🌙';
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(event) {
+const nav = document.getElementById('mobileNav');
+const toggle = document.querySelector('.mobile-menu-toggle');
+
+if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+nav.classList.remove('active');
+}
+});
+
+// Handle window resize
+window.addEventListener('resize', function() {
+const nav = document.getElementById('mobileNav');
+if (window.innerWidth > 768) {
+nav.classList.remove('active');
+}
+});
+
+// Handle email notification signup
+function handleNotifyMe() {
+const emailInput = document.getElementById('emailInput');
+const email = emailInput.value.trim();
+
+if (email && isValidEmail(email)) {
+// Store email in memory (localStorage not available in Claude.ai)
+alert('Thank you! We\'ll notify you when Java Cracker launches.');
+emailInput.value = '';
+} else {
+alert('Please enter a valid email address.');
+}
+}
+
+function isValidEmail(email) {
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+return emailRegex.test(email);
+}
+
+// Add Enter key support for email input
+document.addEventListener('DOMContentLoaded', function() {
+const emailInput = document.getElementById('emailInput');
+if (emailInput) {
+emailInput.addEventListener('keypress', function(event) {
+if (event.key === 'Enter') {
+handleNotifyMe();
+}
+});
+}
+});
+</script>
+</body>
+</html>
