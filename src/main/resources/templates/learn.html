@@ -5,8 +5,12 @@
   <title>Complete Java Programming Guide</title>
   <link rel="stylesheet" href="learn.css">
   <script defer src="action.js"></script>
+       <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<button id="back-button" onclick="goBack()" style="position:fixed;top:16px;left:16px;z-index:999;font-size:1.2em;padding:6px 12px;border-radius:6px;border:none;background:rgb(112, 174, 216);color:#fff;cursor:pointer;box-shadow:0 2px 8px #0002;">🔙 Back</button>
+
+       
 <button id="theme-toggle" aria-label="Toggle dark mode" style="position:fixed;top:16px;right:16px;z-index:999;font-size:1.2em;padding:6px 12px;border-radius:6px;border:none;background:rgb(174, 216, 112);color:#222;cursor:pointer;box-shadow:0 2px 8px #0002;">⛺</button>
 
 <nav>
@@ -1780,5 +1784,13 @@ Object value = privateField.get(instance);</code></pre>
 
   
 </article>
+
+     <script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+     
+   
 </body>
 </html>
